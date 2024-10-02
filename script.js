@@ -1,4 +1,4 @@
- function toggleSidebar() {
+function toggleSidebar() {
       var sidebar = document.getElementById("sidebar");
       var toggleButton = document.getElementById("toggleButton");
 
@@ -10,4 +10,3 @@
         toggleButton.innerHTML = "×";      // ボタンを「×」に変更
       }
     }
-
