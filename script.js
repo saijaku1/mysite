@@ -10,3 +10,4 @@
         toggleButton.innerHTML = "×";      // ボタンを「×」に変更
       }
     }
+
