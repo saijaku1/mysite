@@ -134,3 +134,12 @@ body::after {
         opacity: 1;
       }
     }
+ /* フッターのスタイル */
+    .custom-footer {
+      border-top: 2px solid #333;
+      padding: 10px;
+      text-align: center;
+      background-color: #2f3030;
+      height:10vh;
+ margin-top:200vh;   
+    }
