@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>自己紹介 | ユーザー名</title>
+  <title>自己紹介 | じゃくについて</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="grid-container">
     <header class="header">
-      <h1>ユーザー名</h1>
-      <p>Webデベロッパー & デザイナー</p>
+      <h1>じゃく</h1>
+      <p>学生、プログラミングとゲームしかしない人。</p>
     </header>
 
     <section class="profile">
@@ -30,7 +30,6 @@
         <li>発想力が高いこと！</li>
         <li>得意なことしかイキることができないただのバカですがよろしくお願いします。</li>
       </ul>
-      
     </section>
 
     <section class="hobbies">
@@ -59,23 +58,23 @@
         <li>↑素直な人間になりたいとずっと妄想しています。</li>
       </ul>
     </section>
-      <section class="final">
-    <div class="chat">
-      <img src="https://tse1.mm.bing.net/th/id/OIP.X0joAWe3KjQZ_z2pjsxp2AHaHa?w=30&h=70" alt="じゃく">
-      <div class="border">
-      みんなよろしく！
+
+    <section class="final">
+      <div class="chat">
+        <img src="https://tse1.mm.bing.net/th/id/OIP.X0joAWe3KjQZ_z2pjsxp2AHaHa?w=30&h=70" alt="じゃく">
+        <div class="border">
+          みんなよろしく！(うう。うp主のせいで狭い...)
+        </div>
       </div>
-    </div>
-        
-        <div class="chat">
-      <img src="https://hiyokoyarou.com/wp-content/uploads/2023/07/shiroi-inu.png" alt="じゃく">
-      <div class="border">
-       よろしくお願いします！
+
+      <div class="chat">
+        <img src="https://hiyokoyarou.com/wp-content/uploads/2023/07/shiroi-inu.png" alt="じゃく">
+        <div class="border">
+          よろしくお願いします！(うp主って僕には優しいんだね...)
+        </div>
       </div>
-    </div>
-    
-      </ul>
     </section>
+
     <footer class="footer">
       <p>&copy; 2024 最弱のサイト</p>
     </footer>
@@ -83,11 +82,11 @@
 
   <script src="script.js"></script>
 </body>
+
 <style>
-  /* 全体スタイル */
-body {
+  body {
   font-family: 'Helvetica', sans-serif;
-  margin: 0;
+  margin: 400px 0 0 0; /* 上部に400pxの余白を追加 */
   padding: 0;
   background-color: #f9f9f9;
   color: #333;
@@ -97,140 +96,148 @@ body {
   height: 100vh;
 }
 
+
+  /* profileセクションのマージンを調整 */
+.profile {
+  margin-top: 20px; /* 上に余白を追加 */
+}
+
+/* grid-containerのパディング調整 */
 .grid-container {
+  padding: 40px 20px; /* 上下に40pxのパディングを追加 */
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto auto 1fr;
   gap: 20px;
   max-width: 900px;
   width: 100%;
-  padding: 20px;
   background-color: white;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 }
 
-.header {
-  grid-column: span 2;
-  text-align: center;
-  background-color: #333;
-  color: white;
-  padding: 20px;
-  border-radius: 10px;
-}
+  .header {
+    grid-column: span 2;
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+  }
 
-.header h1 {
-  margin: 0;
-  font-size: 32px;
-}
+  .header h1 {
+    margin: 0;
+    font-size: 32px;
+  }
 
-.header p {
-  margin: 10px 0 0;
-  font-size: 16px;
-}
+  .header p {
+    margin: 10px 0 0;
+    font-size: 16px;
+  }
 
-.profile-img {
-  width: 100%;
-  max-width: 200px;
-  height: auto;
-  border-radius: 50%;
-  margin: 0 auto;
-  display: block;
-}
+  .profile-img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: block;
+  }
 
-section {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-}
+  section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  }
 
-h2 {
-  font-size: 24px;
-  margin-bottom: 15px;
-  color: #333;
-}
+  h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+  }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
 
-ul li {
-  padding: 8px 0;
-  font-size: 16px;
-  color: #555;
-}
+  ul li {
+    padding: 8px 0;
+    font-size: 16px;
+    color: #555;
+  }
 
-.contact {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  .contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-.btn {
-  text-decoration: none;
-  background-color: #0073b1;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  margin: 10px 0;
-  width: 100%;
-  max-width: 200px;
-  text-align: center;
-}
+  .btn {
+    text-decoration: none;
+    background-color: #0073b1;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 10px 0;
+    width: 100%;
+    max-width: 200px;
+    text-align: center;
+  }
 
-.btn:hover {
-  background-color: #005582;
-}
+  .btn:hover {
+    background-color: #005582;
+  }
 
-.footer {
-  grid-column: span 2;
-  text-align: center;
-  padding: 10px;
-  font-size: 14px;
-  color: #999;
-}
-.seikaku {
-  display: block;
-  flex-direction: column;
-  align-items: center;
-}
-.chat {
-    display: flex; /* flexboxでアイコンと吹き出しを横並びに */
-    align-items: center; /* 中央揃え */
-    margin-bottom: 20px; /* メッセージ間のスペース */
-}
+  .footer {
+    grid-column: span 2;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    color: #999;
+  }
 
-.chat img {
-    width: 10%; /* アイコンのサイズを大きく */
-    height: 60%; /* アイコンのサイズを大きく */
-    margin-right: 10px; /* アイコンと吹き出しの間のスペース */
-}
+  .seikaku {
+    display: block;
+    flex-direction: column;
+    align-items: center;
+  }
 
-.border {
+  .chat {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .chat img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+
+  .border {
     background-color: #f0f0f0;
-    padding: 40px; /* 吹き出しの中の余白を大きく */
-    border-radius: 15px; /* 吹き出しの角を丸く */
+    padding: 20px;
+    border-radius: 15px;
     display: inline-block;
-    position: relative; /* 三角形の位置を相対的に配置 */
-    max-width: 500px; /* 吹き出し本体の最大幅 */
-    font-size: 24px; /* テキストサイズを大きく */
-    margin-left: 10px; /* 吹き出しの左寄せ */
-}
+    position: relative;
+    max-width: 500px;
+    font-size: 18px;
+  }
 
-.border::before {
+  .border::before {
     content: "";
     width: 0;
     height: 0;
-    border-top: 30px solid transparent; /* 上部分を透明に */
-    border-bottom: 30px solid transparent; /* 下部分を透明に */
-    border-right: 40px solid #f0f0f0; /* 吹き出しの背景色と同じ */
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 20px solid #f0f0f0;
     position: absolute;
-    left: -40px; /* 吹き出しの左側に配置 */
-    top: 50%; /* 吹き出しの中央に配置 */
-    transform: translateY(-50%); /* 高さを中央に調整 */
-}
-
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 </style>
+
 </html>
