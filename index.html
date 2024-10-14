@@ -4,9 +4,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>最弱のサイト</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="https://tse1.mm.bing.net/th/id/OIP.X0joAWe3KjQZ_z2pjsxp2AHaHa?">
   </head>
   <body>
+    <div id="loading">
+  <div class="circle-spin-1"></div>
+</div>
     <!-- サイドバー -->
     <div id="sidebar" class="sidebar">
       <a href="https://mysite.f5.si">ホーム</a>
@@ -62,20 +64,6 @@
       <a href="https://forms.gle/PC4oEXdeVa6oc3aa7" class="read-more">報告</a>
     </div>
 
-      <div class="border1">
-      <div class="heading1">
-        <p>最弱が作ったサイト</p>
-      </div>
-      <div class="text1">
-       <ul style="list-style-type: none;">
-        <li> <a href="https://mysite-made.f5.si/color">カラー選択</a></li>
-        <li><a href="https://mysite-made.f5.si/password">パスワード生成サイト</a></li>
-        <li><a href="https://mysite-made.f5.si/おみくじ">おみくじゲーム</a></li>
-         </ul>
-        <p>これからどんどん追加していきます！</p>
-      </div>
-    </div>
-
   <div class="custom-footer">
     <p style="padding-left:12em;">Copyright (C) 2024 最弱のサイト All Rights Reserved.</p>
     <div class="footer-links">
@@ -90,7 +78,15 @@
 
     
     <script>
-      function toggleSidebar() {
+     window.addEventListener("load", function () {
+  setTimeout(load, 4000); // 4秒後に load 関数を実行
+  function load() {
+    document.body.classList.add("loaded"); // 'loaded' クラスを追加
+  }
+});
+
+     
+     function toggleSidebar() {
         var sidebar = document.getElementById("sidebar");
         var toggleButton = document.getElementById("toggleButton");
 
