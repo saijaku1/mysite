@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自己紹介 | ユーザー名</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="grid-container">
+    <header class="header">
+      <h1>ユーザー名</h1>
+      <p>Webデベロッパー & デザイナー</p>
+    </header>
+
+    <section class="profile">
+      <img src="https://tse1.mm.bing.net/th/id/OIP.X0joAWe3KjQZ_z2pjsxp2AHaHa?w=30&amp;h=30" alt="プロフィール写真" class="profile-img">
+      <h2>自己紹介</h2>
+      <p class="typing">こんにちは！じゃくです！僕は基本的にはゲームやサイトしか作っていない暇人です！(他にもいろいろやっているんだが...)仲良くしてくれると嬉しいです！</p>
+    </section>
+
+    <section class="skills">
+      <h2>スキル(というか特技)</h2>
+      <ul>
+        <li>写真を上手にとること</li>
+        <li>JavaScript</li>
+        <li>アスレチックのゲームや実力ゲーで1位を取ること！</li>
+        <li>陸上の短距離。(雑魚です)</li>
+        <li>Friday Night Funkinの精度が99%を維持できてること！</li>
+        <li>発想力が高いこと！</li>
+        <li>得意なことしかイキることができないただのバカですがよろしくお願いします。</li>
+      </ul>
+      
+    </section>
+
+    <section class="hobbies">
+      <h2>趣味</h2>
+      <ul>
+        <li>電車を見ること</li>
+        <li>Robloxの<a href="https://www.roblox.com/ja/games/18901165922/PETS-GO-NEW"> Pets go</a>をすること</li>
+        <li>陸上でたくさん走ること！</li>
+        <li>タイピングをしまくること！</li>
+        <li>音ゲーをしまくること！(FNF)</li>
+      </ul>
+    </section>
+
+    <section class="contact">
+      <h2>活動</h2>
+      <a href="https://github.com/saijaku2" target="_blank" class="btn">GitHub</a>
+      <a href="https://www.roblox.com/ja/users/4494424131/profile" target="_blank" class="btn">Roblox</a>
+      <a href="https://www.roblox.com/ja/users/4494424131/profile" target="_blank" class="btn">Codepen</a>
+    </section>
+
+    <section class="seikaku">
+      <h2>性格</h2>
+      <ul>
+        <li>結構ひねくれてると思います</li>
+        <li>自己中です(多分)</li>
+        <li>↑素直な人間になりたいとずっと妄想しています。</li>
+      </ul>
+    </section>
+      <section class="final">
+    <div class="chat">
+      <img src="https://tse1.mm.bing.net/th/id/OIP.X0joAWe3KjQZ_z2pjsxp2AHaHa?w=30&h=70" alt="じゃく">
+      <div class="border">
+      みんなよろしく！
+      </div>
+    </div>
+        
+        <div class="chat">
+      <img src="https://hiyokoyarou.com/wp-content/uploads/2023/07/shiroi-inu.png" alt="じゃく">
+      <div class="border">
+       よろしくお願いします！
+      </div>
+    </div>
+    
+      </ul>
+    </section>
+    <footer class="footer">
+      <p>&copy; 2024 最弱のサイト</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+<style>
+  /* 全体スタイル */
+body {
+  font-family: 'Helvetica', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto 1fr;
+  gap: 20px;
+  max-width: 900px;
+  width: 100%;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.header {
+  grid-column: span 2;
+  text-align: center;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+.header p {
+  margin: 10px 0 0;
+  font-size: 16px;
+}
+
+.profile-img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: block;
+}
+
+section {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  padding: 8px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn {
+  text-decoration: none;
+  background-color: #0073b1;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 10px 0;
+  width: 100%;
+  max-width: 200px;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: #005582;
+}
+
+.footer {
+  grid-column: span 2;
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+  color: #999;
+}
+.seikaku {
+  display: block;
+  flex-direction: column;
+  align-items: center;
+}
+.chat {
+    display: flex; /* flexboxでアイコンと吹き出しを横並びに */
+    align-items: center; /* 中央揃え */
+    margin-bottom: 20px; /* メッセージ間のスペース */
+}
+
+.chat img {
+    width: 10%; /* アイコンのサイズを大きく */
+    height: 60%; /* アイコンのサイズを大きく */
+    margin-right: 10px; /* アイコンと吹き出しの間のスペース */
+}
+
+.border {
+    background-color: #f0f0f0;
+    padding: 40px; /* 吹き出しの中の余白を大きく */
+    border-radius: 15px; /* 吹き出しの角を丸く */
+    display: inline-block;
+    position: relative; /* 三角形の位置を相対的に配置 */
+    max-width: 500px; /* 吹き出し本体の最大幅 */
+    font-size: 24px; /* テキストサイズを大きく */
+    margin-left: 10px; /* 吹き出しの左寄せ */
+}
+
+.border::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 30px solid transparent; /* 上部分を透明に */
+    border-bottom: 30px solid transparent; /* 下部分を透明に */
+    border-right: 40px solid #f0f0f0; /* 吹き出しの背景色と同じ */
+    position: absolute;
+    left: -40px; /* 吹き出しの左側に配置 */
+    top: 50%; /* 吹き出しの中央に配置 */
+    transform: translateY(-50%); /* 高さを中央に調整 */
+}
+
+</style>
+</html>
