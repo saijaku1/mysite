@@ -1,0 +1,154 @@
+body {
+    font-family: 'Helvetica', sans-serif;
+    margin: 400px 0 0 0; /* 上部に400pxの余白を追加 */
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  
+    /* profileセクションのマージンを調整 */
+  .profile {
+    margin-top: 20px; /* 上に余白を追加 */
+  }
+  
+  /* grid-containerのパディング調整 */
+  .grid-container {
+    padding: 40px 20px; /* 上下に40pxのパディングを追加 */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto 1fr;
+    gap: 20px;
+    max-width: 900px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+    .header {
+      grid-column: span 2;
+      text-align: center;
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+    }
+  
+    .header h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+  
+    .header p {
+      margin: 10px 0 0;
+      font-size: 16px;
+    }
+  
+    .profile-img {
+      width: 100%;
+      max-width: 200px;
+      height: auto;
+      border-radius: 50%;
+      margin: 0 auto;
+      display: block;
+    }
+  
+    section {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+  
+    h2 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #333;
+    }
+  
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+  
+    ul li {
+      padding: 8px 0;
+      font-size: 16px;
+      color: #555;
+    }
+  
+    .contact {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .btn {
+      text-decoration: none;
+      background-color: #0073b1;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin: 10px 0;
+      width: 100%;
+      max-width: 200px;
+      text-align: center;
+    }
+  
+    .btn:hover {
+      background-color: #005582;
+    }
+  
+    .footer {
+      grid-column: span 2;
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+      color: #999;
+    }
+  
+    .seikaku {
+      display: block;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .chat {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+  
+    .chat img {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+    }
+  
+    .border {
+      background-color: #f0f0f0;
+      padding: 20px;
+      border-radius: 15px;
+      display: inline-block;
+      position: relative;
+      max-width: 500px;
+      font-size: 18px;
+    }
+  
+    .border::before {
+      content: "";
+      width: 0;
+      height: 0;
+      border-top: 15px solid transparent;
+      border-bottom: 15px solid transparent;
+      border-right: 20px solid #f0f0f0;
+      position: absolute;
+      left: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
