@@ -192,19 +192,19 @@ body {
 .footer-icon {
     color: #fff; /* アイコンの色 */
 }
-a {
+#fixel {
   color: blue;  /* リンクの通常状態の色を青に */
 }
 
-a:visited {
+#fixel:visited {
   color: blue;  /* 訪問済みリンクの色を青に */
 }
 
-a:hover {
+#fixel:hover {
   color: blue;  /* ホバー時のリンクの色を青に */
 }
 
-a:active {
+#fixel:active {
   color: blue;  /* クリックした時のリンクの色を青に */
 }
 
