@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>音声が喋る</title>
+    <link rel="stylesheet">
+  <body>
+    <h1>音声が喋る。</h1>
+    <p style="font-size:20px; font-weight:700;">入力欄があるので、そこに適当に文字をいれて"再生"を押すと喋ってくれます。</p>
+    <textarea rows="5" id="text" placeholder="ここに何かの文字を入れてみよう！"></textarea>
+    <button id="button">再生</button>
+    <button id="button2">???</button>
+    <h2 style="display:none;">実は、このボタンを押すと、ランダムに音程と音声の速さが変わります！</h2>
+    
+    <style>
+      body {
+        padding: 8rem 4rem;
+        display: grid;
+        background-color: #6e6b6a;
+      }
+      #text{
+         field-sizing:content; 
+      }
+      h1, p {
+        text-align: center;
+      }
+      #button, #button2 {
+        border: none;
+        background-color: blue;
+        border-radius: 10%;
+        cursor: pointer;
+        padding: 10px 20px;
+        transition: background-color 0.3s ease;
+        margin: 5px;
+      }
+      #button:hover, #button2:hover {
+        background-color: aqua;
+      }
+    </style>
+
+    <script>
+      const button = document.querySelector("#button");
+      const button2 = document.querySelector("#button2");
+      const h2 = document.querySelector("h2");
+
+      // 再生ボタン
+      button.addEventListener("click", function() {
+        const text = document.querySelector("#text").value;  // ここで取得しちゃうぜ☆
+        if (text === "") {
+          alert("文字を入力してください！");
+          return;
+        }
+
+        let utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 1;  // 標準の速さ～(普通で草)
+        utterance.pitch = 1; // 標準のPitch!
+        speechSynthesis.speak(utterance);
+      });
+
+      // ランダム音程と速度のボタン
+      button2.addEventListener("click", function() {
+        const text = document.querySelector("#text").value;
+        if (text === "") {
+          alert("文字を入力してください！");//ちゃんと入力してよ？
+          return;
+        }
+
+        let utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = Math.random() * 20 -10;  // マジでランダム
+        utterance.pitch = Math.random() * 20-10;       // こっちも結構ランダム
+        speechSynthesis.speak(utterance);
+
+        h2.style.display = "block";  // 説明を表示する
+
+        const p = document.createElement("p");  // 正しい createElement
+        p.textContent = `再生中: 速度 = ${utterance.rate.toFixed(2)}, ピッチ = ${utterance.pitch.toFixed(2)}`;
+        document.body.appendChild(p);  // ページに追加した方がよかったかな？
+      });
+    </script>
+  </body>
+</html>
