@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>最弱のサイトのプログラムの謎 Part2</title>
+    <link rel="stylesheet"> <!-- CSSファイルはなし -->
+</head>
+<body>
+  <!-- サイドバー -->
+  <div id="sidebar" class="sidebar">
+    <a href="https://mysite.f5.si/">ホーム</a>
+    <a href="https://blog-mysite.f5.si/html" class="href1">ブログ</a>
+    <a href="#" class="href2">サイトマップ</a>
+    <a href="#" class="href3">このサイトについて</a>
+    <a href="https://mysite-made.f5.si" class="href4">最弱が作ったサイト</a>
+  </div>
+    <div class="article">
+        <h1>最弱のサイトのプログラムの謎 part2</h1>
+        <p>前回とは少し違う説明をしていこうと主もいます</p>
+      <h2>サイトのドメイン(URL)を取得するには？</h2>
+      <p>まず、前提として<b>HTMLファイル</b>と<b>CSSファイル</b>と<b>JSファイル</b>が完成しているものとします。</p>
+      <h2>必要なもの</h2>
+      <p><ul>
+      <li><a href="https://github.com">Github</a></li>
+      <li><a href="https://f5.si">DDNS now</a></li>
+      </ul><p>自分もDDNS nowを使っている。</p>
+      <h2>①リポジトリを取る</h2>
+      <p>まずGithubにログインして作成したファイルをリポジトリにアップロードします。
+無料で公開するにはパブリック リポジトリにする必要があります。</p>
+      <img src="../image/make.png">
+      <h2>②ドメインを用意</h2>  
+      <p>(これはやらなくても公開できますが短いURLが作れるのでやるのをおすすめします)<br>
+
+WEBサイトを公開するにはドメインが必要ですがドメインは持ってるだけで更新料がかかります。<br>
+無料のドメインも無い訳ではないですが安全性に不安があるのでここではダイナミックDNSサービスのDDNS Nowを使います。<br>
+
+DDNS Nowは永久無料で維持費やドメイン購入費などもかかりません。<br>
+.f5.siのサブドメインが取れて削除しない限り、他人にドメインが取られることがないという優れものです。</p>
+      <img src="../image/syutoku.png">
+      <p>取得できたら設定のDNS設定を開いて「CNAMEレコードやURLリダイレクト」の項目に</p>
+      <div class="code-frame">
+  <div class="code-copy">
+    <div class="code-copy__message">Copied!</div>
+    <button class="code-copy__button" onclick="copyText()">Copy</button>
+  </div>
+  <div class="highlight">
+    <pre><code id="code-text">[githubのユーザー名].github.io</code></pre>
+  </div>
+</div>
+      <p>と入れて保存します</p>
+      <h2>③TXTレコードを入力する。</h2>
+        <p>しばらく下をスクロールを押すと、サブドメインを追加と書いてあるので、それを押します。</p>
+<img src="../image/TXTrecode.png">
+      <p><b>Aレコード</b>か<b>TXTレコード</b>か<b>CHAMEレコード</b>を選択できる項目があるので、<b>TXTレコード</b>を選択します。</p>
+      <p>次にGithubに行き、設定→Pagesをクリックします。</p>
+      <p>そしたらさっき自分で取得したドメインを入力します。</p>
+      <img src="../image/スクリーンショット 2024-10-16 193524.png">
+      <p>そしたら、次にこのようにTXTレコードが出てきているので、さっきのf5.siの方に戻って、上の値をレコードタイプに張り付けます。そして、下の値は値の方を張り付けてください。</p>
+      <img src="../image/TXTrecodevalue.png">
+      <p>あとはverifyを押して、successが出れば成功です。これでDDNS nowの方は終わりです。</p>
+        <h2>④Github pageで公開</h2>
+        <p>最後にGithubに戻ってHTMLファイルなどを追加したら、リポジトリのSettingからPagesを開きます。</p>
+      <img src="../image/save.png">
+      <p>なぜかカスタムドメインの枠がないので一回SourceをGithub ActionsにしてDeploy from a branchにもどします。<br>
+次に、Branchをnoneからmainに変更してsaveボタンを押します。
+        
+最後にデプロイするブランチとさっき取得したサブドメインを入力してSaveを押します</p>
+      <img src="../image/mistery.png">
+      <p>するとDNS Check in Progressとなるので終わるまで待機します</p>
+      <img src="../image/custom.png">
+      <p>DNS check successfulとなってしばらくするとこのような表示になってアクセスできるようになります</p>
+      <img src="../image/type.png">
+      <p>これで終わりです！お疲れさまでした！</p>
+    </div>
+</body>
+     <style>
+               body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .article {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        h2 {
+            color: #007BFF;
+        }
+h3{
+  color:#007BFF;
+}
+        p {
+            color: #555;
+        }
+       img{
+         width:50%;
+         height:50%;
+       }
+     .code-frame {
+  background-color: #000; /* 背景を黒に */
+  padding: 15px;
+  border-radius: 8px;
+  max-width: 400px;
+}
+
+.code-frame pre {
+  margin: 0;
+  color: #fff; /* 文字を白に */
+  font-family: "Courier New", Courier, monospace;
+}
+
+.code-copy__button {
+  background-color: #444;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.code-copy__message {
+  color: limegreen;
+  display: none;
+  margin-top: 10px;
+}
+
+ </style>
+  <script>
+    function copyText() {
+  const text = document.getElementById("code-text").innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    const message = document.querySelector(".code-copy__message");
+    message.style.display = "block";
+    setTimeout(() => {
+      message.style.display = "none";
+    }, 2000);
+  });
+}
+
+  </script>
+</html>
