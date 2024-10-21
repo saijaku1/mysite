@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カラフルボタンとカラーピッカー</title>
+    <link rel="stylesheet" href="colors.css">
+</head>
+<body>
+    <h1>色を選ぶか、ボタンで色を変える！</h1>
+    <h2>このサイトはgoogleのカラーピッカーのように自分で色を指定して、16進数カラーコードを見つけてくれます</h2>
+
+    <div class="color-picker">
+        <label for="hexColor">16進数カラーコード:</label>
+        <input type="text" id="hexColor" placeholder="#ffffff" maxlength="7">
+        <button id="applyColor">色を適用</button>
+    </div>
+
+    <button id="randomColorButton">ランダムな色に切り替え</button>
+
+    <!-- 選択された16進数のカラーコードを表示し、コピーするエリア -->
+    <div id="colorCodeDisplay">
+        現在のカラーコード: <span id="colorCode">#f0f0f0</span>
+        <button id="copyColorCode">コピー</button>
+    </div>
+
+    <!-- RGB入力フィールド -->
+    <div class="rgb-picker">
+        <h2>RGB値を入力して色を変更</h2>
+        <label for="red">赤 (0-255):</label>
+        <input type="number" id="red" value="240" min="0" max="255"><br>
+        <label for="green">緑 (0-255):</label>
+        <input type="number" id="green" value="240" min="0" max="255"><br>
+        <label for="blue">青 (0-255):</label>
+        <input type="number" id="blue" value="240" min="0" max="255"><br>
+        <button id="applyRGB">RGBで色を適用</button>
+    </div>
+
+    <script>
+      // カラーピッカーで選択した色を適用
+document.getElementById("applyColor").addEventListener("click", function() {
+    const hexColor = document.getElementById("hexColor").value.trim();
+
+    // 16進数カラーコードが正しいかどうかをチェック
+    if (/^#([0-9A-Fa-f]{6})$/.test(hexColor)) {
+        document.body.style.backgroundColor = hexColor;
+        document.getElementById("colorCode").textContent = hexColor;
+    } else {
+        alert("正しい16進数カラーコードを入力してください。例: #ffffff");
+    }
+});
+
+// ランダムな色に切り替える
+document.getElementById("randomColorButton").addEventListener("click", function() {
+    let randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+    
+    // 生成されたカラーコードが正しいかどうかを再確認
+    if (/^#[0-9A-Fa-f]{6}$/.test(randomColor)) {
+        document.body.style.backgroundColor = randomColor;
+        document.getElementById("colorCode").textContent = randomColor;
+    } else {
+        alert("色の生成に失敗しました。");
+    }
+});
+
+// 現在のカラーコードをクリップボードにコピー
+document.getElementById("copyColorCode").addEventListener("click", function() {
+    const colorCode = document.getElementById("colorCode").textContent;
+
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(colorCode).then(function() {
+            alert("カラーコードがコピーされました: " + colorCode);
+        }).catch(function(err) {
+            alert("コピーに失敗しました: " + err);
+        });
+    } else {
+        const textArea = document.createElement("textarea");
+        textArea.value = colorCode;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textArea);
+        alert("カラーコードがコピーされました: " + colorCode);
+    }
+});
+
+// RGBで色を適用
+document.getElementById("applyRGB").addEventListener("click", function() {
+    const red = document.getElementById("red").value;
+    const green = document.getElementById("green").value;
+    const blue = document.getElementById("blue").value;
+
+    // RGB値がすべて空白でないことを確認
+    if (red === "" || green === "" || blue === "") {
+        alert("RGBの各値を入力してください。");
+        return;
+    }
+
+    // RGB値が正しい範囲にあるかどうかを確認
+    if (red >= 0 && red <= 255 && green >= 0 && green <= 255 && blue >= 0 && blue <= 255) {
+        const rgbColor = `rgb(${red}, ${green}, ${blue})`;
+        document.body.style.backgroundColor = rgbColor;
+
+        // 現在のRGB値を16進数に変換して表示
+        const hexColor = '#' + ((1 << 24) + (parseInt(red) << 16) + (parseInt(green) << 8) + parseInt(blue)).toString(16).slice(1).padStart(6, '0');
+        document.getElementById("colorCode").textContent = hexColor;
+    } else {
+        alert("RGB値は0〜255の範囲で指定してください。");
+    }
+});
+    </script>
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    color: #333;
+}
+
+.color-picker, .rgb-picker {
+    margin: 20px;
+}
+
+label {
+    font-size: 18px;
+}
+
+input[type="text"], input[type="number"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 120px;
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#colorCodeDisplay {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+}
+
+#applyRGB, #copyColorCode, #applyColor, #randomColorButton {
+    transition: transform 0.3s ease;
+}
+
+#applyRGB, #copyColorCode, #applyColor, #randomColorButton:hover {
+    transform: scale(1.2);
+}
+
+#applyRGB, #copyColorCode, #applyColor, #randomColorButton:active {
+    transform: scale(0.9);
+}
+  </style>
+</body>
+</html>
