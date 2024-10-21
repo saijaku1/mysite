@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アニメサイト</title>
+    <link rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>じゃくのアニメの世界へようこそ</h1>
+        <nav>
+            <ul>
+                <li><a href="https://mysite.f5.si">ホームに戻る</a></li>
+              <li><a href="#list">アニメ一覧</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+      <h2>最新のストーリーをチェック！</h2>
+        <p>ここではじゃくのココツの日常的かつ少しだけ勉強にもなれるようなお話が載っています。</p>
+    </section>
+
+    <section id="list">
+        <h2>アニメ一覧</h2>
+        <div class="anime-list">
+            <div class="anime-item">
+              <h3>第二話</h3>
+                <a href="https://anime-mysite.f5.si/story2" target="_blanck">このサイトを作ってから</a>
+                <p>そういえば僕のサイトってもう1か月がたったよね....よく頑張ったな。あの時の僕。</p>
+            </div>
+            <div class="anime-item">
+                <h3>第一話</h3>
+                <a href="https://anime-mysite.f5.si/story1" target="_blanck">意味が分かると少しぞっとする話3選！</a>
+                <p>初っ端からですが、意味がわかると少しぞっとする話をじゃくとココツと一緒にしていきたいよ思います！</p>
+            </div>
+            <!-- 他のアニメ項目を追加 -->
+        </div>
+    </section>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+section {
+    padding: 20px;
+    text-align: center;
+}
+
+.anime-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.anime-item {
+    margin: 15px;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    width: 450px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius:5%;
+}
+
+.anime-item img {
+    width: 100%;
+}
+
+ footer {
+      border-top: 2px solid #333;
+      padding: 10px;
+      text-align: center;
+      background-color: #2f3030;
+      height:10vh;
+ margin-top:20vh;   
+    }
+</style>
+    <footer>
+        <p style="color:#ffffff;">&copy; 2024 最弱のサイト. All rights reserved.</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
