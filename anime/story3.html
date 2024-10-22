@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSについて</title>
+  <link rel="stylesheet">
+</head>
+
+<body>
+  <div id="main">
+    <!-- チャットのメッセージ -->
+    <div class="chat">
+      <img src="../image/jaku.png" alt="じゃく">
+      <div class="border">
+        ねね。ココツ。
+      </div>
+    </div>
+
+    <div class="chat">
+      <img src="../image/shiroi-inu.png" alt="じゃく">
+      <div class="border">
+        ん？
+      </div>
+    </div>
+
+    <div class="chat">
+      <img src="../image/jaku.png" alt="じゃく">
+      <div class="border">
+        JSについて教えて！
+      </div>
+    </div>
+
+    <div class="chat">
+      <img src="../image/shiroi-inu.png" alt="じゃく">
+      <div class="border">
+        い、いきなりだな...まあ僕一応JS専門だからちょっとだけ話をするか！
+      </div>
+    </div>
+    <div class="chat">
+      <img src="../image/jaku.png" alt="じゃく">
+      <div class="border">
+        やったー！
+      </div>
+    </div>
+
+    <div class="chat">
+      <img src="../image/shiroi-inu.png" alt="じゃく">
+      <div class="border">
+        それじゃあまず、<b>JavaScript</b>っていうプログラミング言語を知ってる？
+      </div>
+    </div>
+    <div class="chat">
+      <img src="../image/jaku.png" alt="じゃく">
+      <div class="border">
+        知ってるよ！
+      </div>
+    </div>
+
+    <p>JSについては<a href="https://blog-mysite.f5.si/blog/himitsu">こちら</a>から！</p>
+    <div class="chat">
+      <img src="../image/shiroi-inu.png">
+      <div class="border">
+        まずは、<b>DOM操作</b>についてやっていこう！
+      </div>
+    </div>
+    <div class="chat">
+      <img src="../image/shiroi-inu.png" alt="じゃく">
+      <div class="border">
+        <b>DOM操作</b>っていうのはJSを使って<b>HTML</b>の構造やスタイルとかを動的に変更することなんだよ。
+      </div>
+    </div>
+
+    <div class="chat">
+      <img src="../image/jaku.png" alt="じゃく">
+      <div class="border">
+        なるほど。
+      </div>
+    </div>
+
+    <div class="chat">
+      <img src="../image/shiroi-inu.png" alt="じゃく">
+      <div class="border">
+        DOMは、HTMLドキュメントの各要素（タグ）を「ノード」という単位で扱うよ。例えば、html, body, div,pとかのタグやテキスト、属性などがすべてノードとして表現されるよ！
+      </div>
+    </div>
+
+    <div class="chat">
+      <img src="../image/jaku.png" alt="じゃく">
+      <div class="border">
+        へぇ〜。僕さ、DOM操作の基本的な流れについて知りたいからさ、教えてよ！
+      </div>
+    </div>
+    <div class="chat">
+      <img src="../image/shiroi-inu.png" alt="じゃく">
+      <div class="border">
+        OK!じゃあまずDOM操作の流れとしては<b>HTML</b>の要素(クラスやid)を取得するためのメソッド
+        <b>document.querySelector</b>についてやっていこうか。
+      </div>
+    </div>
+
+    <div class="chat">
+      <img src="../image/jaku.png" alt="じゃく">
+      <div class="border">
+        うんうん。
+      </div>
+    </div>
+
+    <div class="chat">
+      <img src="../image/shiroi-inu.png" alt="じゃく">
+      <div class="border">
+        例えば、<b>document.querySelector("h1")</b>。この場合は、h1を取得するって意味。<br>
+        クラスを取得したい場合は、<b>document.querySelector(".クラス名")</b>って入れるだけだよ！<br>
+        <b>idの時もdocument.querySelector("#id名")</b>って入れればidも取得できるよ！
+      </div>
+    </div>
+
+    <div class="chat">
+      <img src="../image/jaku.png" alt="じゃく">
+      <div class="border">
+        なるほど...
+      </div>
+    </div>
+    <div class="chat">
+      <img src="../image/shiroi-inu.png" alt="じゃく">
+      <div class="border">
+        もしも、h1とかそのクラスを全部取得したいときは、<b>document.querySelectorAll</b>を使うよ！
+      </div>
+    </div>
+    <div class="chat">
+      <img src="../image/jaku.png" alt="じゃく">
+      <div class="border">
+        それを宣言するとどうなるの？
+      </div>
+    </div>
+    <div class="chat">
+      <img src="../image/shiroi-inu.png" alt="じゃく">
+      <div class="border">
+        その要素を全部取得してくれる。htmlの要素にあるだけ！
+      </div>
+    </div>
+    <div class="chat">
+      <img src="../image/jaku.png" alt="じゃく">
+      <div class="border">
+        へぇ～。なるほど
+      </div>
+    </div>
+    <div class="chat">
+      <img src="../image/jaku.png" alt="じゃく">
+      <div class="border">
+        あれ。ちょっと待て。これはただ取得しただけだよね？文字とかを変えたりとかはどうすればいいの？
+      </div>
+    </div>
+    <div class="chat">
+      <img src="../image/shiroi-inu.png" alt="じゃく">
+      <div class="border">
+        あー。いい質問だね！
+      </div>
+    </div>
+    <p>もしかして、<b>document.loadqurySelector</b>とかを使うのでは..?</p>
+    <div class="chat">
+      <img src="../image/shiroi-inu.png">
+      <div class="border">
+        うp主さんは黙っててください。
+      </div>
+    </div>
+    <p>ごめんなさい</p>
+    <div class="chat">
+      <img src="../image/jaku.png" alt="じゃく">
+      <div class="border">
+        んでどう使うの?
+      </div>
+    </div>
+    <div class="chat">
+      <img src="../image/shiroi-inu.png">
+      <div class="border">
+        あーごめんごめん。文字とかを変えたいときは<b>変数名.textContent</b>プロパティを使うよ！
+      </div>
+    </div>
+    <div class="chat">
+      <img src="../image/shiroi-inu.png">
+      <div class="border">
+        <b>例<br>
+          const h1=document.querySelector("#text");//このときはid textの文字を"未変更"って名付けるよ！<br>
+          h1.textContent="変更済み";//これでh1が変更されたよ
+        </b>
+      </div>
+    </div>
+    <div class="chat">
+      <img src="../image/jaku.png" alt="じゃく">
+      <div class="border">
+        案外簡単だね。
+      </div>
+    </div>
+    <div class="chat">
+      <img src="../image/shiroi-inu.png">
+      <div class="border">
+        うん！結構簡単だよ。でもこれ以外にもいろんなプロパティがあるけど、今日はここでおしまい！ お疲れ様！
+      </div>
+    </div>
+    <div class="chat">
+      <img src="../image/jaku.png" alt="じゃく">
+      <div class="border">
+        お疲れー。
+      </div>
+    </div>
+    <h3>今日のおさらい！</h3>
+    <ul>
+      <li><b>document.querySelector</b>は、その要素を取得するために使います！</li>
+      <li>その要素の文字を変更しあい場合は、<b>変数名.textContent</b>を使います！</li>
+      <li>document.querySelectorを使う場合は、必ず<b>変数・定数</b>を宣言します！そうしないと、予期しないグローバル変数の作成やスコープの問題が起こるので、常に let や const を使用して変数を定義する必要があります。</li>
+    </ul>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+
+      #main {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+
+      .chat {
+        display: flex;
+        align-items: center;
+        /* 中央揃え */
+        margin-bottom: 20px;
+      }
+
+      .chat img {
+        width: 10%;
+        /* アイコンのサイズを大きく */
+        height: 60%;
+        /* アイコンのサイズを大きく */
+        margin-right: 10px;
+        /* アイコンと吹き出しの間のスペース */
+      }
+
+      .border {
+        background-color: #f0f0f0;
+        padding: 40px;
+        border-radius: 15px;
+        display: inline-block;
+        position: relative;
+        max-width: 500px;
+        font-size: 24px;
+        margin-left: 10px;
+      }
+
+      .border::before {
+        content: "";
+        width: 0;
+        height: 0;
+        border-top: 30px solid transparent;
+        border-bottom: 30px solid transparent;
+        border-right: 40px solid #f0f0f0;
+        position: absolute;
+        left: -40px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    </style>
+
+</html>
