@@ -20,7 +20,9 @@
     
     <!-- サイドバーを開閉するボタン -->
     <button class="open-btn" id="toggleButton" onclick="toggleSidebar()">☰</button>
-
+ <div id="header">
+        <button id="loginButton">ログイン</button>
+    </div>
     <!-- メインプログラム -->
     <header class="title">
       <h1>最弱のサイト</h1>
@@ -83,6 +85,15 @@
     document.body.classList.add("loaded"); // 'loaded' クラスを追加
   }
 });
+// PHPからログイン状態を取得し、ボタンの表示・非表示を制御
+fetch('check_login.php')
+    .then(response => response.json())
+    .then(data => {
+        if (data.isLoggedIn) {
+            document.getElementById("loginButton").classList.add("hidden");
+        }
+    })
+    .catch(error => console.error('ログイン状態の取得に失敗しました:', error));
 
      
      function toggleSidebar() {
