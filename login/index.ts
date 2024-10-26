@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken';
 
 const app = express();
 const PORT = 3000;
-const SECRET_KEY = 'your-secret-key'; // 環境変数を使用するのが望ましい
+const SECRET_KEY = 'your-secret-key'; // 環境変数を使用するのが望ましいかも
 
 app.use(bodyParser.json());
 
