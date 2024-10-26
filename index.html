@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,8 @@
   </head>
   <body>
     <div id="loading">
-  <div class="circle-spin-1"></div>
-</div>
-    <!-- サイドバー -->
+      <div class="circle-spin-1"></div>
+    </div>
     <div id="sidebar" class="sidebar">
       <a href="https://mysite.f5.si">ホーム</a>
       <a href="#" class="href1">お知らせ</a>
@@ -18,12 +18,11 @@
       <a href="https://mysite.f5.si/blog" class="href4">ブログ</a>
     </div>
     
-    <!-- サイドバーを開閉するボタン -->
     <button class="open-btn" id="toggleButton" onclick="toggleSidebar()">☰</button>
- <div id="header">
-        <button id="loginButton">ログイン</button>
+    <div id="header">
+      <button id="loginButton">ログイン</button>
     </div>
-    <!-- メインプログラム -->
+    
     <header class="title">
       <h1>最弱のサイト</h1>
     </header>
@@ -56,7 +55,8 @@
         <p><a href="https://sites.google.com/view/saijaku-site/%E3%83%9B%E3%83%BC%E3%83%A0" id="fixel">こちら</a>をクリックしてください。</p>
       </div>
     </div>
-      <div class="border1">
+
+    <div class="border1">
       <div class="heading1">
         <p>お問い合わせ</p>
       </div>
@@ -66,48 +66,34 @@
       <a href="https://forms.gle/PC4oEXdeVa6oc3aa7" class="read-more" id="fixel">報告</a>
     </div>
 
-  <div class="custom-footer">
-    <p style="padding-left:12em;">Copyright (C) 2024 最弱のサイト All Rights Reserved.</p>
-    <div class="footer-links">
-        <a href="https://github.com/saijaku2/mysite" target="_blank" class="footer-icon">github
-        </a>
-        <a href="https://blog-mysite.f5.si" target="_blank" class="footer-link">ブログ</a>
-        <!-- 追加のリンクもここに追加 -->
-      <a href="https://mysite-made.f5.si" target="_blank" class="footer-link">最弱が作ったサイト</a>
+    <div class="custom-footer">
+      <p style="padding-left:12em;">Copyright (C) 2024 最弱のサイト All Rights Reserved.</p>
+      <div class="footer-links">
+          <a href="https://github.com/saijaku2/mysite" target="_blank" class="footer-icon">github</a>
+          <a href="https://blog-mysite.f5.si" target="_blank" class="footer-link">ブログ</a>
+          <a href="https://mysite-made.f5.si" target="_blank" class="footer-link">最弱が作ったサイト</a>
+      </div>
     </div>
-</div>
 
-    
     <script>
-     window.addEventListener("load", function () {
-  setTimeout(load, 1000); // 4秒後に load 関数を実行
-  function load() {
-    document.body.classList.add("loaded"); // 'loaded' クラスを追加
-  }
-});
-// PHPからログイン状態を取得し、ボタンの表示・非表示を制御
-fetch('check_login.php')
-    .then(response => response.json())
-    .then(data => {
-        if (data.isLoggedIn) {
-            document.getElementById("loginButton").classList.add("hidden");
+      window.addEventListener("load", function () {
+        setTimeout(load, 1000);
+        function load() {
+          document.body.classList.add("loaded");
         }
-    })
-    .catch(error => console.error('ログイン状態の取得に失敗しました:', error));
-
-     
-     function toggleSidebar() {
-        var sidebar = document.getElementById("sidebar");
-        var toggleButton = document.getElementById("toggleButton");
-
-        if (sidebar.classList.contains("open")) {
-          sidebar.classList.remove("open");
-          toggleButton.innerHTML = "☰";
-        } else {
-          sidebar.classList.add("open");
-          toggleButton.innerHTML = "×";
+      });
+          .catch(error => console.error('ログイン状態の取得に失敗しました:', error));
+      function toggleSidebar() {
+          var sidebar = document.getElementById("sidebar");
+          var toggleButton = document.getElementById("toggleButton");
+          if (sidebar.classList.contains("open")) {
+            sidebar.classList.remove("open");
+            toggleButton.innerHTML = "☰";
+          } else {
+            sidebar.classList.add("open");
+            toggleButton.innerHTML = "×";
+          }
         }
-      }
     </script>
   </body>
 </html>
