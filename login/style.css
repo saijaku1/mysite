@@ -54,3 +54,21 @@ button:hover {
     text-align: center;
     color: red;
 }
+.form-group:user-valid{
+    outline:2px solid green;
+    animation:corredt .4s ease-out;
+}
+.form-group:user-invalid{
+    outline:2px solid red;
+    animation shake .4 ease;
+}
+@keyframes shake{
+    25%,75%{
+        translate:-5px;
+}
+    50%{
+        translate:5px;
+    }
+@keyframes corredt{
+    50%{translate:0 5px;}
+}
