@@ -18,7 +18,8 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
         if (response.ok) {
             // ログイン成功
             document.getElementById('message').textContent = 'ログイン成功！';
-            // トークンをローカルストレージに保存するなどの処理を追加
+            // この下にホームページにリダイレクトしたうぞ！
+            window.location.href="https://mysite.f5.si";
         } else {
             // エラーメッセージを表示
             document.getElementById('message').textContent = data.message;
