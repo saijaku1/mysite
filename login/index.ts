@@ -1,58 +1,60 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
+import bcrypt from 'bcrypt';
+import cors from 'cors';
 
 const app = express();
 const PORT = 3000;
-const SECRET_KEY = 'your-secret-key'; // 環境変数を使用するのが望ましいかも
 
+// CORSを有効にする
+app.use(cors());
 app.use(bodyParser.json());
 
-// 簡単なユーザーストレージ（実際のDBに置き換えるべき）
-interface User {
-  username: string;
-  password: string;
-}
+let users: { username: string; password: string }[] = [];
 
-const users: User[] = [];
-
-// 新規ユーザーを登録するエンドポイント
+// ユーザー登録エンドポイント
 app.post('/register', async (req, res) => {
-  const { username, password } = req.body;
+    const { username, password } = req.body;
 
-  // 同じユーザー名が既に存在するか確認
-  const existingUser = users.find(user => user.username === username);
-  if (existingUser) {
-    return res.status(400).json({ message: 'そのユーザー名は既に使用されています' });
-  }
+    try {
+        // ユーザー名が既に存在するか確認
+        const existingUser = users.find(user => user.username === username);
+        if (existingUser) {
+            return res.status(400).json({ message: 'そのユーザー名は既に使用されています' });
+        }
 
-  // パスワードをハッシュ化して保存
-  const hashedPassword = await bcrypt.hash(password, 10);
-  users.push({ username, password: hashedPassword });
-  res.status(201).json({ message: '登録が完了しました' });
+        // パスワードをハッシュ化
+        const hashedPassword = await bcrypt.hash(password, 10);
+        users.push({ username, password: hashedPassword });
+        res.status(201).json({ message: '登録が完了しました' });
+    } catch (error) {
+        console.error('登録エラー:', error);
+        res.status(500).json({ message: '登録に失敗しました' });
+    }
 });
 
-// ログインエンドポイント
+// ユーザーログインエンドポイント
 app.post('/login', async (req, res) => {
-  const { username, password } = req.body;
+    const { username, password } = req.body;
 
-  // ユーザーを検索
-  const user = users.find(user => user.username === username);
-  if (!user) {
-    return res.status(400).json({ message: 'ユーザー名またはパスワードが正しくありません' });
-  }
+    const user = users.find(user => user.username === username);
+    if (!user) {
+        return res.status(400).json({ message: 'ユーザー名またはパスワードが間違っています' });
+    }
 
-  // パスワードを確認
-  const isPasswordValid = await bcrypt.compare(password, user.password);
-  if (!isPasswordValid) {
-    return res.status(400).json({ message: 'ユーザー名またはパスワードが正しくありません' });
-  }
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) {
+        return res.status(400).json({ message: 'ユーザー名またはパスワードが間違っています' });
+    }
 
-  // JWTトークンを生成
-  const token = jwt.sign({ username }, SECRET_KEY, { expiresIn: '1h' });
-  res.json({ message: 'ログイン成功', token });
+    res.status(200).json({ message: 'ログイン成功！' });
 });
+
+// サーバーの起動
+app.listen(PORT, () => {
+    console.log(`サーバーがポート${PORT}で起動しました`);
+});
+
 
 // サーバーを起動
 app.listen(PORT, () => {
