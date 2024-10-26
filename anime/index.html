@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>アニメサイト</title>
-    <link rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -12,138 +12,41 @@
         <nav>
             <ul>
                 <li><a href="https://mysite.f5.si">ホームに戻る</a></li>
-              <li><a href="#list">アニメ一覧</a></li>
+                <li><a href="#list">アニメ一覧</a></li>
             </ul>
         </nav>
     </header>
 
     <section id="home">
-      <h2>最新のストーリーをチェック！</h2>
+        <h2>最新のストーリーをチェック！</h2>
         <p>ここではじゃくのココツの日常的かつ少しだけ勉強にもなれるようなお話が載っています。</p>
     </section>
 
     <section id="list">
         <h2>アニメ一覧</h2>
-        <div class="anime-item">
-                <h3>第三話</h3>
-                <a href="https://mysite.f5.si/anime/story1" target="_blanck">DOM操作について</a>
-                <p>JSのDOM操作について少し学んでみよう！</p>
-            </div>
-        
         <div class="anime-list">
             <div class="anime-item">
-              <h3>第二話</h3>
-                <a href="https://mysite.f5.si/anime/story2" target="_blanck">このサイトを作ってから</a>
+                <h3>第二話</h3>
+                <a href="https://anime-mysite.f5.si/story2" target="_blank">このサイトを作ってから</a>
                 <p>そういえば僕のサイトってもう1か月がたったよね....よく頑張ったな。あの時の僕。</p>
             </div>
             <div class="anime-item">
                 <h3>第一話</h3>
-                <a href="https://mysite.f5.si/anime/story1" target="_blanck">意味が分かると少しぞっとする話3選！</a>
-                <p>初っ端からですが、意味がわかると少しぞっとする話をじゃくとココツと一緒にしていきたいよ思います！</p>
+                <a href="https://anime-mysite.f5.si/story1" target="_blank">意味が分かると少しぞっとする話3選！</a>
+                <p>初っ端からですが、意味がわかると少しぞっとする話をじゃくとココツと一緒にしていきたいと思います！</p>
             </div>
             <!-- 他のアニメ項目を追加 -->
         </div>
     </section>
-<style>
- body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
-    color: #333; /* テキストの基本色を設定 */
-}
 
-header {
-    background: #4a90e2;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* ヘッダーに影を追加 */
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0; /* マージンをリセット */
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s; /* カラーホバー時のトランジション */
-}
-
-nav a:hover {
-    text-decoration: underline;
-    color: #f0f0f0; /* ホバー時の色変更 */
-}
-
-section {
-    padding: 20px;
-    margin: 20px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.anime-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between; /* スペースを均等に分配 */
-}
-
-.anime-item {
-    flex: 0 1 300px;
-    margin: 10px;
-    padding: 15px;
-    background: #e9ecef;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-    border: 2px solid #4a90e2;
-    transition: transform 0.2s, box-shadow 0.2s; /* 影の変化を追加 */
-}
-
-.anime-item:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* ホバー時の影の強調 */
-}
-
-.anime-item h3 {
-    color: #333;
-}
-
-.anime-item a {
-    color: #4a90e2;
-    text-decoration: none;
-    font-weight: bold; /* リンクを強調 */
-}
-
-.anime-item a:hover {
-    text-decoration: underline;
-    color: #f15a29; /* ホバー時のリンク色変更 */
-}
-
-footer {
-    background: #4a90e2;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
-</style>
     <footer>
-        <p style="color:#ffffff;">&copy; 2024 最弱のサイト. All rights reserved.</p>
+        <p>&copy; 2024 最弱のサイト. All rights reserved.</p>
     </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
     
     <script src="script.js"></script>
 </body>
