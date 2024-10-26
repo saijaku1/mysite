@@ -29,3 +29,4 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
         document.getElementById('message').textContent = '登録に失敗しました';
     }
 });
+
