@@ -1,3 +1,10 @@
+   window.addEventListener("load", function () {
+  setTimeout(load, 1000); 
+  function load() {
+    document.body.classList.add("loaded");
+  }
+});
+
 function toggleSidebar() {
       var sidebar = document.getElementById("sidebar");
       var toggleButton = document.getElementById("toggleButton");
@@ -10,6 +17,7 @@ function toggleSidebar() {
         toggleButton.innerHTML = "×";      // ボタンを「×」に変更
       }
     }
+
 window.onscroll = function() {
     const button = document.getElementById("topButton");
     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
