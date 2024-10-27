@@ -49,9 +49,9 @@
                 <button id="button3">見てみる</button>
             </div>
         <div class="game">
-                <h3>???</h3>
-                <p>何が出るんだろう？</p>
-                <button id="button4">???</button>
+                <h3>音声が喋るサイト</h3>
+                <p>文字を入力して再生をすることで音声が喋ってくれます。<br>※このサイトは没サイトです。期待しないでください。</p>
+                <button id="button4">見てみる</button>
             </div>
            <div class="game">
                 <h3>???</h3>
@@ -202,6 +202,11 @@ button:hover {
         const button3 = document.querySelector("#button3").addEventListener("click", function() {
             console.log("Button 3 clicked");
             window.location.href = "https://mysite.f5.si/made/calculator"; // 修正済み
+        });
+
+         const button4 = document.querySelector("#button4").addEventListener("click", function() {
+            console.log("Button 4 clicked");
+            window.location.href = "https://mysite.f5.si/made/speak"; // 修正済み
         });
     </script>
 </body>
