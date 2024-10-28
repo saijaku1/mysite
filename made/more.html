@@ -54,9 +54,9 @@
                 <button id="button4">見てみる</button>
             </div>
            <div class="game">
-                <h3>???</h3>
-                <p>何が出るんだろう？</p>
-                <button id="button5">???</button>
+                <h3>Iframeサイト</h3>
+                <p>このサイトを使って、学校のPCでゲームやYoutubeなどをいろいろ見よう！<br>※場合によってはブロックされる場合があります。</p>
+                <button id="button5">見てみる</button>
            </div>
               <div class="game">
                 <h3>???</h3>
@@ -76,51 +76,6 @@
     padding: 0;
     background-color: #f4f4f4;
 }
-    /* サイドバーのスタイル */
-    .sidebar {
-      height: 100%;
-      width: 0;  /* 初期状態では閉じる */
-      position: fixed;
-      top: 0;
-      left: 0;
-      background-color: #333333;
-      overflow-x: hidden;
-      transition: 0.3s;  /* 開閉時のアニメーション */
-      padding-top: 60px;
-    }
-
-    /* サイドバーのリンクのスタイル */
-    .sidebar a {
-      padding: 15px 10px;
-      text-decoration: none;
-      font-size: 18px;
-      color: white;
-      display: block;
-      transition: 0.2s;
-    }
-
-    .sidebar a:hover {
-      background-color: #575757;
-    }
-
-    /* サイドバーを開閉するボタン */
-    .open-btn {
-      font-size: 20px;
-      cursor: pointer;
-      background-color: #111;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      border-radius:20%;
-    }
-    /* サイドバーが開いている時のスタイル */
-    .sidebar.open {
-      width: 250px;
-}
-
 header {
     background-color: #2f3030;
     color: #fff;
@@ -206,7 +161,12 @@ button:hover {
 
          const button4 = document.querySelector("#button4").addEventListener("click", function() {
             console.log("Button 4 clicked");
-            window.location.href = "https://mysite.f5.si/made/speak"; // 修正済み
+            window.location.href = "https://mysite.f5.si/made/speak"; // 修正済み             
+        });
+
+            const button5 = document.querySelector("#button5").addEventListener("click", function() {
+            console.log("Button 5 clicked");
+            window.location.href = "https://mysite.f5.si/made/iframe"; // 修正済み
         });
     </script>
 </body>
