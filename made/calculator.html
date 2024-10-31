@@ -12,7 +12,6 @@
         <h1>電卓</h1>
         <input type="text" id="display" placeholder="数式を入力" onkeydown="checkEnter(event)">
         <div class="buttons">
-           <div class="calculator">
             <button onclick="clearDisplay()">C</button>
             <button onclick="appendToDisplay('sin(')">sin</button>
             <button onclick="appendToDisplay('cos(')">cos</button>
@@ -39,7 +38,7 @@
             <button onclick="appendToDisplay('(')">(</button>
             <button onclick="appendToDisplay(')')">)</button>
 
-            <!-- なぞの関数ボタン -->
+            <!-- Additional buttons for advanced functions -->
             <button onclick="appendToDisplay('diff(')">微分</button>
             <button onclick="appendToDisplay('integrate(')">積分</button>
             <button onclick="appendToDisplay('exp(')">exp</button>
@@ -67,7 +66,7 @@
             padding: 20px;
             border-radius: 8px; 
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            width: 300px;
+            width: 500px;
         } 
         #display { 
             width: 100%;
