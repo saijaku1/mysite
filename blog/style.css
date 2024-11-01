@@ -1,0 +1,105 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    transition: opacity 1s ease;
+}
+#loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #121212;
+}
+.circle-spin {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #e0e0e0;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    transition: left 0.5s ease;
+}
+.sidebar a {
+    padding: 15px;
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+.sidebar a:hover {
+    background: #333333;
+}
+.open-btn {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+    padding: 10px;
+    background: #333333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.open-btn:hover {
+    background: #444444;
+}
+.articles {
+    margin-top: 60px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+.article {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.article:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+.top-button, .down-button {
+    position: fixed;
+    right: 20px;
+    font-size: 20px;
+    padding: 10px;
+    background: #444444;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.top-button:hover, .down-button:hover {
+    background: #666666;
+}
+.custom-footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
