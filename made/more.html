@@ -80,6 +80,14 @@ header {
     padding: 20px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+header h1 {
+    font-size: 2em;
+    position: relative;
+    animation: slide-in 1s forwards;
 }
 
 nav ul {
@@ -95,6 +103,11 @@ nav a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #66d3fa;
 }
 
 main {
@@ -106,6 +119,7 @@ main {
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+    animation: fade-in 1s ease-in;
 }
 
 .game {
@@ -113,14 +127,26 @@ main {
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s, box-shadow 0.3s;
     text-align: center;
     width: 280px;
+    position: relative;
+    overflow: hidden;
 }
 
 .game:hover {
     transform: translateY(-10px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.game h3 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.game p {
+    font-size: 0.9em;
+    color: #555;
 }
 
 button {
@@ -130,12 +156,14 @@ button {
     border-radius: 5px;
     padding: 10px 15px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s, transform 0.2s;
     font-weight: bold;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
     background-color: #0056b3;
+    transform: scale(1.05);
 }
 
 .custom-footer {
@@ -144,6 +172,16 @@ button:hover {
     text-align: center;
     background-color: #2d3e50;
     color: #fff;
+}
+
+@keyframes slide-in {
+    0% { transform: translateX(-100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 </style>
 
@@ -167,3 +205,4 @@ button:hover {
 </script>
 </body>
 </html>
+
