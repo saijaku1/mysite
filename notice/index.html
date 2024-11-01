@@ -128,21 +128,25 @@
       { title: "お知らせサイトを作りました。", date: "2024-10-27", category: "更新情報", content: "お知らせサイトを作りました。色々ここでやりますのでお願いします！" },
       { title: "シンプル電卓の改造しました。", date: "2024-11-1", category: "更新情報", content: "前までは-+÷×しかできませんでしたが、今は三角関数やルートなどを使うことができるようになりました。ぜひ使ってみてください！" },
       { title: "すべてのサイトにファビコンを追加しました。", date: "2024-11-1", category: "更新情報", content: "今まで一部のサイトにしかファビコンを追加していなかったので、すべてのサイトにファビコンを追加させました。" },
-       { title: "最弱のサイトのスタイルを変えました。", date: "2024-11-2", category: "更新情報", content: "今までの最弱のサイトのスタイルが少しダサかったので少し変えました。結構かっこよくなったと思います。" },
-    ];
+      { title: "最弱のサイトのスタイルを変えました。", date: "2024-11-2", category: "更新情報", content: "今までの最弱のサイトのスタイルが少しダサかったので少し変えました。結構かっこよくなったと思います。" },
     ];
 
     function displayNotices(filterDate = "", filterCategory = "") {
       const noticeList = document.getElementById("noticeList");
       noticeList.innerHTML = "";
 
-      // 日付順に並べ替え（降順）
       const filteredNotices = notices
         .filter(notice => {
           return (!filterDate || notice.date === filterDate) &&
                  (!filterCategory || notice.category === filterCategory);
         })
-        .sort((a, b) => new Date(b.date) - new Date(a.date)); // 新しい日付順に並べ替え
+        .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+      if (filteredNotices.length === 0) {
+        const noNotices = document.createElement("div");
+        noNotices.textContent = "記事がありません。";
+        noticeList.appendChild(noNotices);
+      }
 
       filteredNotices.forEach(notice => {
         const card = document.createElement("div");
