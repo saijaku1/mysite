@@ -9,7 +9,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             background-color: #f4f4f4;
-            overflow: hidden; /* ローディング中はスクロールを無効にする */
+            overflow: hidden; 
         }
         .loading {
             position: fixed;
@@ -36,7 +36,7 @@
             100% { transform: rotate(360deg); }
         }
         .content {
-            display: none; /* 初めはコンテンツを隠す */
+            display: none; 
         }
         .border1 {
             border: 1px solid #ddd;
@@ -63,8 +63,7 @@
             text-decoration: underline;
         }
     </style>
-  <link rel="icon" href="../image/jaku.png">
-
+    <link rel="icon" href="../image/jaku.png" type="image/png">
 </head>
 <body>
 
@@ -78,12 +77,12 @@
     <script>
         // ローディング画面を1秒後に非表示にする
         setTimeout(function() {
-            document.querySelector('.loading').style.display = 'none'; // ローディング画面を非表示
-            document.querySelector('.content').style.display = 'block'; // コンテンツを表示
-            document.body.style.overflow = 'auto'; // スクロールを有効にする
+            document.querySelector('.loading').style.display = 'none'; 
+            document.querySelector('.content').style.display = 'block'; 
+            document.body.style.overflow = 'auto'; 
         }, 1000); // 1秒後に実行
 
-        // 投稿を表示する関数。結構わかりやすくしたぞ。
+        // 投稿
         function displayPosts(posts) {
             const container = document.getElementById('blogPosts');
             posts.forEach(post => {
@@ -102,8 +101,6 @@
                 container.appendChild(postDiv);
             });
         }
-
-        // 投稿データを読み込むよ
         displayPosts(posts);
     </script>
 </body>
