@@ -1,245 +1,105 @@
-#loading {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  background-color: #111111;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.circle-spin-1 {
-  --size: 48px;
-  --stroke-width: calc(var(--size) / 6);
-  --color: #fff;
-  --animation-timing-function: linear;
-  --animation-duration: 1s;
-  width: var(--size);
-  height: var(--size);
-  border-width: var(--stroke-width);
-  border-style: solid;
-  border-color: var(--color) var(--color) var(--color) transparent;
-  border-radius: 50%;
-  transform: rotate(0deg);
-  animation: circle-spin-1-animation var(--animation-duration) infinite var(--animation-timing-function);
-}
-
-@keyframes circle-spin-1-animation {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-body.loaded #loading {
-  display: none;
-}
-
-body.loaded .content {
-  opacity: 1;
-}
-
-.content {
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-
-html {
-    scroll-behavior: smooth;
-}
-
 body {
-    background-color: #111111;
-    font-family: 'Arial', sans-serif;
-    color: #fff;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
     margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    transition: opacity 1s ease;
 }
-
-   /* サイドバーのスタイル */
-    .sidebar {
-      height: 100%;
-      width: 0;  /* 初期状態では閉じる */
-      position: fixed;
-      top: 0;
-      left: 0;
-      background-color: #333333;
-      overflow-x: hidden;
-      transition: 0.3s;  /* 開閉時のアニメーション */
-      padding-top: 60px;
-    }
-
-    /* サイドバーのリンクのスタイル */
-    .sidebar a {
-      padding: 15px 10px;
-      text-decoration: none;
-      font-size: 18px;
-      color: white;
-      display: block;
-      transition: 0.2s;
-    }
-
-    .sidebar a:hover {
-      background-color: #575757;
-    }
-
-    /* サイドバーを開閉するボタン */
-    .open-btn {
-      font-size: 20px;
-      cursor: pointer;
-      background-color: #111;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      border-radius:20%;
-    }
-    /* サイドバーが開いている時のスタイル */
-    .sidebar.open {
-      width: 250px;
+#loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #121212;
 }
-/* 記事タイトルのスタイル */
-.article-title {
-  font-size: 30px;
-  font-weight: 700;
-  margin-bottom: 1em;
+.circle-spin {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #e0e0e0;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    transition: left 0.5s ease;
+}
+.sidebar a {
+    padding: 15px;
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: background 0.3s;
 }
 .sidebar a:hover {
-    background-color: #575757;
+    background: #333333;
 }
-
-/* サイドバーを開閉するボタン */
 .open-btn {
+    position: fixed;
+    top: 10px;
+    left: 10px;
     font-size: 20px;
-    cursor: pointer;
-    background-color: #111;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    border-radius: 20%;
-}
-
-/* タイトル部分に背景画像を設定 */
-.title {
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGteH0LDet0636ouB3OWElcInVYOrHZ9prdw&s');
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    height: 300px; /* ヘッダーの高さ */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.title h1 {
-    font-size: 600%; /* 元のサイズを維持 */
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    margin: 0;
-}
-
-/* ボーダー付きのブログコンテンツ */
-.border1 {
-  display: flex;
-  flex-direction: column; /* 中の要素を縦に並べる */
-  border: 3px solid #4d4d4d; /* 個々のボーダー */
-  border-radius: 15px;
-  padding: 2em;
-  width: 600px;
-  margin: 20px auto; /* 横幅を中央に配置 */
-  text-align: left; /* テキストを左寄せ */
-  background-color: #222; /* 背景色を追加 */
-  box-sizing: border-box; /* パディング込みでサイズを調整 */
-}
-/* テキスト内容のスタイル */
-.text1 {
-  font-size: 20px;
-  margin-bottom: 1em;
-}
-.down-button {
-    position: fixed;
-    bottom: 20px; 
-    right: 20px; /* 右からの距離 */
-    display: none; /* 初期は非表示 */
-    width: 50px;
-    height: 50px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 50%; /* 円形にする */
-    cursor: pointer;
-    text-align: center;
-    line-height: 50px; /* テキストを中央に配置 */
-    font-size: 18px; /* テキストサイズ */
-}
-.down-button:hover {
-    background-color: #0056b3;
-}
-.top-button {
-    position: fixed;
-    bottom: 20px; /* 画像の下に配置 */
-    right: 20px; /* 右からの距離 */
-    display: none; /* 初期は非表示 */
-    width: 50px;
-    height: 50px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 50%; /* 円形にする */
-    cursor: pointer;
-    text-align: center;
-    line-height: 50px; /* テキストを中央に配置 */
-    font-size: 18px; /* テキストサイズ */
-}
-.read-more {
-  color: #4d90fe;
-  text-decoration: none;
-  font-size: 18px;
-  margin-top: 1em;
-  align-self: flex-end; /* ボタンを右寄せにする */
-}
-/* アニメーションを修正してズレを解消 */
-@keyframes slideIn {
-  0% {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.border1 {
-  opacity: 0;
-  animation: slideIn 1s forwards;
-}
-.top-button:hover {
-    background-color: #0056b3;
-}
-
-/* フッターのスタイル */
-.custom-footer {
-    border-top: 2px solid #333;
     padding: 10px;
-    text-align: center;
-    background-color: #2f3030;
-2f3030;
-}#fixed {
-  color: blue; /* 常に青 */
+    background: #333333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
 }
-
-#fixed:visited,
-#fixed:hover,
-#fixed:active,
-#fixed:focus {
-  color: blue; /* クリック、ホバー、フォーカスしても青 */
+.open-btn:hover {
+    background: #444444;
+}
+.articles {
+    margin-top: 60px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+.article {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.article:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+.top-button, .down-button {
+    position: fixed;
+    right: 20px;
+    font-size: 20px;
+    padding: 10px;
+    background: #444444;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.top-button:hover, .down-button:hover {
+    background: #666666;
+}
+.custom-footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
 }
