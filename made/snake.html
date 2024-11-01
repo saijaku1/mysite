@@ -53,19 +53,18 @@
   <p id="score">スコア: 0</p>
 
   <script>
-    const boardSize = 20; // ボードのグリッドサイズ
-    let snake = [{ x: 10, y: 10 }]; // スネークの初期位置。案外行けた。
-    let direction = { x: 0, y: 0 }; // スネークの移動方向。意外と難しい
-    let food = { x: Math.floor(Math.random() * boardSize), y: Math.floor(Math.random() * boardSize) }; // 食べ物の位置
+    const boardSize = 20;
+    let snake = [{ x: 10, y: 10 }];
+    let direction = { x: 0, y: 0 };
+    let food = { x: Math.floor(Math.random() * boardSize), y: Math.floor(Math.random() * boardSize) };
     let score = 0;
 
     const gameBoard = document.getElementById("gameBoard");
     const scoreDisplay = document.getElementById("score");
 
     function draw() {
-      gameBoard.innerHTML = ""; // ゲームボードをクリア。まあこれは簡単
+      gameBoard.innerHTML = "";
 
-      // スネーク描くのめっちゃむずかった！
       snake.forEach(segment => {
         const snakeElement = document.createElement("div");
         snakeElement.style.left = `${segment.x * 20}px`;
@@ -74,7 +73,6 @@
         gameBoard.appendChild(snakeElement);
       });
 
-      // 食べ物の描画。普通においしそうｗ
       const foodElement = document.createElement("div");
       foodElement.style.left = `${food.x * 20}px`;
       foodElement.style.top = `${food.y * 20}px`;
@@ -85,23 +83,21 @@
     function update() {
       const head = { x: snake[0].x + direction.x, y: snake[0].y + direction.y };
 
-      // 壁または自分の体にぶつかったらゲームオーバー
-      if (head.x < 0 || head.x >= boardSize || head.y < 0 || head.y >= boardSize || snake.some(segment => segment.x === head.x && segment.y === head.y)) {
+      if (head.x < 0 || head.x >= boardSize || head.y < 0 || head.y >= boardSize || snake.slice(1).some(segment => segment.x === head.x && segment.y === head.y)) {
         alert("ゲームオーバー！スコア: " + score);
         resetGame();
         return;
       }
 
-      // 食べ物を食べた場合
       if (head.x === food.x && head.y === food.y) {
         score++;
         scoreDisplay.textContent = "スコア: " + score;
-        food = { x: Math.floor(Math.random() * boardSize), y: Math.floor(Math.random() * boardSize) }; // 新しい食べ物。食べ放題～
+        food = { x: Math.floor(Math.random() * boardSize), y: Math.floor(Math.random() * boardSize) };
       } else {
-        snake.pop(); // スネークの最後の部分を削除。あーあ消されちゃう。。
+        snake.pop();
       }
 
-      snake.unshift(head); // 新しい頭を追加。頭w
+      snake.unshift(head);
     }
 
     function changeDirection(event) {
@@ -132,3 +128,4 @@
   </script>
 </body>
 </html>
+
