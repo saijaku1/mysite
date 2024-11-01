@@ -1,107 +1,258 @@
 <!DOCTYPE html>
 <html lang="ja">
+  <head>
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ブログ</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f4f4f4;
-            overflow: hidden; 
-        }
-        .loading {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
-        .loader {
-            border: 16px solid #f3f3f3;
-            border-top: 16px solid #3498db;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .content {
-            display: none; 
-        }
-        .border1 {
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin: 20px;
-            background-color: #fff;
-        }
-        .article-title {
-            font-size: 1.5em;
-            font-weight: bold;
-        }
-        .text1 {
-            margin: 10px 0;
-        }
-        h3 {
-            font-size: 0.9em;
-            color: #888;
-        }
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
-    <link rel="icon" href="../image/jaku.png" type="image/png">
+    <title>最弱のブログ</title>
+    <link rel="stylesheet" href="style.css">
+     <link rel="icon" href="../image/jaku.png">
+    <link rel="icon" href="../image/jaku.png">
 </head>
-<body>
-
-    <div class="loading">
-        <div class="loader"></div>
+  <body id="body">
+     <div id="loading">
+      <div class="circle-spin-1"></div>
+<body id="body">
+    <div id="loading">
+        <div class="circle-spin"></div>
     </div>
-
-    <div class="content" id="blogPosts"></div>
-
+ <!-- サイドバー -->
+  <div id="sidebar" class="sidebar">
+    <a href="https://mysite.f5.si/" class="href">ホーム</a>
+    <a href="https:/mysite.f5.si/blog" class="href1">ブログ</a>
+    <a href="https://mysite.f5.si/made" class="href2">最弱が作ったサイト</a>
+    <a href="https://mysite.f5.si/anime" class="href3">じゃくのアニメ</a>
+     <a href="https://mysite.f5.si/notice" class="href">お知らせ</a>
+  </div>
+  <!-- サイドバーを開閉するボタン -->
+  <button class="open-btn" id="toggleButton" onclick="toggleSidebar()">☰</button>
+<!-- メインプログラム -->
+<header class="title">
+  <h1>ブログ</h1>
+</header>
+      <div class="border1">
+  <div>
+    <p class="article-title">うししし。今日のブログはこのサイトの大型アップデート！</p>
+  </div>
+  <div class="text1">
+  <p>(*￣▽￣)ﾌﾌﾌｯ♪。どうもこんにちは。超上機嫌な<b>じゃく</b>です。なんでかって？その理由は...
+  </p> 
+      </div>
+      <h3>10月28日に更新済み</h3>
+        <a href="https://mysite.f5.si/blog/update">続きを読む</a>
+     </div> 
+     <div class="border1">
+  <div>
+    <p class="article-title">最弱のアニメのスタイルを変えました。</p>
+  </div>
+  <div class="text1">
+  <p>最弱のアニメのスタイルを変更しました。見えにくいというフォームのリクエストがあったので、変更しました。
+  </p> 
+      </div>
+      <h3>10月26日に更新済み</h3>
+     </div> 
+    
+    <div class="border1">
+  <div>
+    <p class="article-title">すべてのリポジトリのURLを変更しました。</p>
+  </div>
+  <div class="text1">
+  <p>Githubのリポジトリ(blog-mysite.f5.siなど)のURLをすべてmysite.f5.siに移行したせいで、アクセスができなくなりました。10月16日のようにご迷惑をかけて申し訳ありません。<br>
+  <b>前</b> blog-mysite.f5.si←廃止！<br>
+  <b>今</b> mysite.f5.si/blog←移行！<br>
+  URLの最後にblogやmadeなどが追加されただけです。サイトのスタイルなどは変わっていないのでご安心してください。<br>
+  </p> 
+      </div>
+      <h3>10月22日に更新済み</h3>
+     </div> 
+    
+    
+    <div class="border1">
+  <div>
+    <p class="article-title">サイトが喋ってくれるサイトを作りました！</p>
+  </div>
+  <div class="text1">
+  <p>サイトが喋ってくれる(不自然)なサイトを作ってみました！ぜひ見てください！</p> 
+      </div>
+      <h3>10月20日に更新済み</h3>
+      <a href="https://mysite.f5.si/made/speak" id="fixed">音声が喋るサイトを見る！</a>
+     </div> 
+    <div class="border1">
+  <div>
+    <p class="article-title">リンクの色をずっと青色になるように変更しました</p>
+  </div>
+  <div class="text1">
+  <p>リンクが一部紫色になっていたので、クリックしてもずっと青色のまま表示されるようにスタイルを変更しました。</p> 
+      </div>
+      <h3>10月16日に更新済み</h3>
+     </div> 
+    
+    <div class="border1">
+  <div>
+    <p class="article-title">URLを変更しました。</p>
+  </div>
+  <div class="text1">
+  <p>Githubのフォルダの追加により、アクセスができなくなったため、URLを一部変更しました。<br>
+  <b>前</b> 名前.f5.si<br>
+  <b>今</b> 名前.f5.si/html<br>
+  URLの最後にhtmlが追加されただけです。サイトのスタイルなどは変わっていないのでご安心してください。<br>
+  迷惑をかけて申し訳ありません。</p> 
+      </div>
+      <h3>10月16日に更新済み</h3>
+     </div> 
+    
+    
+    <div class="border1">
+  <div>
+    <p class="article-title">このサイトの秘密 Part2ができました。</p>
+  </div>
+  <div class="text1">
+  <p>Part2を投稿しました！Part1とは違いますが、ぜひ見てください！Part2は<b>ドメインの取得</b>の仕方です。</p> 
+      </div>
+       <a href="https://mysite.f5.si/blog/himitsu2" target="_blank" id="fixed">続きを読む</a>
+      <h3>10月16日に更新済み</h3>
+     </div> 
+    
+    
+    <div class="border1">
+  <div>
+    <p class="article-title">電卓を作りました。</p>
+  </div>
+  <div class="text1">
+  <p>電卓ができました。ぜひ使ってみてください！※掛け・割り・足し・引き算しかできません。cosなどの三角関数は現在開発中です...</p> 
+      </div>
+       <a href="https://mysite.f5.si/made/calculator" target="_blank" id="fixed">電卓を開く</a>
+      <h3>10月15日に更新済み</h3>
+     </div> 
+    
+    <div class="border1">
+  <div>
+    <p class="article-title">アニメサイトを作りました！</p>
+  </div>
+  <div class="text1">
+  <p>僕のアニメのサイトができました！まだ第一話しか公開していないですが、是非見てください！</p> 
+      </div>
+       <a href="https://mysite.f5.si/anime" target="_blank" id="fixed">アニメを見る</a>
+      <h3>10月15日に更新済み</h3>
+     </div> 
+    
+    <div class="border1">
+  <div>
+    <p class="article-title">じゃくの悩み事</p>
+  </div>
+  <div class="text1">
+  <p>じゃくがあることに悩んでいます。つまらないかもしれないですが、どうか聞いてあげてください。</p> 
+      </div>
+       <a href="https://mysite.f5.si/blog/悩み事" target="_blank" id="fixed">続きを読む</a>
+      <h3>10月14日に更新済み</h3>
+     </div> 
+    
+    <div class="border1">
+  <div>
+    <p class="article-title">じゃくのプロフィールができました!</p>
+  </div>
+  <div class="text1">
+  <p>ついに僕のことが暴かれるのか...恥ずかしいーーー</p> 
+      </div>
+       <a href="https://mysite.f5.si/blog/about" target="_blank" id="fixed">プロフィールを見る</a>
+      <h3>10月14日に更新済み</h3>
+     </div> 
+    
+    <div class="border1">
+  <div>
+    <p class="article-title">最弱のオリジナルキャラクターができました!</p>
+  </div>
+  <div class="text1">
+  <p>こんにちは。今日からこんな感じにチャットしていこうと思います。あとかわいい......</p> 
+      </div>
+       <a href="https://mysite.f5.si/blog/キャラクター" target="_blank" id="fixed">続きを読む</a>
+      <h3>10月13日に更新済み</h3>
+     </div> 
+    
+    <div class="border1">
+  <div>
+    <p class="article-title">最弱がまた変なサイトを作りました。</p>
+  </div>
+  <div class="text1">
+  <p>僕、最弱がまた変なサイトを作りました。"おみくじ"です。今日のあなたの運はどうなんでしょうか？それでは試していきましょう！</p> 
+      </div>
+       <a href="https://mysite.f5.si/made/おみくじ" id="fixed">今日の運を試す</a>
+      <h3>10月10日に更新済み</h3>
+     </div>
+    
+    <div class="border1">
+  <div>
+    <p class="article-title">このサイトのプログラムの謎！ Part1</p>
+  </div>
+  <div class="text1">
+    <p>みなさん、ウェブサイトを開くとき、その裏側でどんな仕組みが動いているのか考えたことはありますか？「サイトのプログラミングってどんな仕組みなんだろう？」と疑問に思ったことがある方も多いかもしれません。実は、私たちが普段見ているウェブページは...
+</p> 
+      </div>
+        <a href="https://mysite.f5.si/blog/himitsu" class="read-more" id="fixed">続きを読む</a>
+      <h3>10月8日に更新済み</h3>
+    <div id="sidebar" class="sidebar">
+        <a href="https://mysite.f5.si/" class="href">ホーム</a>
+        <a href="https:/mysite.f5.si/blog" class="href1">ブログ</a>
+        <a href="https://mysite.f5.si/made" class="href2">最弱が作ったサイト</a>
+        <a href="https://mysite.f5.si/anime" class="href3">じゃくのアニメ</a>
+        <a href="https://mysite.f5.si/notice" class="href">お知らせ</a>
+    </div>
+     <div class="border1">
+  <div>
+    <p class="article-title">最弱が作ったサイトを公開しました！</p>
+  </div>
+  <div class="text1">
+    <p>「最弱が作ったサイト」では、僕が制作した様々なサイトを掲載しています。変わったサイトから、役立つ情報を提供するサイトまで、多岐にわたる内容をお楽しみいただけます。また、サイトの利用方法や新しいコンテンツについての情報も随時更新していきますので、ぜひお気軽に訪れてみてください。
+</p> 
+      </div>      
+      <h3>10月7日に更新済み</h3>
+    <button class="open-btn" id="toggleButton" onclick="toggleSidebar()">☰</button>
+    <header class="title">
+        <h1>ブログ</h1>
+    </header>
+    <div id="articles" class="articles"></div>
+    <button id="topButton" class="top-button">∧</button>
+    <button id="downButton" class="down-button">∨</button>
+    <div class="custom-footer">
+        <p>Copyright (C) 2024 最弱のサイト All Rights Reserved.</p>
+    </div>
+    <div class="border1">
+  <div>
+    <p class="article-title">最弱のサイトのスタイルなどを変更しました。</p>
+  </div>
+  <div class="text1">
+    <p>あまりにも記事が見えにくくなったので、全体的なサイトのスタイルを変更しました。これで見やすくなったと思います！</p> 
+      </div>
+      <h3>10月7日に更新済み</h3>
+    </div>
+  </div>
+    <div class="border1">
+  <div>
+    <p class="article-title">僕がやってるRide a cart Simulatorについて</p>
+  </div>
+  <div class="text1">
+    <p>Q1. アップグレードとは？A1. アップグレードとは等級・品質などを上げること。アップグレードにはネオン、ゴールド、レインボー、ダークマターの4つに分けられている。...</p>
+  </div>
+  <a href="https://mysite.f5.si/blog/ride" class="read-more" id="fixed">続きを読む</a>
+<h3>10月3日に更新済み</h3>
+    </div>
+<div class="border1">
+  <div>
+    <p class="article-title">サイトが完成！</p>
+  </div>
+  <div class="text1">
+    <p>10月2日にメインサイトが完成しました。制作期間は1ヶ月ほどかかりました！これからまだまだ更新をしていきますので、このサイトをよろしくお願い致します。</p>
+  </div>
+  <h3>10月2日に更新済み</h3>
+</div>
+ <button id="topButton" class="top-button">∧</button>
+  <button id="downButton" classs="down-button">∨</button>
+   <div class="custom-footer">
+     <p>Copyright (C) 2024 最弱のサイトAll Rights Reserved.</p>
+    </div>
+    
+    </body>
+  <script src="script.js">
+  </script>
     <script src="script.js"></script>
-    <script>
-        // ローディング画面を1秒後に非表示にする
-        setTimeout(function() {
-            document.querySelector('.loading').style.display = 'none'; 
-            document.querySelector('.content').style.display = 'block'; 
-            document.body.style.overflow = 'auto'; 
-        }, 1000); // 1秒後に実行
-
-        // 投稿
-        function displayPosts(posts) {
-            const container = document.getElementById('blogPosts');
-            posts.forEach(post => {
-                const postDiv = document.createElement('div');
-                postDiv.className = 'border1';
-                postDiv.innerHTML = `
-                    <div>
-                        <p class="article-title">${post.title}</p>
-                    </div>
-                    <div class="text1">
-                        <p>${post.content}</p>
-                    </div>
-                    <h3>${post.date}に更新済み</h3>
-                    ${post.link ? `<a href="${post.link}">続きを読む</a>` : ''}
-                `;
-                container.appendChild(postDiv);
-            });
-        }
-        displayPosts(posts);
-    </script>
 </body>
 </html>
