@@ -1,32 +1,108 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>最弱のブログ</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="../image/jaku.png">
+    <title>ブログまとめ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            overflow: hidden; /* ローディング中はスクロールを無効にする */
+        }
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        .loader {
+            border: 16px solid #f3f3f3;
+            border-top: 16px solid #3498db;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .content {
+            display: none; /* 初めはコンテンツを隠す */
+        }
+        .border1 {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 20px;
+            background-color: #fff;
+        }
+        .article-title {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .text1 {
+            margin: 10px 0;
+        }
+        h3 {
+            font-size: 0.9em;
+            color: #888;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
-<body id="body">
-    <div id="loading">
-        <div class="circle-spin"></div>
+<body>
+
+    <div class="loading">
+        <div class="loader"></div>
     </div>
-    <div id="sidebar" class="sidebar">
-        <a href="https://mysite.f5.si/" class="href">ホーム</a>
-        <a href="https:/mysite.f5.si/blog" class="href1">ブログ</a>
-        <a href="https://mysite.f5.si/made" class="href2">最弱が作ったサイト</a>
-        <a href="https://mysite.f5.si/anime" class="href3">じゃくのアニメ</a>
-        <a href="https://mysite.f5.si/notice" class="href">お知らせ</a>
-    </div>
-    <button class="open-btn" id="toggleButton" onclick="toggleSidebar()">☰</button>
-    <header class="title">
-        <h1>ブログ</h1>
-    </header>
-    <div id="articles" class="articles"></div>
-    <button id="topButton" class="top-button">∧</button>
-    <button id="downButton" class="down-button">∨</button>
-    <div class="custom-footer">
-        <p>Copyright (C) 2024 最弱のサイト All Rights Reserved.</p>
-    </div>
-    <script src="script.js"></script>
+
+    <div class="content" id="blogPosts"></div>
+
+    <script src="posts.js"></script>
+    <script>
+        // ローディング画面を1秒後に非表示にする
+        setTimeout(function() {
+            document.querySelector('.loading').style.display = 'none'; // ローディング画面を非表示
+            document.querySelector('.content').style.display = 'block'; // コンテンツを表示
+            document.body.style.overflow = 'auto'; // スクロールを有効にする
+        }, 1000); // 1秒後に実行
+
+        // 投稿を表示する関数。結構わかりやすくしたぞ。
+        function displayPosts(posts) {
+            const container = document.getElementById('blogPosts');
+            posts.forEach(post => {
+                const postDiv = document.createElement('div');
+                postDiv.className = 'border1';
+                postDiv.innerHTML = `
+                    <div>
+                        <p class="article-title">${post.title}</p>
+                    </div>
+                    <div class="text1">
+                        <p>${post.content}</p>
+                    </div>
+                    <h3>${post.date}に更新済み</h3>
+                    ${post.link ? `<a href="${post.link}">続きを読む</a>` : ''}
+                `;
+                container.appendChild(postDiv);
+            });
+        }
+
+        // 投稿データを読み込むよ
+        displayPosts(posts);
+    </script>
 </body>
 </html>
