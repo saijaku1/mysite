@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../image/jaku.png">
     <title>ゲームサイト</title>
-    <link rel="stylesheet">
-     <link rel="icon" href="https://tse1.mm.bing.net/th/id/OIP.X0joAWe3KjQZ_z2pjsxp2AHaHa?">
+    <link rel="stylesheet" href="more.css">
 </head>
 <body>
     <header>
         <h1>最弱が作ったサイト</h1>
         <nav>
             <ul>
-                <li><a href="https://mysite.f5.si">サイトのホームに戻る</a></li>
-                <li><a href="https://mysite.f5.si/made/more">もっと見る!</a></li>
+                <li><a href="https://mysite.f5.si/made/more">もっと見る</a></li>
             </ul>
         </nav>
     </header>
@@ -43,67 +42,32 @@
             </div>
         </section>
     </main>
-
     <footer class="custom-footer">
         <p>© 2024 最弱のサイト. All Rights Reserved.</p>
     </footer>
+
 <style>
   body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #f8f9fb;
+    color: #333;
 }
-    /* サイドバーのスタイル */
-    .sidebar {
-      height: 100%;
-      width: 0;  /* 初期状態では閉じる */
-      position: fixed;
-      top: 0;
-      left: 0;
-      background-color: #333333;
-      overflow-x: hidden;
-      transition: 0.3s;  /* 開閉時のアニメーション */
-      padding-top: 60px;
-    }
-
-    /* サイドバーのリンクのスタイル */
-    .sidebar a {
-      padding: 15px 10px;
-      text-decoration: none;
-      font-size: 18px;
-      color: white;
-      display: block;
-      transition: 0.2s;
-    }
-
-    .sidebar a:hover {
-      background-color: #575757;
-    }
-
-    /* サイドバーを開閉するボタン */
-    .open-btn {
-      font-size: 20px;
-      cursor: pointer;
-      background-color: #111;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      border-radius:20%;
-    }
-    /* サイドバーが開いている時のスタイル */
-    .sidebar.open {
-      width: 250px;
-}
-
 header {
-    background-color: #2f3030;
+    background-color: #2d3e50;
     color: #fff;
     padding: 20px;
     text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+header h1 {
+    font-size: 2em;
+    position: relative;
+    animation: slide-in 1s forwards;
 }
 
 nav ul {
@@ -111,13 +75,19 @@ nav ul {
     padding: 0;
     margin: 0;
     display: flex;
-    justify-content: center; /* 中央揃え */
-    gap: 20px; /* 項目間の間隔 */
+    justify-content: center;
+    gap: 20px;
 }
 
 nav a {
     color: #fff;
     text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #66d3fa;
 }
 
 main {
@@ -126,56 +96,93 @@ main {
 
 .game-list {
     display: flex;
-    flex-direction:column; /* 縦並び */
-    align-items: center; /* 中央揃え */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    animation: fade-in 1s ease-in;
 }
 
 .game {
     background-color: #fff;
-    border: 1px solid #ccc;
     border-radius: 10px;
-    padding: 15px;
-    margin: 15px;
-    width: 300px; /* ゲームカードの幅 */
-    text-align: center; /* テキストを中央揃え */
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+    width: 280px;
+    position: relative;
+    overflow: hidden;
+}
+
+.game:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.game h3 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.game p {
+    font-size: 0.9em;
+    color: #555;
 }
 
 button {
     background-color: #007bff;
     color: white;
-    border:none;
+    border: none;
     border-radius: 5px;
     padding: 10px 15px;
     cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-weight: bold;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
-    background-color: #0056b3; /* ホバー時の色 */
+    background-color: #0056b3;
+    transform: scale(1.05);
 }
 
 .custom-footer {
     border-top: 2px solid #333;
     padding: 10px;
     text-align: center;
-    background-color: #2f3030;
+    background-color: #2d3e50;
     color: #fff;
 }
-</style>
-    <script>
-        const button1 = document.querySelector("#button1").addEventListener("click", function() {
-            console.log("Button 1 clicked");
-            window.location.href = "https://mysite.f5.si/made/color"; // 修正済み
-        });
 
-        const button2 = document.querySelector("#button2").addEventListener("click", function() {
-            console.log("Button 2 clicked");
-            window.location.href = "https://mysite.f5.si/made/password";
+@keyframes slide-in {
+    0% { transform: translateX(-100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+</style>
+
+<script>
+    document.querySelectorAll("button").forEach((button, index) => {
+        button.addEventListener("click", function() {
+            const urls = [
+                "https://mysite.f5.si/made/おみくじ",
+                "https://mysite.f5.si/made/color",
+                "https://mysite.f5.si/made/password",
+                "https://mysite.f5.si/made/calculator",
+                "https://mysite.f5.si/made/speak",
+                "https://mysite.f5.si/made/iframe",
+                "https://mysite.f5.si/made/snake"
+            ];
+            if (index < urls.length) {
+                window.location.href = urls[index];
+            }
         });
-        
-        const button0 = document.querySelector("#button0").addEventListener("click", function() {
-            console.log("Button 0 clicked");
-            window.location.href = "https://mysite.f5.si/made/おみくじ"; // 修正済み
-        });
-    </script>
+    });
+</script>
 </body>
 </html>
+
