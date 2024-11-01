@@ -40,48 +40,46 @@
                 <p>自分の決め次第でより強力なパスワードを作ってくれます。</p>
                 <button id="button2">見てみる</button>
             </div>
-        </section>
-    </main>
-  <main>
-        <section class="game-list">
             <div class="game">
                 <h3>拡張電卓</h3>
-                <p>シンプル電卓から色々機能が追加された拡張電卓です。三角関数は多分ほとんどできます。現在他の三角関数や微分、積分などを開発する予定です。</p>
+                <p>三角関数や他の機能が追加された電卓です。微分や積分も開発中です。</p>
                 <button id="button3">見てみる</button>
             </div>
-        <div class="game">
+            <div class="game">
                 <h3>音声が喋るサイト</h3>
-                <p>文字を入力して再生をすることで音声が喋ってくれます。<br>※このサイトは没サイトです。期待しないでください。</p>
+                <p>文字を入力して再生をすることで音声が喋ってくれます。<br>※このサイトは没サイトです。</p>
                 <button id="button4">見てみる</button>
             </div>
-           <div class="game">
+            <div class="game">
                 <h3>Iframeサイト</h3>
-                <p>このサイトを使って、学校のPCでゲームやYoutubeなどをいろいろ見よう！<br>※場合によってはブロックされる場合があります。</p>
+                <p>学校のPCでゲームやYoutubeをいろいろ見よう！<br>※場合によってはブロックされる場合があります。</p>
                 <button id="button5">見てみる</button>
-           </div>
-              <div class="game">
+            </div>
+            <div class="game">
                 <h3>???</h3>
                 <p>何が出るんだろう?</p>
                 <button id="button6">???</button>
-            </div>
             </div>
         </section>
     </main>
     <footer class="custom-footer">
         <p>© 2024 最弱のサイト. All Rights Reserved.</p>
     </footer>
+
 <style>
   body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #f8f9fb;
+    color: #333;
 }
 header {
-    background-color: #2f3030;
+    background-color: #2d3e50;
     color: #fff;
     padding: 20px;
     text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 nav ul {
@@ -89,13 +87,14 @@ nav ul {
     padding: 0;
     margin: 0;
     display: flex;
-    justify-content: center; /* 中央揃え */
-    gap: 20px; /* 項目間の間隔 */
+    justify-content: center;
+    gap: 20px;
 }
 
 nav a {
     color: #fff;
     text-decoration: none;
+    font-weight: bold;
 }
 
 main {
@@ -104,71 +103,67 @@ main {
 
 .game-list {
     display: flex;
-    flex-direction:column; /* 縦並び */
-    align-items: center; /* 中央揃え */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
 .game {
     background-color: #fff;
-    border: 1px solid #ccc;
     border-radius: 10px;
-    padding: 15px;
-    margin: 15px;
-    width: 300px; /* ゲームカードの幅 */
-    text-align: center; /* テキストを中央揃え */
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+    width: 280px;
+}
+
+.game:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 button {
     background-color: #007bff;
     color: white;
-    border:none;
+    border: none;
     border-radius: 5px;
     padding: 10px 15px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
 }
 
 button:hover {
-    background-color: #0056b3; /* ホバー時の色 */
+    background-color: #0056b3;
 }
 
 .custom-footer {
     border-top: 2px solid #333;
     padding: 10px;
     text-align: center;
-    background-color: #2f3030;
+    background-color: #2d3e50;
     color: #fff;
 }
 </style>
-    <script>
-        const button1 = document.querySelector("#button1").addEventListener("click", function() {
-            console.log("Button 1 clicked");
-            window.location.href = "https://mysite.f5.si/made/color"; // 修正済み
-        });
 
-        const button2 = document.querySelector("#button2").addEventListener("click", function() {
-            console.log("Button 2 clicked");
-            window.location.href = "https://mysite.f5.si/made/password";
+<script>
+    document.querySelectorAll("button").forEach((button, index) => {
+        button.addEventListener("click", function() {
+            const urls = [
+                "https://mysite.f5.si/made/おみくじ",
+                "https://mysite.f5.si/made/color",
+                "https://mysite.f5.si/made/password",
+                "https://mysite.f5.si/made/calculator",
+                "https://mysite.f5.si/made/speak",
+                "https://mysite.f5.si/made/iframe",
+                "https://mysite.f5.si/made/snake"
+            ];
+            if (index < urls.length) {
+                window.location.href = urls[index];
+            }
         });
-        
-        const button0 = document.querySelector("#button0").addEventListener("click", function() {
-            console.log("Button 0 clicked");
-            window.location.href = "https://mysite.f5.si/made/おみくじ"; // 修正済み
-        });
-
-        const button3 = document.querySelector("#button3").addEventListener("click", function() {
-            console.log("Button 3 clicked");
-            window.location.href = "https://mysite.f5.si/made/calculator"; // 修正済み
-        });
-
-         const button4 = document.querySelector("#button4").addEventListener("click", function() {
-            console.log("Button 4 clicked");
-            window.location.href = "https://mysite.f5.si/made/speak"; // 修正済み             
-        });
-
-            const button5 = document.querySelector("#button5").addEventListener("click", function() {
-            console.log("Button 5 clicked");
-            window.location.href = "https://mysite.f5.si/made/iframe"; // 修正済み
-        });
-    </script>
+    });
+</script>
 </body>
 </html>
