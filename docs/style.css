@@ -1,4 +1,4 @@
-  body{
+ body{
       margin:0;
       padding:0;
       background-color:#1c1f1d;
@@ -91,10 +91,11 @@ button:hover{
   border-radius:5px;
   max-width:450px;
   margin-left:55em;
-  margin-top:3em;
+  margin-top:15em;
 }
 .p{
-  margin-left:25rem;
+  margin-left:20rem;
+  margin-top:50px;
   font-size:20px;
 }
 #a{
