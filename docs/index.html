@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="../../image/jaku.png">
+  <link rel="icon" href="../image/jaku.png">
   <link rel="stylesheet" href="style.css">
-  <title>変更履歴</title>
+  <title>ようこそ</title>
 </head>
 <body>
   <header>
@@ -18,48 +18,38 @@
       </ul>
     </nav>
   </header>
-  <nav class="nav1">
-    <ul>
-      <li><a href="https://mysite.f5.si">最弱のサイト</a></li>
-      <li><a href="https://mysite.f5.si/docs">いらっしゃいませ</a></li>
-      <li><a href="https://mysite.f5.si/docs/history">変更履歴</a></li>
-      <li><a href="https://mysite.f5.si/docs/terms-of-use">利用規約</a></li>
-      <li><a href="https://mysite.f5.si/blog">ブログ</a></li>
-    </ul>
-  </nav>
+     <nav class="nav1">
+      <ul>
+        <li a href="https://mysite.f5.si">最弱のサイト</li>
+        <li><a href="https://mysite.f5.si/docs">いらっしゃいませ</a></li>
+        <li><a href="https://mysite.f5.si/docs/history">変更履歴</a></li>
+        <li><a href="https://mysite.f5.si/docs/terms-of-use">利用規約</a></li>
+        <li><a href="https://mysite.f5.si/blog">ブログ</a></li>
+      </ul>
+    </nav>
   <div class="setumei">
     <button>🏠</button>
-    <p><span class="radius">変更履歴</span></p>
-    <h1>変更履歴</h1>
-    <h2>V0.2</h2>
-    <ul>
-      <li>全体的なサイトのスタイルを変更しました。</li>
-      <li>ドキュメントを追加しました。</li>
-      <li>お知らせサイトのバグを修正</li>
-    </ul>
+    <p><span class="radius">いらっしゃいませ</span></p>
+    <h1>いらっしゃいませー</h1>
+    <p>最弱のサイトは最弱のブログやできごとなどを公開するためのサイトであり、<br><a href="https://mysite.f5.si">このサイト</a>は公式ウェブサイトとして機能しています。最弱が作ったサイトなどのいろんな機能を提供しております。</p>
   </div>
-  <div id="before">
-    <p style="color:white; font-weight:bolder;" class="p">前へ</p>
-    <p id="a">← いらっしゃいませ (ホーム)</p>
+ <div id="next">
+  <p style="color:white; font-weight:bolder;" class="p">次へ</p>
+   <p id="a">利用規約 Terms of use →</p>
+   <p id="a">変更履歴 →</p>
   </div>
-  <div id="next">
-    <p style="color:white; font-weight:bolder;" class="p">次へ</p>
-    <p id="a">利用規約 Terms of use →</p>
+<footer class="footer">
+  <p>&copy; 2024 最弱のサイト. All rights reserved.</p>
   </div>
-  <footer class="footer">
-    <p>&copy; 2024 最弱のサイト. All rights reserved.</p>
-  </footer>
+</footer>
 
+</body>
   <script>
-    document.querySelector("button").addEventListener("click", () => {
+     document.querySelector("button").addEventListener("click", () => {
       window.location.href = "https://mysite.f5.si";
     });
     document.querySelector("#next").addEventListener("click", () => {
-      window.location.href = "/terms-of-use";
-    });
-    document.querySelector("#before").addEventListener("click", () => {
-      window.location.href = "https://mysite.f5.si/docs";
+      window.location.href = "/history";
     });
   </script>
-</body>
 </html>
