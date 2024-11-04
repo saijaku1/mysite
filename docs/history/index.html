@@ -18,15 +18,15 @@
       </ul>
     </nav>
   </header>
-     <nav class="nav1">
-      <ul>
-        <li a href="https://mysite.f5.si">最弱のサイト</li>
-        <li><a href="https://mysite.f5.si/docs">いらっしゃいませ</a></li>
-        <li><a href="https://mysite.f5.si/docs/history">変更履歴</a></li>
-        <li><a href="https://mysite.f5.si/docs/terms-of-use">利用規約</a></li>
-        <li><a href="https://mysite.f5.si/blog">ブログ</a></li>
-      </ul>
-    </nav>
+  <nav class="nav1">
+    <ul>
+      <li><a href="https://mysite.f5.si">最弱のサイト</a></li>
+      <li><a href="https://mysite.f5.si/docs">いらっしゃいませ</a></li>
+      <li><a href="https://mysite.f5.si/docs/history">変更履歴</a></li>
+      <li><a href="https://mysite.f5.si/docs/terms-of-use">利用規約</a></li>
+      <li><a href="https://mysite.f5.si/blog">ブログ</a></li>
+    </ul>
+  </nav>
   <div class="setumei">
     <button>🏠</button>
     <p><span class="radius">変更履歴</span></p>
@@ -38,30 +38,28 @@
       <li>お知らせサイトのバグを修正</li>
     </ul>
   </div>
-   <div id="before">
-  <p style="color:white; font-weight:bolder;" class="p">前へ</p>
-   <p id="a">← いらっしゃいませ (ホーム)</p>
+  <div id="before">
+    <p style="color:white; font-weight:bolder;" class="p">前へ</p>
+    <p id="a">← いらっしゃいませ (ホーム)</p>
   </div>
- <div id="next">
-  <p style="color:white; font-weight:bolder;" class="p">次へ</p>
-   <p id="a">利用規約 Terms of use →</p>
+  <div id="next">
+    <p style="color:white; font-weight:bolder;" class="p">次へ</p>
+    <p id="a">利用規約 Terms of use →</p>
   </div>
-<footer class="footer">
-  <p>&copy; 2024 最弱のサイト. All rights reserved.</p>
-  </div>
-</footer>
+  <footer class="footer">
+    <p>&copy; 2024 最弱のサイト. All rights reserved.</p>
+  </footer>
 
-</body>
   <script>
-    const button=document.querySelector("button").addEventListener("click",()=>{
-  window.location.href="https://mysite.f5.si";
-})
-const next=document.querySelector("#next").addEventListener("click",=>(){
-window.location.href="/terms-of-use";
-})
-
-const before=document.querySelector("#before").addEventListener("click",=>(){
-window.location.href="https://mysite.f5.si/docs";
-})
+    document.querySelector("button").addEventListener("click", () => {
+      window.location.href = "https://mysite.f5.si";
+    });
+    document.querySelector("#next").addEventListener("click", () => {
+      window.location.href = "/terms-of-use";
+    });
+    document.querySelector("#before").addEventListener("click", () => {
+      window.location.href = "https://mysite.f5.si/docs";
+    });
   </script>
+</body>
 </html>
