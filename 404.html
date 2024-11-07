@@ -7,7 +7,24 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="../image/jaku.png">
     <title>Not Found</title>
+    <style>
+        body{
+            padding:0;
+            text-align:center;
+        }
+        span{
+            color:red;
+        }
+    </style>
     <body>
-        <h1>申し訳ございませんが、お探しのページは見つかりませんでした。</h1>
+        <h1><span>404</span>Sites Not Found</h1>
+        <h3>申し訳ございませんが、お探しのページは見つかりませんでした。</h3>
+        <p>5秒後に自動的にホームへ移動します。</p>
 </body>
+    <script>
+    function load(){
+    window.location.href="https://mysite.f5.si";
+    }
+        setTimeout(5000,load);
+    </script>
 </html>
