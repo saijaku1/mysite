@@ -4,7 +4,7 @@
        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet">
     <link rel="icon" href="../image/jaku.png">
     <title>Not Found</title>
     <style>
@@ -22,9 +22,8 @@
         <p>5秒後に自動的にホームへ移動します。</p>
 </body>
     <script>
-    function load(){
+        setTimeout(()=>{
     window.location.href="https://mysite.f5.si";
-    }
-        setTimeout(5000,load);
+    },5000);
     </script>
 </html>
