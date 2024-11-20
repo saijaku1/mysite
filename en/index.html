@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saijaku's site</title>
+    <link rel="icon" href="../image/jaku.png">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="loading">
+      <div class="circle-spin-1"></div>
+    </div>
+    <div id="sidebar" class="sidebar">
+      <a href="https://mysite-en.f5.si">Home</a>
+      <a href="/notice" class="href1">Notice(In development)</a>
+      <a href="#" class="href2">Made by saijaku(In development)</a>
+      <a href="#" class="href3">Saijaku's anime(In development)</a>
+      <a href="/blog" class="href4">Blog</a>
+  <a href="/docs">document(In devolopment)</a>
+    </div>
+    
+    <button class="open-btn" id="toggleButton" onclick="toggleSidebar()">☰</button>
+    <header class="title">
+      <h1>Saijaku's site</h1>
+    </header>
+
+    <div class="border1">
+      <div class="heading1">
+        <p>news</p>
+      </div>
+      <div class="text1">
+        <p>I made English version mysite!</p>
+      </div>
+      <a href="https://mysite.f5.si/blog" class="read-more" id="fixel">Watch blog</a>
+    </div>
+
+  <div class="border1">
+      <div class="heading1">
+        <p>Blog</p>
+      </div>
+      <div class="text1">
+        <p>There are currently no postings.</p>
+      </div>
+      <a href="https://mysite.f5.si/blog" class="read-more" id="fixel"></a>
+    </div>
+    
+    <div class="border1">
+      <div class="heading1">
+        <p>Notice</p>
+      </div>
+      <div class="text1">
+        <p>I'm making other sites</p>
+      </div>
+      <a href="https://mysite.f5.si/notice" class="read-more" id="fixel">Read more</a>
+    </div>
+    
+    <div class="custom-footer">
+      <p style="padding-left:12em;">Copyright (C) 2024 Saijaku's site  All Rights Reserved.</p>
+      <div class="footer-links">
+          <a href="https://github.com/saijaku2/mysite" target="_blank" class="footer-icon">github</a>
+          <a href="https://mysite.f5.si/blog" target="_blank" class="footer-link">blog</a>
+      </div>
+    </div>
+
+    <script>
+     window.addEventListener("load", function () {
+  setTimeout(load, 1000); 
+  function load() {
+    document.body.classList.add("loaded");
+  }
+});
+
+      function toggleSidebar() {
+          var sidebar = document.getElementById("sidebar");
+          var toggleButton = document.getElementById("toggleButton");
+          if (sidebar.classList.contains("open")) {
+            sidebar.classList.remove("open");
+            toggleButton.innerHTML = "☰";
+          } else {
+            sidebar.classList.add("open");
+            toggleButton.innerHTML = "×";
+          }
+        }
+    </script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-919662JVR4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-919662JVR4');
+</script>
+  </body>
+</html>
