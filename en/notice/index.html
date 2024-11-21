@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,23 +9,33 @@
 </head>
 <body>
   <header>
-    <h1>お知らせサイト</h1>
+    <h1>Notice Board</h1>
     <div class="filters">
-      <input type="date" id="dateFilter" placeholder="日付でフィルター">
+      <label for="dateFilter">Filter by Date:</label>
+      <input type="date" id="dateFilter">
+      <label for="categoryFilter">Filter by Category:</label>
       <select id="categoryFilter">
-        <option value="">Choose your category</option>
-        <option value="ニュース">News</option>
-        <option value="イベント">Event</option>
-        <option value="更新情報">Update information</option>
+        <option value="" disabled selected>Choose your category</option>
+        <option value="News">News</option>
+        <option value="Event">Event</option>
+        <option value="Update information">Update information</option>
       </select>
+      <button id="resetFilters">Reset Filters</button>
     </div>
   </header>
 
-  <main id="noticeList">
-  </main>
+  <main id="noticeList"></main>
+
+  <button id="darkModeToggle">Toggle Dark Mode</button>
+
   <script>
     const notices = [
-      { title: "system update", date: "2024-11-21", category: "News", content: "Today,I'm glad day!I finally could notice site!I'm too happy!!!!!! well,We'll continue to update this site, so please keep checking back." },   
+      {
+        title: "System Update",
+        date: "2024-11-21",
+        category: "News",
+        content: "Today, I'm having a great day! I finally completed the notice site! I'm so happy! We'll continue updating this site, so please keep checking back."
+      },
     ];
 
     function displayNotices(filterDate = "", filterCategory = "") {
@@ -41,7 +51,7 @@
 
       if (filteredNotices.length === 0) {
         const noNotices = document.createElement("div");
-        noNotices.textContent = "There still be nothing here ";
+        noNotices.textContent = "There still be nothing here.";
         noticeList.appendChild(noNotices);
       }
 
@@ -65,6 +75,16 @@
 
     document.getElementById("categoryFilter").addEventListener("change", (e) => {
       displayNotices(document.getElementById("dateFilter").value, e.target.value);
+    });
+
+    document.getElementById("resetFilters").addEventListener("click", () => {
+      document.getElementById("dateFilter").value = "";
+      document.getElementById("categoryFilter").value = "";
+      displayNotices();
+    });
+
+    document.getElementById("darkModeToggle").addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
     });
 
     displayNotices();
