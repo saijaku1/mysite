@@ -1,18 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="../inage/jaku.png">
+  <title>Notice</title>
+  <link rel="icon" href="../image/jaku.png">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Comming Soon!</h1>
-<style>
-  h1{
-    text-align:center;
-    font-size:45px;
-    
-  }
-  </style>
-  </body>
+  <header>
+    <h1>お知らせサイト</h1>
+    <div class="filters">
+      <input type="date" id="dateFilter" placeholder="日付でフィルター">
+      <select id="categoryFilter">
+        <option value="">Choose your category</option>
+        <option value="ニュース">News</option>
+        <option value="イベント">Event</option>
+        <option value="更新情報">Update information</option>
+      </select>
+    </div>
+  </header>
+
+  <main id="noticeList">
+  </main>
+  <script>
+    const notices = [
+      { title: "system update", date: "2024-11-21", category: "News", content: "Today,I'm glad day!I finally could notice site!I'm too happy!!!!!! well,We'll continue to update this site, so please keep checking back." },   
+    ];
+
+    function displayNotices(filterDate = "", filterCategory = "") {
+      const noticeList = document.getElementById("noticeList");
+      noticeList.innerHTML = "";
+
+      const filteredNotices = notices
+        .filter(notice => {
+          return (!filterDate || notice.date === filterDate) &&
+                 (!filterCategory || notice.category === filterCategory);
+        })
+        .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+      if (filteredNotices.length === 0) {
+        const noNotices = document.createElement("div");
+        noNotices.textContent = "There is no ";
+        noticeList.appendChild(noNotices);
+      }
+
+      filteredNotices.forEach(notice => {
+        const card = document.createElement("div");
+        card.classList.add("notice-card");
+
+        card.innerHTML = `
+          <h2>${notice.title}</h2>
+          <p class="date">${notice.date}</p>
+          <p>${notice.content}</p>
+        `;
+
+        noticeList.appendChild(card);
+      });
+    }
+
+    document.getElementById("dateFilter").addEventListener("change", (e) => {
+      displayNotices(e.target.value, document.getElementById("categoryFilter").value);
+    });
+
+    document.getElementById("categoryFilter").addEventListener("change", (e) => {
+      displayNotices(document.getElementById("dateFilter").value, e.target.value);
+    });
+
+    displayNotices();
+  </script>
+</body>
 </html>
