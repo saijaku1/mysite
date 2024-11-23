@@ -1,81 +1,99 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-       <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <link rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../image/jaku.png">
     <title>Not Found</title>
     <style>
-        body{
-          padding:0;
-          text-align:center;
-          background: linear-gradient(181deg,#5544e8,#55ef13,#2194ca,#99ef19,#fb4f85,#e8f4e0);
-          background-size: 360% 360%;
-          animation: gradient-animation 12s ease infinite;
-   @keyframes gradient-animation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background: linear-gradient(181deg, #5544e8, #55ef13, #2194ca, #99ef19, #fb4f85, #e8f4e0);
+            background-size: 360% 360%;
+            animation: gradient-animation 12s ease infinite;
+            color: #fff;
         }
-        span{
-            color:red;
-        }
-      button {
-  width:130px;
-  background: linear-gradient(300deg,deepskyblue,darkviolet,blue,#c414dd);
-  background-size: 240% 240%;
-  animation: gradient-animation 24s ease infinite;
-  height:60px;
-  border-color:black;
-  border-radius:5px;
-  margin:40px;
-  cursor:pointer;
-  text-align:center;
-  color:white;
-  font-weight:bolder;
-  border:none;
-}
-@keyframes gradient-animation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-    </style>
-    <body>
-        <h1><span>404</span>Sites Not Found</h1>
-        <h3>申し訳ございませんが、お探しのページは見つかりませんでした。<br>I'm sorry,The sites hadn't found.</h3>
-      <b>5秒後に自動的にホームへ移動します。<br>After 5 seconds, it automatically moves to the home.(Jump to the Japanese version site!)
-</b>
-      <button href="https://mysite.f5.si">ホームに戻る </button>
-        <p><b>Attention!</b>If you push the button,Jump to the Japanese version site!</p>
-        <button href="https://mysite.f5.si/en" class="button2">Back to the home</button>
-        <p>
-        <p><b>注意!</b>上のボタンを押すと英語のサイトに飛びます。</p>
-</body>
-    <script>
-        setTimeout(()=>{
-    window.location.href="https://mysite.f5.si";
-    },5000);
-      const button=document.querySelector("button").addEventListener("click",()=>{
-        window.location.href="https://mysite.f5.si";
-      });
 
-        const button2=document.querySelector(".button2").addEventListener("click",()=>{
-        window.location.href="https://mysite.f5.si/en";
-        })
-    </script>
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-top: 2rem;
+        }
+
+        h1 span {
+            color: #ff3b3b;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            line-height: 1.8;
+        }
+
+        b {
+            display: block;
+            margin-top: 1rem;
+            font-size: 1rem;
+        }
+
+        .button-container {
+            margin-top: 2rem;
+        }
+
+        button {
+            width: 160px;
+            height: 50px;
+            margin: 1rem 10px;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(300deg, deepskyblue, darkviolet, blue, #c414dd);
+            background-size: 240% 240%;
+            animation: gradient-animation 6s ease infinite;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        p {
+            margin-top: 1rem;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            button {
+                width: 140px;
+                height: 45px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1><span>404</span> Sites Not Found</h1>
+    <h3>申し訳ございませんが、お探しのページは見つかりませんでした。<br>I'm sorry, the site couldn't be found.</h3>
+    <div class="button-container">
+        <button onclick="window.location.href='https://mysite.f5.si'">ホームに戻る</button>
+        <button onclick="window.location.href='https://mysite.f5.si/en'">Back to Home</button>
+    </div>
+    <p><b>Attention!</b> Clicking the buttons will navigate to the respective language version.</p>
+</body>
 </html>
