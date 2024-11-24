@@ -1,146 +1,128 @@
- body{
-      margin:0;
-      padding:0;
-      background-color:#1c1f1d;
-    }
-    header {
-      background-color:#343835;
-      padding: 1px;
-      margin:auto;
-      color:white;
-      width:100%;
-    }
-    .nav ul {
-      list-style: none;
-      padding: 10px;
-      display: flex;
-      gap: 30px;
-    }
-    li{
-      font-size:20px;
-      font-weight:bolder;
-      margin-left:50px;
-    }
-    .nav ul li a {
-      text-decoration: none;
-      color:white;
-      font-weight: bold;
-      margin:15px;
-    }
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #121212;
+  font-family: 'Arial', sans-serif;
+  color: #e0e0e0;
+}
 
-    .nav ul li a:hover {
-      color: #007BFF;
-    }
+header {
+  background-color: #1f1f1f;
+  padding: 15px;
+  text-align: center;
+}
 
-/*nav1のプログラムだよ*/
+.nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.nav ul li {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: #e0e0e0;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.nav ul li a:hover {
+  background-color: #007BFF;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
 .nav1 {
-  background-color:black;
-  padding-bottom:10%;
-  width:15%;
+  background-color: #1c1c1c;
+  padding: 20px;
+  width: 200px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .nav1 ul {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 .nav1 ul li {
-  margin-bottom: 80px;
+  margin-bottom: 20px;
 }
 
 .nav1 ul li a {
   text-decoration: none;
-  color: white;
-  font-weight: bold;
+  color: #e0e0e0;
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .nav1 ul li a:hover {
-  color: #FFD700;
+  background-color: #FFD700;
+  color: #1c1f1d;
+  transition: background-color 0.3s ease;
 }
-.setumei{
-  margin-top:-650px;
-  margin-left:20em;
-  width:100%;
-  color:white;
-}
-.setumei button{
-  font-size:20px;
-  border:none;
-  background:none;
-}
-.setumei button::after{
- content:"→";
-}
-button:hover{
-  cursor:pointer;
-}
-.radius{
-  background-color:#343835;
-  font-weight:bolder;
-  border-radius:20%;
-  padding-left:5px;
-  padding-top:5px;
-  display:inline;
-  position:absolute;
-  margin-top:-45px;
-  margin-left:100px;
-}
-#next{
-  border:solid 1px #c2c1be;
-  border-radius:5px;
-  max-width:450px;
-  margin-left:55em;
-  margin-top:-9.5em;
-}
-#before{
-  border:solid 1px #c2c1be;
-  border-radius:5px;
-  max-width:450px;
-  margin-left:40em;
-  margin-top:15em;
-  padding-top:10px;
-}
-.p{
-  margin-left:15rem;
-  margin-top:50px;
-  font-size:20px;
-}
-#a{
-  font-weight:bold;
-  text-decoration:none;
-  color:#5e6e36;
-  margin-left:10rem;
-  font-size:20px;
-  
-}
-#next:hover{
-  text-decoration:underline;
- border-color:#5e6e36;
-  transition: border-color 0.5s ease;
-  cursor:pointer;
-  padding:10px;
-}
-#before:hover{
-   text-decoration:underline;
- border-color:#5e6e36;
-  transition: border-color 0.5s ease;
-  cursor:pointer;
-  padding:10px;
-}
-.footer {
-  
-  background-color: #343835;
-  color: #ffffff;
+
+.setumei {
+  margin-left: 250px;
   padding: 20px;
-  margin-left:0;
-  margin-top:10em;
-  text-align: center;
-  font-size: 14px;
-  max-width:120em;
-  z-index: 1000;
 }
-.setumei ol li{
-  margin-top:20px;
-  margin-left:-10px;
+
+.setumei button {
+  font-size: 18px;
+  color: #FFD700;
+  background: none;
+  border: 2px solid #FFD700;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.setumei button:hover {
+  background-color: #FFD700;
+  color: #1c1f1d;
+  transition: background-color 0.3s ease;
+}
+
+.radius {
+  background-color: #343835;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+#before {
+  border: 1px solid #c2c1be;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 500px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#before:hover {
+  background-color: #5e6e36;
+  color: #fff;
+  border-color: #5e6e36;
+  transition: all 0.3s ease;
+}
+
+.footer {
+  background-color: #1f1f1f;
+  color: #e0e0e0;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
 }
