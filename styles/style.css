@@ -58,14 +58,19 @@ body {
 
 .sidebar {
   height: 100%;
-  width: 0;
+  width: 0; /* デフォルトで非表示 */
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #333333;
-  overflow-x: hidden;
-  transition: 0.3s;
-  padding-top: 60px;
+  background-color: #333333; /* 背景色を正確に指定 */
+  overflow-x: hidden; /* 横スクロールを防止 */
+  transition: width 0.3s; /* アニメーション */
+  padding-top: 60px; /* 上部の余白 */
+  box-sizing: border-box; /* パディングとボーダーを含む幅計算にする */
+}
+
+.sidebar.open {
+  width: 250px; /* サイドバーが開いた時の幅 */
 }
 
 .sidebar a {
@@ -74,7 +79,7 @@ body {
   font-size: 18px;
   color: white;
   display: block;
-  transition: 0.2s;
+  transition: background-color 0.2s;
 }
 
 .sidebar a:hover {
@@ -93,11 +98,6 @@ body {
   left: 20px;
   border-radius: 20%;
 }
-
-.sidebar.open {
-  width: 250px;
-}
-
 .title {
   background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGteH0LDet0636ouB3OWElcInVYOrHZ9prdw&s');
   background-size: cover;
