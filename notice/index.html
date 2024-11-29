@@ -19,10 +19,10 @@
         <option value="更新情報">更新情報</option>
       </select>
     </div>
+    <button id="toggleDarkMode">ダークモード切り替え</button>
   </header>
 
-  <main id="noticeList">
-  </main>
+  <main id="noticeList"></main>
 
   <style>
     body {
@@ -65,6 +65,23 @@
       border-color: #4a90e2;
     }
 
+    #toggleDarkMode {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #fff;
+      color: #4a90e2;
+      border: 1px solid #4a90e2;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    #toggleDarkMode:hover {
+      background-color: #4a90e2;
+      color: #fff;
+    }
+
     #noticeList {
       display: flex;
       flex-direction: column;
@@ -90,18 +107,6 @@
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     }
 
-    .notice-card h2 {
-      font-size: 1.5em;
-      margin: 0;
-      color: #333;
-    }
-
-    .notice-card p.date {
-      font-size: 0.9em;
-      color: #777;
-      margin-bottom: 10px;
-    }
-
     .dark-mode {
       background-color: #181a1b;
       color: #f4f4f4;
@@ -120,18 +125,34 @@
     .dark-mode .notice-card:hover {
       box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
     }
+
+    .dark-mode #toggleDarkMode {
+      background-color: #4a90e2;
+      color: #fff;
+      border-color: #fff;
+    }
+
+    .dark-mode #toggleDarkMode:hover {
+      background-color: #fff;
+      color: #4a90e2;
+    }
   </style>
 
   <script>
     const notices = [
+      {title:"システム更新",date:"2024-11-29",category:"更新情報",content:"このお知らせサイトにボタン機能を追加しました。あと、日付でフィルターしても適用されなかったのでそのバグを修正しました。"
       { title: "システム更新", date: "2024-10-28", category: "更新情報", content: "うれしいうれしい情報。なんと学校のPCのフィルターを回避できるサイトを作っちゃいました！！！うれしすぎるって！" },
       { title: "お知らせサイトを作りました。", date: "2024-10-27", category: "更新情報", content: "お知らせサイトを作りました。色々ここでやりますのでお願いします！" },
-      { title: "シンプル電卓の改造しました。", date: "2024-11-1", category: "更新情報", content: "前までは-+÷×しかできませんでしたが、今は三角関数やルートなどを使うことができるようになりました。ぜひ使ってみてください！" },
-      { title: "すべてのサイトにファビコンを追加しました。", date: "2024-11-1", category: "更新情報", content: "今まで一部のサイトにしかファビコンを追加していなかったので、すべてのサイトにファビコンを追加させました。" },
-      { title: "最弱のサイトのスタイルを変えました。", date: "2024-11-2", category: "更新情報", content: "今までの最弱のサイトのスタイルが少しダサかったので少し変えました。結構かっこよくなったと思います。" },
-          { title: "ドキュメントサイトを作りました。", date: "2024-11-5", category: "ニュース", content: "最弱のドキュメントを作りました。もしもこのサイトについて知りたい場合はドキュメントサイトを見てください。" },
-     
+      { title: "シンプル電卓の改造しました。", date: "2024-11-01", category: "更新情報", content: "前までは-+÷×しかできませんでしたが、今は三角関数やルートなどを使うことができるようになりました。ぜひ使ってみてください！" },
+      { title: "すべてのサイトにファビコンを追加しました。", date: "2024-11-01", category: "更新情報", content: "今まで一部のサイトにしかファビコンを追加していなかったので、すべてのサイトにファビコンを追加させました。" },
+      { title: "最弱のサイトのスタイルを変えました。", date: "2024-11-02", category: "更新情報", content: "今までの最弱のサイトのスタイルが少しダサかったので少し変えました。結構かっこよくなったと思います。" },
+      { title: "ドキュメントサイトを作りました。", date: "2024-11-05", category: "ニュース", content: "最弱のドキュメントを作りました。もしもこのサイトについて知りたい場合はドキュメントサイトを見てください。" },
     ];
+
+    function formatDate(dateString) {
+      const [year, month, day] = dateString.split('-').map(num => String(num).padStart(2, '0'));
+      return `${year}-${month}-${day}`;
+    }
 
     function displayNotices(filterDate = "", filterCategory = "") {
       const noticeList = document.getElementById("noticeList");
@@ -139,7 +160,8 @@
 
       const filteredNotices = notices
         .filter(notice => {
-          return (!filterDate || notice.date === filterDate) &&
+          const formattedDate = formatDate(notice.date);
+          return (!filterDate || formattedDate === filterDate) &&
                  (!filterCategory || notice.category === filterCategory);
         })
         .sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -156,7 +178,7 @@
 
         card.innerHTML = `
           <h2>${notice.title}</h2>
-          <p class="date">${notice.date}</p>
+          <p class="date">${formatDate(notice.date)}</p>
           <p>${notice.content}</p>
         `;
 
@@ -172,7 +194,12 @@
       displayNotices(document.getElementById("dateFilter").value, e.target.value);
     });
 
+    document.getElementById("toggleDarkMode").addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+    });
+
     displayNotices();
   </script>
 </body>
 </html>
+
