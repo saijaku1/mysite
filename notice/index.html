@@ -137,69 +137,66 @@
       color: #4a90e2;
     }
   </style>
-
-  <script>
-    const notices = [
-      {title:"システム更新",date:"2024-11-29",category:"更新情報",content:"このお知らせサイトにボタン機能を追加しました。あと、日付でフィルターしても適用されなかったのでそのバグを修正しました。"
-      { title: "システム更新", date: "2024-10-28", category: "更新情報", content: "うれしいうれしい情報。なんと学校のPCのフィルターを回避できるサイトを作っちゃいました！！！うれしすぎるって！" },
-      { title: "お知らせサイトを作りました。", date: "2024-10-27", category: "更新情報", content: "お知らせサイトを作りました。色々ここでやりますのでお願いします！" },
-      { title: "シンプル電卓の改造しました。", date: "2024-11-01", category: "更新情報", content: "前までは-+÷×しかできませんでしたが、今は三角関数やルートなどを使うことができるようになりました。ぜひ使ってみてください！" },
-      { title: "すべてのサイトにファビコンを追加しました。", date: "2024-11-01", category: "更新情報", content: "今まで一部のサイトにしかファビコンを追加していなかったので、すべてのサイトにファビコンを追加させました。" },
-      { title: "最弱のサイトのスタイルを変えました。", date: "2024-11-02", category: "更新情報", content: "今までの最弱のサイトのスタイルが少しダサかったので少し変えました。結構かっこよくなったと思います。" },
-      { title: "ドキュメントサイトを作りました。", date: "2024-11-05", category: "ニュース", content: "最弱のドキュメントを作りました。もしもこのサイトについて知りたい場合はドキュメントサイトを見てください。" },
-    ];
-
-    function formatDate(dateString) {
-      const [year, month, day] = dateString.split('-').map(num => String(num).padStart(2, '0'));
-      return `${year}-${month}-${day}`;
-    }
-
-    function displayNotices(filterDate = "", filterCategory = "") {
-      const noticeList = document.getElementById("noticeList");
-      noticeList.innerHTML = "";
-
-      const filteredNotices = notices
-        .filter(notice => {
-          const formattedDate = formatDate(notice.date);
-          return (!filterDate || formattedDate === filterDate) &&
-                 (!filterCategory || notice.category === filterCategory);
-        })
-        .sort((a, b) => new Date(b.date) - new Date(a.date));
-
-      if (filteredNotices.length === 0) {
-        const noNotices = document.createElement("div");
-        noNotices.textContent = "記事がありません。";
-        noticeList.appendChild(noNotices);
-      }
-
-      filteredNotices.forEach(notice => {
-        const card = document.createElement("div");
-        card.classList.add("notice-card");
-
-        card.innerHTML = `
-          <h2>${notice.title}</h2>
-          <p class="date">${formatDate(notice.date)}</p>
-          <p>${notice.content}</p>
-        `;
-
-        noticeList.appendChild(card);
-      });
-    }
-
-    document.getElementById("dateFilter").addEventListener("change", (e) => {
-      displayNotices(e.target.value, document.getElementById("categoryFilter").value);
-    });
-
-    document.getElementById("categoryFilter").addEventListener("change", (e) => {
-      displayNotices(document.getElementById("dateFilter").value, e.target.value);
-    });
-
-    document.getElementById("toggleDarkMode").addEventListener("click", () => {
-      document.body.classList.toggle("dark-mode");
-    });
-
-    displayNotices();
-  </script>
 </body>
-</html>
+<script>
+  const notices = [
+    { title: "システム更新", date: "2024-10-28", category: "更新情報", content: "うれしいうれしい情報。なんと学校のPCのフィルターを回避できるサイトを作っちゃいました！！！うれしすぎるって！" },
+    { title: "お知らせサイトを作りました。", date: "2024-10-27", category: "更新情報", content: "お知らせサイトを作りました。色々ここでやりますのでお願いします！" },
+    { title: "シンプル電卓の改造しました。", date: "2024-11-01", category: "更新情報", content: "前までは-+÷×しかできませんでしたが、今は三角関数やルートなどを使うことができるようになりました。ぜひ使ってみてください！" },
+    { title: "すべてのサイトにファビコンを追加しました。", date: "2024-11-01", category: "更新情報", content: "今まで一部のサイトにしかファビコンを追加していなかったので、すべてのサイトにファビコンを追加させました。" },
+    { title: "最弱のサイトのスタイルを変えました。", date: "2024-11-02", category: "更新情報", content: "今までの最弱のサイトのスタイルが少しダサかったので少し変えました。結構かっこよくなったと思います。" },
+    { title: "ドキュメントサイトを作りました。", date: "2024-11-05", category: "ニュース", content: "最弱のドキュメントを作りました。もしもこのサイトについて知りたい場合はドキュメントサイトを見てください。" },
+  ];
 
+  function formatDate(dateString) {
+    const [year, month, day] = dateString.split('-').map(num => String(num).padStart(2, '0'));
+    return `${year}-${month}-${day}`;
+  }
+
+  function displayNotices(filterDate = "", filterCategory = "") {
+    const noticeList = document.getElementById("noticeList");
+    noticeList.innerHTML = "";
+
+    const filteredNotices = notices
+      .filter(notice => {
+        const formattedDate = formatDate(notice.date);
+        return (!filterDate || formattedDate === filterDate) &&
+               (!filterCategory || notice.category === filterCategory);
+      })
+      .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    if (filteredNotices.length === 0) {
+      const noNotices = document.createElement("div");
+      noNotices.textContent = "記事がありません。";
+      noticeList.appendChild(noNotices);
+    }
+
+    filteredNotices.forEach(notice => {
+      const card = document.createElement("div");
+      card.classList.add("notice-card");
+
+      card.innerHTML = `
+        <h2>${notice.title}</h2>
+        <p class="date">${formatDate(notice.date)}</p>
+        <p>${notice.content}</p>
+      `;
+
+      noticeList.appendChild(card);
+    });
+  }
+
+  document.getElementById("dateFilter").addEventListener("change", (e) => {
+    displayNotices(e.target.value, document.getElementById("categoryFilter").value);
+  });
+
+  document.getElementById("categoryFilter").addEventListener("change", (e) => {
+    displayNotices(document.getElementById("dateFilter").value, e.target.value);
+  });
+
+  document.getElementById("toggleDarkMode").addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+  });
+
+  displayNotices();
+</script>
+</html>
