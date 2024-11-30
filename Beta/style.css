@@ -1,87 +1,151 @@
-/* Loading Animation */
+/* ロード画面のスタイル */
 #loading {
   position: fixed;
-  width: 100vw;
-  height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-color: #111;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   z-index: 1000;
 }
 
 .circle-spin-1 {
-  --size: 60px;
-  --stroke-width: 10px;
+  --size: 48px;
+  --stroke-width: calc(var(--size) / 6);
   --color: #fff;
+  --animation-duration: 1s;
   width: var(--size);
   height: var(--size);
-  border: var(--stroke-width) solid transparent;
-  border-top-color: var(--color);
+  border: var(--stroke-width) solid var(--color);
+  border-top-color: transparent;
   border-radius: 50%;
-  animation: spin 1.5s linear infinite;
+  animation: spin 1s linear infinite;
 }
 
 .loading-text {
-  color: #fff;
-  margin-top: 20px;
+  color: white;
+  margin-top: 15px;
   font-size: 18px;
-  animation: fadeIn 2s ease-in-out infinite;
+  animation: fadeIn 1.5s infinite alternate;
 }
 
 @keyframes spin {
-  0% {
-    transform: rotate(0);
-  }
-  100% {
+  to {
     transform: rotate(360deg);
   }
 }
 
 @keyframes fadeIn {
-  0%, 100% {
+  from {
     opacity: 0.5;
   }
-  50% {
+  to {
     opacity: 1;
   }
 }
 
+/* ロード後の効果 */
 body.loaded #loading {
   opacity: 0;
-  pointer-events: none;
-  transition: opacity 1s;
+  visibility: hidden;
+  transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
 }
 
 body.loaded .content {
   opacity: 1;
-  animation: fadeUp 1s ease-in-out;
+  transform: translateY(0);
 }
 
 .content {
   opacity: 0;
-  transition: opacity 1s;
+  transform: translateY(50px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
-@keyframes fadeUp {
-  0% {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
+/* ボーダーのアニメーション */
+.border1 {
+  background-color: #222;
+  color: #fff;
+  border: 2px solid #4d4d4d;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover animations */
 .border1:hover {
   transform: scale(1.05);
-  transition: transform 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* サイドバー */
+.sidebar {
+  background-color: #333;
+  color: white;
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  transition: width 0.3s ease-in-out;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 18px;
+  display: block;
+  transition: background-color 0.3s ease;
 }
 
 .sidebar a:hover {
-  transform: translateX(10px);
-  transition: transform 0.3s ease;
+  background-color: #575757;
+}
+
+.sidebar.open {
+  width: 250px;
+}
+
+/* ボタン */
+.open-btn {
+  background-color: #111;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.open-btn:hover {
+  background-color: #575757;
+}
+
+/* フッター */
+.custom-footer {
+  background-color: #222;
+  color: #ccc;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+
+.custom-footer .footer-link {
+  color: #4d90fe;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.custom-footer .footer-link:hover {
+  text-decoration: underline;
 }
