@@ -117,8 +117,8 @@ body.loaded .content {
 
 /* ボタン */
 .open-btn {
-  position:static;
-  z-index:1000;
+  position:fixed;
+  z-index:9999;
   background-color: #111;
   color: white;
   border: none;
