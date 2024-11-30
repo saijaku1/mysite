@@ -32,3 +32,6 @@ document.getElementById("topButton").onclick = function() {
 document.querySelector(".down-scroll").addEventListener("click",()=>{
   window.location.href="https://mysite.f5.si/blog/"
 })
+const secret=document.querySelector("downButton").addEventListener("click",()=>{
+  windows.location.href="/Beta";
+})
