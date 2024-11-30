@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>最弱のサイト</title>
+  <link rel="icon" href="../image/jaku.png">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <div id="loading">
+    <div class="circle-spin-1"></div>
+    <div class="loading-text">Loading...</div>
+  </div>
+
+  <div id="sidebar" class="sidebar">
+    <a href="https://mysite.f5.si">ホーム</a>
+    <a href="/notice" class="href1">お知らせ</a>
+    <a href="https://mysite.f5.si/made" class="href2">最弱が作ったサイト</a>
+    <a href="https://mysite.f5.si/anime" class="href3">じゃくのアニメ</a>
+    <a href="https://mysite.f5.si/blog" class="href4">ブログ</a>
+    <a href="/docs">ドキュメント</a>
+  </div>
+
+  <button class="open-btn" id="toggleButton" onclick="toggleSidebar()">☰</button>
+  <header class="title">
+    <h1>最弱のサイト</h1>
+  </header>
+
+  <div class="content">
+    <div class="border1">
+      <div class="heading1">
+        <p>ギク...</p>
+      </div>
+      <div class="text1">
+        <p>ユーザーさん。どうやらこのサイトにアクセスしたみたいですね！(あ、ウイルスサイトとかではないよ！)ふふふ。このサイトはBeta版第二号だ！てかユーザーさん。よく気づきましたね。とりかく今開発中だか<a href="https://new-mysite.f5.si">一号</a>も見てほしいな～。</p>
+      </div>
+    </div>
+
+    <div class="border1">
+      <div class="heading1">
+        <p>このサイトについて</p>
+      </div>
+      <div class="text1">
+        <p>今自分はいくつかのBeta版のサイトを開発してて、一番いいスタイルを決めるために作っているんだ。まあ要するに頭の中で考えてもわからんからとりあえず自分で適当に作って一番いいサイトを見つける。ってな感じ。</p>
+      </div>
+    </div>
+    
+    <div class="border1">
+      <div class="heading1">
+        <p>お知らせ</p>
+      </div>
+      <div class="text1">
+        <p>とりあえずBeta版第二号を作った。</p>
+      </div>
+    </div>
+    
+    <div class="custom-footer">
+      <p>Copyright (C) 2024 最弱のBetaサイト Not All Rights Reserved.</p>
+      <div class="footer-links">
+        <a href="https://github.com/saijaku2/mysite" target="_blank" class="footer-icon">GitHub</a>
+        <a href="https://mysite.f5.si/blog" target="_blank" class="footer-link">ブログ</a>
+        <a href="https://mysite.f5.si/made" target="_blank" class="footer-link">最弱が作ったサイト</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener("load", function () {
+      setTimeout(() => {
+        document.body.classList.add("loaded");
+      }, 1000);
+    });
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar");
+      const toggleButton = document.getElementById("toggleButton");
+      if (sidebar.classList.contains("open")) {
+        sidebar.classList.remove("open");
+        toggleButton.innerHTML = "☰";
+      } else {
+        sidebar.classList.add("open");
+        toggleButton.innerHTML = "×";
+      }
+    }
+  </script>
+</body>
+</html>
