@@ -1,0 +1,87 @@
+/* Loading Animation */
+#loading {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: #111;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.circle-spin-1 {
+  --size: 60px;
+  --stroke-width: 10px;
+  --color: #fff;
+  width: var(--size);
+  height: var(--size);
+  border: var(--stroke-width) solid transparent;
+  border-top-color: var(--color);
+  border-radius: 50%;
+  animation: spin 1.5s linear infinite;
+}
+
+.loading-text {
+  color: #fff;
+  margin-top: 20px;
+  font-size: 18px;
+  animation: fadeIn 2s ease-in-out infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+body.loaded #loading {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s;
+}
+
+body.loaded .content {
+  opacity: 1;
+  animation: fadeUp 1s ease-in-out;
+}
+
+.content {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+@keyframes fadeUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Hover animations */
+.border1:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.sidebar a:hover {
+  transform: translateX(10px);
+  transition: transform 0.3s ease;
+}
