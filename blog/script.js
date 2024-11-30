@@ -29,6 +29,6 @@ window.onscroll = function() {
 document.getElementById("topButton").onclick = function() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 };
-const secret=document.querySelector("#downButton").addEventListener("click",()=>{
-  windows.location.href="/Beta";
+const secret=document.getElementById("downButton").addEventListener("click",()=>{
+  window.location.href="/Beta";
 })
