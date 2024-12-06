@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>コードエディタ</title>
+  <link rel="icon" href="../../image/jaku.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>コードエディタ</h1>
+  <div class="editor-container">
+    <div class="editor">
+      <label for="htmlEditor">HTML</label>
+      <textarea id="htmlEditor" placeholder="HTMLコードを入力 例(<h1>h1タグ</h1>)"></textarea>
+    </div>
+    <div class="editor">
+      <label for="cssEditor">CSS</label>
+      <textarea id="cssEditor" placeholder="CSSコードを入力 例(h1{color:red; })"></textarea>
+    </div>
+    <div class="editor">
+      <label for="jsEditor">JavaScript</label>
+      <textarea id="jsEditor" placeholder="JavaScriptコードを入力 例(let var1=0;)"></textarea>
+    </div>
+  </div>
+  <button id="runButton">コードを実行</button>
+  <div class="output-container">
+    <iframe id="outputFrame"></iframe>
+  </div>
+  <div class="error-container" id="errorContainer"></div>
+  <script src="script.js"></script>
+   <div class="faq-container">
+        <h1>よくある質問</h1>
+        <div class="faq">
+            <h2 class="question">Q1:JSにconsole.logを書いたものはどこにあるのか？</h2>
+            <div class="answer">
+                <p>A1: JSに書いたconsole.logはiframeの方のコンソールに書いてあるので、実際確認することはできません。</p>
+            </div>
+        </div>
+        <div class="faq">
+            <h2 class="question">Q2:自動変換とあがないのだが...</h2>
+            <div class="answer">
+              <p>申し訳ありません。現在このサイトには自動変換などはまだありません。現在開発中です。</p>
+            </div>
+        </div>
+    </div>
+</body>
+  <script src="script.js"></script>
+</html>
