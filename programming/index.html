@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="../image/jaku.png">
+  <title>じゃくのプログラミングサイト</title>
+</head>
+<body>
+  <dialog id="modalDialog" class="dialog">
+    <div id="dialog-container">
+        <header>
+            <h2>こんにちは！ユーザーさん！</h2>
+            <span>このサイトでは、初心者から上級者まで、誰でも楽しくプログラミングを学べるコンテンツを提供しています。<br>
+たとえば、HTMLの基本的なタグの使い方から、CSSを使ったスタイリッシュなデザインの作成方法、さらには<br>プログラミングでしかできないことなどを使ったモーダルウィンドウの実装方法まで、幅広いトピックをカバーしています！
+ </span>
+        </header>
+        <button id="closeButton" type="button">
+            ×
+        </button>
+    </div>
+  </dialog>
+  
+  <div class="main">
+    <header class="header2">
+      <h1 class="welcome">じゃくのプログラミングサイト</h1>
+    </header>
+    <div class="into">
+      <p id="elementP">このサイトはプログラミング(Web系)を学べるサイトです。</p>
+   </div>
+    <div class="what">
+      <h1>今日は何を学ぶ？</h1>
+      <section class="list">
+        <div class="list-item">
+          <h2>HTML</h2>
+          <h4 style="margin-right:100px;">HTMLはwebページの<b>骨組み</b>を作るためのプログラミング言語です。</h4>
+          <div class="learn-list">
+            <h3>レッスン1-1</h3>  
+            <h5>HTMLとは?</h5>
+            <a href="https://mysite.f5.si/programming/html/lesson1-1">学びに行く！</a>  
+          </div>
+        </div>
+      </section>
+      
+       <section class="list">
+        <div class="list-item">
+          <h2>CSS</h2>
+          <h4 style="margin-right:100px;">CSSはwebページの<b>見た目</b>を<b>変える</b>・<b>作る</b>ためのプログラミング言語です。</h4>
+          <div class="learn-list">
+            <h3>レッスン1-1</h3>  
+            <h5>CSSとは?</h5>
+            <a href="https://mysite.f5.si/programming/html/lesson1-1">学びに行く！</a>  
+          </div>
+        </div>
+      </section>
+      
+      <section class="list">
+        <div class="list-item">
+          <h2>JavaScript</h2>
+          <h4 style="margin-right:100px;">JavaScriptはwebページの<b>動き</b>を作る</b>ためのプログラミング言語です。</h4>
+          <div class="learn-list">
+            <h3>レッスン1-1</h3>  
+            <h5>JavaScriptとは?</h5>
+            <a href="https://mysite.f5.si/programming/html/lesson1-1">学びに行く！</a>  
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <div class="what" style="">
+    <h2>お知らせ</h2>
+    <p>このサイトはBeta版（まだ完成していません）。<br>現在、いくつかのバグがあるかもしれませんが、少しずつ改善を重ねていきますので、ご了承ください。</p>
+    <h4>12月6日に更新済み</h4>
+    
+    <h2>日記(期待しないでください)</h2>
+    <h3>12月6日 「か、完成だ！」</h3>
+    <p><p>か、完成だ！！！！<br>ふ、ふう…やっとここまで来た！長かったなぁ、でも何とか形になった。途中でつまずいたことも多かったけど、どうにかゴールまで辿り着けたって感じ。<br>これからはバグ修正と改善だな。最初に比べたらコードがずいぶんきれいになったし、動作も安定してきた。でも、まだ完璧じゃないから、もっと磨きをかけていきたい。<br>とりあえず、一段落ついたから、今日は少し休憩して、明日からまた次のステップに進もう。</p>
+</p>   
+    <h3>12月5日 「やっと半分」</h3>
+   <p>やっと半分ぐらい完成した….でも、JSで要素を取得するのがダルすぎる。毎回`getElementById`とか`querySelector`とか使うの、ほんと面倒だなぁ。もっと簡単にできる方法ないのかな？<br>それに、イベントリスナーとか設定して、思った通りに動かないとマジで焦る。エラーが出てもどこでミスったのか全然わかんないし。<br>でも、少しずつコードが動くようになってきたから、頑張って続けてみるしかないな。こうやって一歩ずつ進めるのが大事だよね。次はアニメーションとか、もっと面白い機能に挑戦してみようかな。</p>
+
+    <h3>12月4日 「作るのってこんなにも大変なのか」</h3>
+    <p>今日から開発開始。てか普通にHTMLとかCSSがむずすぎるって。とりあえず頑張って書こうと思う。<br>....<br>いや<b>スタイル</b>決めるの難すぎでしょ！とりあえず他の大手企業とかのサイトのスタイルを参考にしながら打つか。とにかくJSで<b>ダイアログ</b>表示させるの大変すぎる....でも、少しずつ進めていけば慣れてくるはず！自分の思っているデザインがどうしても実現できなくてイライラするけど、まあ、これも勉強ってことで。<br>まずはHTMLの構造をきちんと整えて、CSSで見た目を作り上げる感じかな。でも、どこかで学んだように、デザインが重要すぎて時間かかりすぎちゃうのが悩み。<br>今はまだ見た目を気にしすぎず、機能が動くかどうかを確認しながら進めるつもり！<br>あ、JSでダイアログがうまく表示されるようになったけど、閉じるボタンが効かないからちょっと手こずってる。でも、エラーが解消できたら次はもっと面白い機能作りたいな。</p>
+  </div>
+  <div class="what" style="height:200px;">
+    <h2>安心してご利用いただくために</h2>
+    <p>このサイトはmysiteの利用規約を遵守しています。
+利用規約の詳細については、こちらからご確認いただけます。<br>
+安心してサービスをご利用いただけるよう、適切な運営とプライバシー保護に努めています。</p>
+  </div>
+  <footer class="footer">
+    <h3>© 2024 最弱のサイト, Inc. All Rights Reserved.</h3>
+    <nav id="URL">
+  <div class="section">
+    <h1>ソーシャルメディア</h1>
+    <a href="https://github.com/saijaku1">Github</a>
+    <a href="https://scratch.mit.edu/users/-1023_/">Scratch</a>
+  </div>
+  <div class="section">
+    <h1>開発</h1>
+    <a href="https://mysite.f5.si/docs">ドキュメント</a>
+    <a href="https://mysite.f5.si/docs/history/">変更履歴</a>
+  </div>
+  <div class="section">
+    <h1>リソース</h1>
+    <a href="https://mysite.f5.si/docs/terms-of-use">利用規約</a>
+    <a href="/blog">ブログ</a>
+  </div>
+  <div class="section">
+    <h1>サイトマップ</h1>
+    <a href="https://mysite.f5.si">ホーム</a>
+    <a href="/anime">アニメ</a>
+  </div>
+</nav>
+</footer>
+</body>
+</html>
