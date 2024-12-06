@@ -38,7 +38,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: dialogSlideIn 0.5s ease;
+    animation: SlideIn 0.5s ease;
 }
 
 #closeButton:hover {
@@ -52,6 +52,17 @@ body {
     }
     100% {
         transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes SlideIn {
+    0% {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
         opacity: 1;
     }
 }
@@ -84,7 +95,8 @@ body {
 
 
 .into {
-    margin: 20px;
+   animation: SlideIn 0.5s ease; 
+  margin: 20px;
     padding: 20px;
     background-color: #fff;
     border: 2px solid #000;
@@ -101,6 +113,7 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     width: 1000px; 
     height: 210vh;
+   animation: dialogSlideIn 0.5s ease;
 }
 
 #elementP {
@@ -161,4 +174,37 @@ body {
 .section a:hover {
   text-decoration: underline;
   color: #0056a1;
+ ｝
+@media (max-width: 768px) {
+  body{
+    width:60%;
+  }  
+  
+  .header2 {
+        font-size: 24px;
+        padding: 15px;
+    }
+
+    .into, .what {
+        margin: 20px;
+        padding: 20px;
+        width: 60%;
+    }
+
+    .list-item {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .learn-list {
+        width: 60%;
+    }
+
+    #closeButton {
+        top: 5px;
+        right: 5px;
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+    }
 }
