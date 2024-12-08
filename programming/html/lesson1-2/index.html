@@ -4,17 +4,131 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="../../../image/jaku.png">
-    <title>レッスン1-2</title>
+    <link rel="icon" href="../../../../image/jaku.png">
+    <title>レッスン1-1</title>
 </head>
-<style>
-body{
-  text-align:center;
-  display:block;
-}
-</style>
 <body>
-<h1>Coming Soon!</h1>
-<p>12月10日に更新予定。</p>
+    <header>
+        <h1>【レッスン2】 HTMLの基本的なタグを学ぼう!</h1>
+    </header>
+
+    <div class="goal"> 
+        <h2 class="h2">今日の目標</h2>
+        <ul>
+            <li class="list"><b>開始タグ・終了タグ</b>とは</li>
+            <li class="list"><b>hタグ</b>とは?</li>
+            <li class="list"><b>pタグ</b>とは?</li>
+            <li class="list"><b>brタグ</b>とは?</li>
+        </ul>   
+    </div>
+
+    <main>
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">さあユーザーさん。ついにHTMLを<b>書く時</b>が来たよ!</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">おお！ちょっとわくわくするでしょ?</div>
+            </div>
+        </div>
+        
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">今回は<b>h1,p,brタグ</b>について教えるよ!</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">まず<b>hタグ</b>について説明するよ！</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2"><b>hタグ</b>とはサイトで言う<b>見出し</b>を表示するんだ！</div>
+            </div>
+        </div>
+
+         <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2"><b>見出し</b>って言っても口だけだと難しそうだから実際のこーどで紹介するね!</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="">
+                <div class="tooltip2"><b>見出し</b>って言っても口だけだと難しそうだから実際のコードで紹介するよ。</div>
+            </div>
+        </div>
+    　<div class="talk">
+                 <pre>
+                    <code>
+&lt;h1&gt;こんにちは！&lt;/h1>
+</code>
+</pre>
+        </div>
+        <h2>上のコードを実行すると...?</h2>
+
+        <div class="output-container">
+    <iframe id="outputFrame"></iframe>
+  </div>
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">...</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">どうやらコードが実行されないようだな....</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">そうだ！僕今コードエディタ持ってるからこれで実行してみて!</div>
+            </div>
+        </div>
+
+        <div class="editor" style="margin-top:40px;">
+      <textarea id="htmlEditor" placeholder="HTMLコードを入力"></textarea>
+  <button id="runButton">コードを実行</button>
+  <div id="errorContainer" style="color: red;"></div>
+  <div class="output-container">
+    <iframe id="outputFrame"></iframe>
+  </div>
+  </div>
+    <div class="goaled"> 
+        <h2 class="h2">おさらい！</h2>
+        <ul>
+             <li class="list"><b>HTML</b>のタグには<b>開始タグ・終了タグ</b>の二つ表示があります。※終了タグがないものもある。</li>
+            <li class="list"><b>hタグ</b>はサイトの<b>見出し</b>を表示することができます。</li>
+            <li class="list"><b>pタグ</b>は<b>文章</b>を表示することができます。</li>
+            <li class="list"><b>brタグ</b>は文章の改行したいときに使うタグです。他のタグとは違い、終了タグは必要ありません。</li>
+        </ul>   
+    </div>
+    <div id="choose">
+    <button class="returnBtn" id="Button">
+        ホームに戻る
+    </button>
+    <button class="nextBtn" id="Button">
+     次のレッスンへ行く！
+    </button>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
