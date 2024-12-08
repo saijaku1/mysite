@@ -16,5 +16,5 @@ const returnBtn = document.querySelector(".returnBtn").addEventListener("click",
     window.location.href = "https://mysite.f5.si/programming";
 })
 const nextBtn = document.querySelector(".nextBtn").addEventListener("click", () => {
-    window.location.href = "https://mysite.f5.si/programming/html/lesson1-2";
+    window.location.href = "https://mysite.f5.si/programming/css/lesson1-2";
 })
