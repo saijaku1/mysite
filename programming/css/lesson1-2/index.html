@@ -4,17 +4,1072 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="../../../image/jaku.png">
+    <link rel="icon" href="../../../../image/jaku.png">
     <title>レッスン1-2</title>
 </head>
-<style>
-body{
-  text-align:center;
-  display:block;
-}
-</style>
 <body>
-<h1>Coming Soon!</h1>
-<p>12月10日に更新予定。</p>
+ <header>
+        <h1 style="color:white;">【レッスン2】 CSSの基本的なタグを学ぼう!</h1>
+</header>
+    <div class="goal">
+        <h2 class="h2">今日の目標</h2>
+        <ul>
+            <li class="list">要素の<b>色を変える</b>には</li>
+            <li class="list">要素の<b>大きさ・太さ</b>を変えるには</li>
+            <li class="list">CSSの基本的な書き方</li>
+        </ul>
+    </div>
+
+    <main>
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">さあユーザーさん。ついにCSSを<b>書く時</b>が来たよ!</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">おお！って言ってもね。CSSはもともとはHTMLファイルがないとできないんだよね。</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">あ、その心配はいらないよ。自分一応HTMLファイルは作ってきたから！</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">マジか！見せて！</div>
+            </div>
+        </div>
+        
+       <div class="talk">
+            <pre>
+                <code>
+&lt;h1&gt;5秒で書き終わったh1タグ&lt;/h1&gt;
+&lt;p&gt;10秒で書き終わったpタグ&lt;/p&gt;
+                </code>
+            </pre>
+        </div>
+        
+        <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">じゃく君。説明を変えた方がいい気がするよ...</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">なんかユーザーさんに不快を与えるかもしれないし....</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="">
+                <div class="tooltip2">やめておこう....</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">...(だ、大丈夫でしょ！ユーザーさんは僕らに優しいと思うから！)</div>
+            </div>
+        </div>
+
+         <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="">
+                <div class="tooltip2">...(どうなるか知らないぞ....)</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">て、っていうことでCSSの説明をしていくよ！</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="">
+                <div class="tooltip2">もう。じゃく君ったら調子に乗って....</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">前の復習だけど、CSSの書き方はセレクター{プロパティ:値;}ってセットするんだったね。</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <pre>
+                <code>
+ セレクター{
+    プロパティ←ここにcssのプロパティを書く:値;←ここにはnoneや数字などいろんな値が入る。
+    /*例。p←pタグにセット{
+    color:red;←pタグの文字の色を赤色に変更する。
+    font-size:10px;←pタグの文字の大きさを10px(めっちゃ小さく)セットする。
+    }*/
+ }
+                </code>
+            </pre>
+        </div>
+
+         <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">こんな感じに書くよ！覚えたかな？</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">そしたら、さっそくCSSのコードを書いていこう！</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">まず最初に要素(h1やpタグなど)の色を変える方法を教えるよ！</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">要素の色を変えたい場合は<b>color:変更したい色;</b>と書くよ。</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">でも色ってわからないときがあるでしょ?そんな時はGoogleの<b>カラーピッカー</b>を使うといいよ！</div>
+            </div>
+        </div>
+
+         <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">さてと、実際に打ってみようか！</div>
+            </div>
+        </div>
+        
+          <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">HTMLは最初からあるから心配しないでね！</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">それじゃあ...h1タグを<b>黄色</b>にしてほしいから、値は<b>yellow</b>にセットしてね！</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">あ、あと最後のセミコロン(;)を忘れずにね！</div>
+            </div>
+        </div>
+
+          <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">下に例を載せておくからそれを参考にして書いてみてね！</div>
+            </div>
+        </div>
+
+
+        <div class="talk">
+            <pre>
+                <code>
+例
+h1{
+    color:blue;←h1の色を青色に設定
+    color:green;←h1の色を緑色に設定
+    color:orange;←h1の色をオレンジ色に設定
+}
+                </code>
+            </pre>
+        </div>
+<h2>h1の色を黄色にしてみよう！わからなかったら下にスクロールしてみよう！</h2>
+    <div class="talk">
+            <div class="jaku" id="jaku">
+                <div class="tooltip3" style="font-size:20px;">文字の大きさを比べるために"実行"ボタンを押してください</div>
+            </div>
+        </div>
+         <div class="editor-container">
+<div class="editor-container">
+    <div class="editor">
+    <textarea class="html-editor" placeholder="HTMLコードを入力"></textarea>
+  
+  <div class="editor">
+    <textarea class="css-editor" placeholder="CSSコードを入力"></textarea>
+    <button class="run-button">コードを実行</button>
+  
+  <div class="output-container">
+    <iframe class="output-frame" style="width:90em;"></iframe>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">できた?</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">あ、まずは答えね！</div>
+            </div>
+        </div>
+         <div class="talk">
+            <pre>
+                <code>
+h1{
+    color:yellow;←h1の色を黄色に設定する。
+}
+                </code>
+            </pre>
+        </div>
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">よし！次に行ってみよう！</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">あ、ちなみにCSSは{}の中にプロパティを入れないとプログラムが認識できなくてエラーになってしまうんだ！だから必ず{}の中に入れよう！</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <pre>
+                <code>
+h1{
+    /*この{}の中にコードを入れないとエラーになるから気を付けてね！*/
+    color:white;
+}
+                </code>
+            </pre>
+        </div>
+
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">あと、セレクターについてなんだけど、{の前に入れるんだ！</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">例えばセレクターをpタグに設定すると、"変更するタグをpタグにセットします！"って意味になるんだ！</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <pre>
+                <code>
+p←必ず<b>{</b>の前に入れてね！{
+    font-size:30px;
+}
+                </code>
+            </pre>
+        </div>
+
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">結構出てくるから覚えたほうがいいよ！</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">それじゃあ次は要素の<b>大きさを</b>変える方法についてやっていこうか。</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">ココツ！説明頼む！</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">Okei(OK)</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">まずなんだけど、h1タグやpタグって意外と小さくない？</div>
+            </div>
+        </div>
+
+         <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">でもCSSを使えば、文字や画像などを大きくすることができるんだ！</div>
+            </div>
+        </div>
+
+         <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">文字を大きくするためには<b>font-size:値;</b>と入力するんだ！</div>
+            </div>
+        </div>
+
+          <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">でも今回はいる値は<b>color</b>みたいに色で指定するわけではないよ</div>
+            </div>
+        </div>
+
+         <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">font-sizeは数字で指定するんだ！</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">でも数字って言っても、40や60で指定するわけではないよ。</div>
+            </div>
+        </div>
+
+          <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">こんな感じに指定するんだ！</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <pre>
+                <code>
+h1{
+    font-size:50px;
+}
+                </code>
+            </pre>
+        </div>
+        
+         <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">まず最初に<b>px</b>について説明していくよ！</div>
+            </div>
+        </div>
+
+         <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2"><b>px</b>っていうのは、pixelの略であること。</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">pxとは<b>絶対単位</b>なんだ！</div>
+            </div>
+        </div>
+
+         <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2"><b>絶対単位</b>ていうのは、例えば物を測る時って<b>cm</b>や<b>m</b>を使うことが多いよね？</div>
+            </div>
+        </div>
+
+          <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu"　style="margin-top:50px;">
+                <div class="tooltip2">でもそれらって指定したサイズそのものを表示しているよね?</div>
+            </div>
+        </div>
+
+          <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu" style="margin-top:80px;">
+                <div class="tooltip2">そう！絶対単位っていうのは他の要素のサイズなどに影響されることなく、<b>指定したサイズそのものを表示する</b>単位なんだ！
+ブラウザーの表示領域が変動しても絶対に反映されることはなくてそのままの長さを保つんだよ！</div>
+            </div>
+        </div>
+
+         <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">さてここまでわかったら、次はpxについてやっていくよ！</div>
+            </div>
+        </div>
+
+         <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">pxって「1px?」や「10px?」って疑問に思う人がいると思うんだけど、そうじゃないんだ。</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">まず1pxは目に見えないほどすごく小さい！</div>
+            </div>
+        </div>
+
+         <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">みんなは大体小さくても40pxぐらい~80pxぐらいまでに指定しているところが多いよ。</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">実際に実行してみようか！今回はpタグを使うよ！10px~100pxまでの大きさを比べるよ！</div>
+            </div>
+        </div>
+
+         <div class="talk">
+            <div class="jaku" id="jaku">
+                <div class="tooltip3" style="font-size:20px;">文字の大きさを比べるために"実行"ボタンを押してください。コードの中身は何も変えないでください。</div>
+            </div>
+        </div>
+         <div class="editor-container">
+<div class="editor-container">
+    <div class="editor">
+    <textarea class="html-editor" placeholder="HTMLコードを入力">
+<p class="size-1">10pxの大きさ</p>
+<p class="size-2">20pxの大きさ</p>
+<p class="size-3">30pxの大きさ</p>
+<p class="size-4">40pxの大きさ</p>
+<p class="size-5">50pxの大きさ</p>
+<p class="size-6">60pxの大きさ</p>
+<p class="size-7">70pxの大きさ</p>
+<p class="size-8">80pxの大きさ</p>
+<p class="size-9">90pxの大きさ</p>
+<p class="size-10">100pxの大きさ</p>
+         
+    </textarea>
+
+  <div class="editor">
+    <textarea class="css-editor" placeholder="CSSコードを入力">
+.size-1 {
+    font-size: 10px;
+}
+.size-2 {
+    font-size: 20px;
+}
+.size-3 {
+    font-size: 30px;
+}
+.size-4 {
+    font-size: 40px;
+}
+.size-5 {
+    font-size: 50px;
+}
+.size-6 {
+    font-size: 60px;
+}
+.size-7 {
+    font-size: 70px;
+}
+.size-8 {
+    font-size: 80px;
+}
+.size-9 {
+    font-size: 90px;
+}
+.size-10 {
+    font-size: 100px;
+}
+    </textarea>
+    <button class="run-button">コードを実行</button>
+  
+  <div class="output-container">
+    <iframe class="output-frame" style="width:90em;"></iframe>
+  </div>
+</div>
+</div>
+</div>
+</div>
+     <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">どう？10px変わるだけでこんなにも大きくなるんだ！ユーザーさんにとって一番見やすいのは何pxかな？</div>
+            </div>
+        </div>        
+
+<div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">あ、ちなみにさっきpタグに<b>class</b>ってついてたのあるでしょ？</div>
+            </div>
+        </div>
+ <div class="talk">
+            <pre>
+                <code>
+&lt;p class="size-1"←これ!&gt;10pxの大きさ&lt;/p&gt;</p>
+                </code>
+            </pre>
+        </div>
+        <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">これは名の通り<b>クラス</b>っていうんだけど、これを学ぶのはまだ早いからレッスン5ぐらいから紹介するね！</div>
+            </div>
+        </div>
+         <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">おしえればいいのに～</div>
+            </div>
+        </div>
+        <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">いや、まだ教えるのは早い。もしかしたらユーザーさんが挫折するかもしれないし。</div>
+            </div>
+        </div>
+
+         <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">ふぅ～ん。わかった。知らないよ？</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">あ、ここからは僕が説明したい！</div>
+            </div>
+        </div>
+
+         <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">OK!じゃあ頼むよ！僕は少し寝るわ(ずっと眠かった)</div>
+            </div>
+        </div>
+
+           <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">zzz....</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">そんなに眠かったのか。よしよし。(ココツの頭を撫でてる)</div>
+            </div>
+        </div>
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">さてと！そんなわけで最後は文字の<b>太さ</b>を変える方法について教えるよ！</div>
+            </div>
+        </div>
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">文字の<b>太さ</b>を変えたい場合は<b>font-weight</b>を使うんだ！</div>
+            </div>
+        </div>
+          <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">書き方は<b>font-size</b>と少し似ているけど、値が少し違うんだ！</div>
+            </div>
+        </div>
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">コードを見てみよう！</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <pre>
+                <code>
+p←pタグに変更をセット！{
+ font-weight:400;←pxなどで指定をしない！
+ font-weight:bolder;←超太めに設定する。
+}
+                </code>
+            </pre>
+        </div>
+<div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip"><b>font-weight</b>の値は指定するとき<b>100~900</b>で指定するんだ！pxとかの単位は入れないよ！</div>
+            </div>
+        </div>
+                <div class="talk">
+            <pre>
+                <code>
+font-weight:20px;←このpxは消さないとエラーになって太くならないんだ！pxはなしって覚えとこう！
+                </code>
+            </pre>
+        </div>
+   <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">もしも数字で入れるのが入れるのがめんどくさいなら<b>normal</b>や<b>bold</b>、<b>bolder</b>と書いてみよう！</div>
+            </div>
+        </div>
+    
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku" style="margin-top:80px;">
+                <div class="tooltip">実際にどのくらい変わるのか見てみよう！</div>
+            </div>
+        </div>
+            <div class="editor-container">
+<div class="editor-container">
+    <div class="editor">
+    <textarea class="html-editor" placeholder="HTMLコードを入力">
+<p class="weight-1">100の太さ</p>
+<p class="weight-2">200の太さ</p>
+<p class="weight-3">300の太さ</p>
+<p class="weight-4">400の太さ</p>
+<p class="weight-5">500の太さ</p>
+<p class="weight-6">600の太さ</p>
+<p class="weight-7">700の太さ</p>
+<p class="weight-8">800の太さ</p>
+<p class="weight-9">900の太さ</p>
+       
+    </textarea>
+
+  <div class="editor">
+    <textarea class="css-editor" placeholder="CSSコードを入力">
+.weight-1 {
+    font-weight: 100;
+}
+.weight-2 {
+    font-weight: 200;
+}
+.weight-3 {
+    font-weight: 300;
+}
+.weight-4 {
+    font-weight: 400; /* 通常の太さ */
+}
+.weight-5 {
+    font-weight: 500;
+}
+.weight-6 {
+    font-weight: 600;
+}
+.weight-7 {
+    font-weight: 700; /* 太字 */
+}
+.weight-8 {
+    font-weight: 800;
+}
+.weight-9 {
+    font-weight: 900; /* 最も太い */
+}
+
+    </textarea>
+    <button class="run-button">コードを実行</button>
+  
+  <div class="output-container">
+    <iframe class="output-frame" style="width:90em;"></iframe>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+   <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku" style="margin-top:20px;">
+                <div class="tooltip">見ての通り、400までは元の大きさだったね。</div>
+            </div>
+        </div>
+     <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku" style="margin-top:20px;">
+                <div class="tooltip">500から太くなったね！</div>
+            </div>
+            </div>
+             <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku" style="margin-top:20px;">
+                <div class="tooltip">表でまとめるとこうなるよ！</div>
+            </div>
+        </div>
+<div class="talk">
+            <pre>
+         <code>
+<b>値</b>
+100 ～ 900:
+この範囲内で指定する必要があります。それ以外の値を設定すると、バグが発生する可能性があるので注意してください。
+100: 最も細い。細字。
+400: 通常の太さ（絶対値）。
+500 ～ 800: だんだん太くなる。
+900: 最も太い。
+<b>キーワード</b>
+数字を書くのが面倒なときは、以下のキーワードを使用できます：
+
+normal: 通常の太さ。（400 と同じ）
+bold: 太字。（700 と同じ）
+bolder: 親要素より太くなる。
+例: 親要素が 400 なら 700 になる。
+lighter: 親要素より細くなる。
+例: 親要素が 600 なら 400 以下になる。
+
+<b>ポイント</b>
+太さが極端に変わると、読みやすさに影響する場合があります。適切な太さを選びましょう。
+normal や bold はシンプルな設定がしたいときに便利ですが、細かく調整したい場合は数値を使う方が正確です。値
+100~900。これ以上大きくしたり小さくしたりするとバグが発生することがあるので、書く際には注意！
+        </pre>
+        </div>
+        </div> <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku" style="margin-top:80px;">
+                <div class="tooltip">こんな感じだよ！</div>
+            </div>
+        </div> <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku" style="margin-top:80px;">
+                <div class="tooltip">それじゃあ、これから5個ぐらいの<b>font-size</b>と<b>color</b>、<b>font-weight</b>についての問題を出していくよ</div>
+            </div>
+        </div>
+
+         </div> <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku" style="margin-top:80px;">
+                <div class="tooltip">もしもわからなかったら、下にスクロールして答えを見てみてね！
+                </div>
+            </div>
+        </div>
+
+    <h2>pタグの色を青色にしてみよう！わからなかったら下にスクロールしてみよう！</h2>
+    <div class="talk">
+            <div class="jaku" id="jaku">
+                <div class="tooltip3" style="font-size:20px;">pタグの色を青色に変更してください。青色は<b>blue</b>です。</div>
+            </div>
+        </div>
+         <div class="editor-container">
+<div class="editor-container">
+    <div class="editor">
+    <textarea class="html-editor" placeholder="HTMLコードを入力"><p>青色の文字だよ！</p></textarea>
+  <div class="editor">
+    <textarea class="css-editor" placeholder="CSSコードを入力">
+p{
+
+}
+    </textarea>
+    <button class="run-button">コードを実行</button>
+  
+  <div class="output-container">
+    <iframe class="output-frame" style="width:90em;"></iframe>
+  </div>
+
+<div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">できたかな？答えをチェックしよう！</div>
+            </div>
+        </div>
+
+            <div class="talk">
+            <pre>
+         <code>
+p{
+    color:blue;
+}
+                </code>
+            </pre>
+        </div>
+   <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">...(ぼんやりしている。)</div>
+            </div>
+        </div>
+         <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">はぁ！？僕は寝てたのか！えっと..?今は3問目の問題を出すところか！OK!</div>
+            </div>
+        </div>
+        <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">そ、それじゃあ次は<b>font-size</b>の問題を出すよ！</div>
+            </div>
+        </div>
+    <h2>pタグ大きさを70pxに指定してみよう！わからなかったら下にスクロールしてみよう！</h2>
+    <div class="talk">
+            <div class="jaku" id="jaku">
+                <div class="tooltip3" style="font-size:20px;">pタグの大きさを70pxに変更してください。</div>
+            </div>
+        </div>    
+ <div class="editor-container">
+<div class="editor-container">
+    <div class="editor">
+    <textarea class="html-editor" placeholder="HTMLコードを入力"><p>70pxの大きさです。</p></textarea>
+  <div class="editor">
+    <textarea class="css-editor" placeholder="CSSコードを入力">
+p{
+
+}
+    </textarea>
+    <button class="run-button">コードを実行</button>
+  
+  <div class="output-container">
+    <iframe class="output-frame" style="width:90em;"></iframe>
+  </div>
+    <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">ふわぁあー...よく寝た。</div>
+            </div>
+        </div> 
+        
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">ってああ、ああれれ!?今ユーザーさん。コード書いていたのか！</div>
+            </div>
+        </div> 
+
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">あーなるほど。今ちょうど2問目の問題が終わったところなんだね。</div>
+            </div>
+        </div> 
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">それじゃあ答え合わせをしようか！</div>
+            </div>
+        </div> 
+  
+  <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">できたかな？</div>
+            </div>
+        </div>
+
+         <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">答えはこうだよ！</div>
+            </div>
+        </div>
+
+           <div class="talk">
+            <pre>
+         <code>
+p{
+ font-size:70px;
+}
+                </code>
+            </pre>
+        </div>
+        <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">あと3問！頑張ろう！3問目は<b>font-weight</b>の問題を出すよ！</div>
+            </div>
+        </div>
+
+    <h2>pタグ太さを700に指定してみよう！わからなかったら下にスクロールしてみよう！</h2>
+    <div class="talk">
+            <div class="jaku" id="jaku">
+                <div class="tooltip3" style="font-size:20px;">pタグの太さを700に変更してください。</div>
+            </div>
+        </div>    
+ <div class="editor-container">
+<div class="editor-container">
+    <div class="editor">
+    <textarea class="html-editor" placeholder="HTMLコードを入力"><p>700の太さです。</p></textarea>
+  <div class="editor">
+    <textarea class="css-editor" placeholder="CSSコードを入力">
+p{
+
+}
+    </textarea>
+    <button class="run-button">コードを実行</button>
+  
+  <div class="output-container">
+    <iframe class="output-frame" style="width:90em;"></iframe>
+  </div>
+   <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">わかったかな？それじゃあ答えはこうだ！</div>
+            </div>
+        </div>
+         <div class="talk">
+            <pre>
+         <code>
+p{
+ font-weight:700;
+}
+                </code>
+            </pre>
+        </div>
+        <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">それじゃあ次の4問目はさっきの3つを全部合体させた問題だよ！頑張って解いてみよう！</div>
+            </div>
+        </div>
+        <h2>問題を解いてみよう！緑は<b>green</b>です。わからなかったら下にスクロールしてみよう！</h2>
+        <div class="editor-container">
+<div class="editor-container">
+    <div class="editor">
+    <textarea class="html-editor" placeholder="HTMLコードを入力"><p>この文字の大きさは60pxであり、色は緑色、太さは700です。</p></textarea>
+  <div class="editor">
+    <textarea class="css-editor" placeholder="CSSコードを入力">
+p{
+
+}
+    </textarea>
+    <button class="run-button">コードを実行</button>
+  
+  <div class="output-container">
+    <iframe class="output-frame" style="width:90em;"></iframe>
+  </div>
+
+    <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">できたかな？少し難しかったでしょ?答えはこうだ！</div>
+            </div>
+        </div>
+        <div class="talk">
+            <pre>
+         <code>
+p{
+ font-weight:700;
+ font-size:60px;
+ color:green;
+}
+                </code>
+            </pre>
+        </div>
+        <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">最後の5問目はさっきの3つを全部合体させた問題の発展だよ！頑張って解いてみよう！</div>
+            </div>
+        </div>
+        <h2>問題を解いてみよう！赤は<b>red</b>です。問題はpタグの説明に指示してください。</h2>
+        <div class="editor-container">
+<div class="editor-container">
+    <div class="editor">
+    <textarea class="html-editor" placeholder="HTMLコードを入力"><p>この文字の大きさは65.5pxであり、色は赤色、太さはbolderです。</p></textarea>
+  <div class="editor">
+    <textarea class="css-editor" placeholder="CSSコードを入力">
+p{
+
+}
+    </textarea>
+    <button class="run-button">コードを実行</button>
+  
+  <div class="output-container">
+    <iframe class="output-frame" style="width:90em;"></iframe>
+  </div>
+
+    <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">お疲れ様！5問目はどうだったかな？答えを確認してみよう！</div>
+            </div>
+        </div>
+        <div class="talk">
+            <pre>
+         <code>
+p{
+ font-weight:bolder;
+ font-size:65.5px;
+ color:red;
+}
+                </code>
+            </pre>
+        </div>
+        <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">よく頑張ったよ！今日は終わりだよ！ちょっと今日は休んだ方がいいと思うよ...これだけやったんだし....</div>
+            </div>
+        </div>
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">え？僕ココツに無視されてる..?もしかしてココツは僕のことが見えていないだと...!?</div>
+            </div>
+        </div>
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">そんな粉バナナ!?.....</div>
+            </div>
+        </div>
+ </main>
+    <div class="goaled"> 
+        <h2 class="h2">おさらい！</h2>
+        <ul>
+             <li class="list">CSSに色を付けたい場合は<b>color:色;</b>と書きます！</li>
+            <li class="list">CSSに大きさを変えたい場合は<b>font-size:数字pxなど;</b>と書きます！</li>
+            <li class="list"><b>pタグ</b>は<b>文章</b>を表示することができます。</li>
+            <li class="list"><b>brタグ</b>は文章の改行したいときに使うタグです。他のタグとは違い、終了タグは必要ありません。</li>
+        </ul>   
+    </div>
+
+    <div id="choose">
+        <button class="home">ホーム</button>
+        <button class="next">次のレッスン</button>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
