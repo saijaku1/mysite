@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
@@ -46,12 +45,26 @@
       font-size: 1.2em;
       color: #333;
     }
+
+    #rankingList {
+      margin-top: 20px;
+      list-style-type: none;
+      padding: 0;
+    }
+
+    #rankingList li {
+      font-size: 1em;
+      color: #333;
+    }
   </style>
 </head>
 <body>
   <h1>スネークゲーム</h1>
+  <h4>作者の最高スコア:59</h4>
   <div id="gameBoard"></div>
   <p id="score">スコア: 0</p>
+  <ul id="rankingList"></ul>
+  <h5>ランキングは、誰かが新記録を達成するたびにリアルタイムで更新されます。</h5>
 
   <script>
     const boardSize = 20;
@@ -62,6 +75,32 @@
 
     const gameBoard = document.getElementById("gameBoard");
     const scoreDisplay = document.getElementById("score");
+    const rankingList = document.getElementById("rankingList");
+
+    function loadRanking() {
+      const savedScores = localStorage.getItem("ranking");
+      if (savedScores) {
+        const scores = JSON.parse(savedScores);
+        rankingList.innerHTML = "";
+        scores.sort((a, b) => b.score - a.score); 
+        scores.forEach((entry, index) => {
+          const listItem = document.createElement("li");
+          listItem.textContent = `${index + 1}. スコア: ${entry.score}`;
+          rankingList.appendChild(listItem);
+        });
+      }
+    }
+
+    // スコアをローカルストレージに保存
+    function saveRanking() {
+      const savedScores = localStorage.getItem("ranking");
+      let scores = savedScores ? JSON.parse(savedScores) : [];
+      scores.push({ score });
+      scores.sort((a, b) => b.score - a.score); // スコア降順でソート
+      if (scores.length > 10) scores.pop(); // 上位10件までに制限
+      localStorage.setItem("ranking", JSON.stringify(scores));
+      loadRanking(); // ランキングを更新
+    }
 
     function draw() {
       gameBoard.innerHTML = "";
@@ -86,6 +125,7 @@
 
       if (head.x < 0 || head.x >= boardSize || head.y < 0 || head.y >= boardSize || snake.slice(1).some(segment => segment.x === head.x && segment.y === head.y)) {
         alert("ゲームオーバー！スコア: " + score);
+        saveRanking(); // ゲームオーバー時にスコアを保存
         resetGame();
         return;
       }
@@ -125,8 +165,8 @@
       setTimeout(gameLoop, 100);
     }
 
+    loadRanking(); // ページ読み込み時にランキングを表示
     gameLoop();
   </script>
 </body>
 </html>
-
