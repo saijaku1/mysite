@@ -1,4 +1,3 @@
-/* ロード画面のスタイル */
 #loading {
   position: fixed;
   top: 0;
@@ -48,7 +47,6 @@
   }
 }
 
-/* ロード後の効果 */
 body.loaded #loading {
   opacity: 0;
   visibility: hidden;
@@ -66,7 +64,6 @@ body.loaded .content {
   transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
-/* ボーダーのアニメーション */
 .border1 {
   background-color: #222;
   color: #fff;
@@ -85,7 +82,6 @@ body.loaded .content {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* サイドバー */
 .sidebar {
   background-color: #333;
   color: white;
@@ -95,8 +91,17 @@ body.loaded .content {
   top: 0;
   left: 0;
   overflow-x: hidden;
-  transition: width 0.3s ease-in-out;
+  z-index: 1000;
+  transition: width 0.3s ease-in-out, visibility 0.3s ease-in-out;
   padding-top: 60px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.sidebar.open {
+  width: 250px;
+  opacity: 1;
+  visibility: visible;
 }
 
 .sidebar a {
@@ -111,14 +116,9 @@ body.loaded .content {
   background-color: #575757;
 }
 
-.sidebar.open {
-  width: 250px;
-}
-
-/* ボタン */
 .open-btn {
-  position:fixed;
-  z-index:9999;
+  position: fixed;
+  z-index: 1100;
   background-color: #111;
   color: white;
   border: none;
@@ -133,7 +133,6 @@ body.loaded .content {
   background-color: #575757;
 }
 
-/* フッター */
 .custom-footer {
   background-color: #222;
   color: #ccc;
