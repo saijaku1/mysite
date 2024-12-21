@@ -1,4 +1,4 @@
-body {
+  body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
   background-color: #f9f9f9;
@@ -130,9 +130,36 @@ li {
   height: 35px;
   position: absolute;
   top: 26em;
-  right: 22em;
+  right: 27em;
   text-align: center;
 }
 .deleteButton:hover {
   background-color: #c82333;
+}
+@media (max-width:800px){
+    .container{
+        width:70%;
+    }
+    .taskFormContainer{
+        width: 50%;
+    }
+    #title{
+        font-size:12px;
+    }
+    .taskField{
+        width:60px;
+    }
+    .timeField{
+        width:60px;
+    }
+    .timeField{
+        width:50px;
+    }
+    .deadlineField{
+        width:50px;
+    }
+    .deleteButton{
+        left:26em;
+        top:24em;
+    }
 }
