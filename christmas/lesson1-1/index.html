@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="../../../../image/jaku.png">
+    <title>レッスン クリスマスイベント</title>
+</head>
+<body>
+ <header>
+        <h1 style="color:white;">【レッスン クリスマスイベント】 ココツからのクリスマスプレゼントの挑戦を解け! 1~2</h1>
+</header>
+    <div class="goal">
+        <h2 class="h2">今日の目標</h2>
+        <ul>
+            <li class="list">ココツの問題を解け！</li>
+        </ul>
+    </div>
+         <div class="talk">
+            <div id="senndenn">
+                <p>注意!このレッスンはかなり難しい内容となっています。挑戦して見たい方はぜひ下までスクロールしてみてください！</p>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">っていうことで、ここに来たんだけど</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">さあ、来ましたか。</div>
+            </div>
+        </div>
+         <div class="talk">
+            <div class="kokotu" id="kokotu">
+                
+                <p style="position:relative; left:200px;">いや来たけどさ。</p>
+            </div>
+        </div>
+         <div class="talk">
+            <div class="kokotu" id="kokotu">
+                
+                <p style="position:relative; left:200px;">まず、何やるの?</p>
+            </div>
+        </div>
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">いや、うp主話聞かなすぎでしょｗ</div>
+            </div>
+        </div>
+         <div class="talk">
+            <div class="kokotu" id="kokotu">
+                
+                <p style="position:relative; left:200px;">....</p>
+            </div>
+        </div>
+        <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">さあ、うp主とじゃく君とユーザーさんには、このコードを解読させてもらう。</div>
+            </div>
+        </div>
+        
+  <div class="talk">
+    <pre>
+        <code>
+            &lt;?DOCTYPE html&gt;
+            &lt;html lang="ja"&gt;
+            &lt;head&gt;
+              &lt;meta charset="UTF-8"&gt;
+              &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+              &lt;title&gt;ランダム背景色変更&lt;/title&gt;
+              &lt;style&gt;
+                .body {
+                  font-family: 'Arial', sans-serif;
+                  text-align: center;
+                  margin: 0;
+                  padding: 0;
+                  height: 100vh;
+                  transition: background-color ;
+                }
+                button {
+                  padding: 15px 30px;
+                  font-size: 18px;
+                  background-color: #4CAF50;
+                  color: white;
+                  border-position: none;
+                  border-radius: 5px;
+                  cursor: pointer;
+                  transition: backgroundcolor 0.3s ease;
+                }
+                button:hover {
+                  background-color: 45a049;
+                }
+              &lt;/style&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+
+            &lt;h1&gt;ランダムな背景色に変える&lt;/h1&gt;
+            &lt;button click="changeBackground()"&gt;背景色を変更&lt;/button&gt;
+
+            &lt;script&gt;
+              function getRandomColor() {
+                const letters = '0123456789ABCDEF';
+                let color = '#';
+                for (let i = 0; i &lt; 6; i+) {
+                  color += letters[Math.floor(Math.random() * 16)];
+                }
+                return;
+              }
+
+              function changeBackground() {
+                document.body.style.backgroundColor = getRandomColor;
+              }
+            &lt;/script&gt;
+
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+    </pre>
+</div>
+ <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">ふぁ!?コード長すぎね!?</div>
+            </div>
+        </div>
+        <div class="talk">
+            <div class="kokotu" id="kokotu">
+                
+                <p style="position:relative; left:200px;">せやな....</p>
+            </div>
+        </div>
+         <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="">
+                <div class="tooltip2">ふふふ。頑張って解いてみよう。あ、ちなみにコードコピーして貼り付けたりして実行しないでね?</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">ていうことで、解読していきますか。</div>
+            </div>
+        </div>
+         <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="">
+                <div class="tooltip2">ストップ！ルール説明するの忘れてた！</div>
+            </div>
+        </div>
+<div class="talk">
+    <pre>
+        <code>
+      1.コードエディタを使って<b>実行</b>するのはOK!(全コピーして貼り付けさえしなければ)
+      2.<b>コメントを使って解説</b>すること！特にうp主！
+      3.関数や変数の名前を変えてもOK!
+      4.<b>コードにはいくつかのエラーがあるからそれらを修正すること!</b>
+      ※太字で囲まれているものは絶対にしなければいけません。それ以外は自由です！さあ、頑張って解いてみよう！
+        </code>
+    </pre>
+</div>
+         <div class="talk">
+            <div class="kokotu" id="kokotu">
+                
+                <p style="position:relative; left:200px;">ココツ。ぼくだけひどくね?</p>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">Yes。</div>
+            </div>
+        </div>
+
+         <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">もう、いいや。どうにでもなってしまえ。</div>
+            </div>
+        </div>
+
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">んじゃあ、解読しますか。</div>
+            </div>
+        </div>
+        <div class="talk">
+    <pre>
+        <code>
+      解読で大事なこと
+                 
+      1.まずはさっきのコードがどんな機能をするのかを探す。
+                 ↓
+      2.HTML・CSSのスタイルを理解する。
+                 ↓
+      3.JavaScriptの動きや関数を確認する
+                 ↓
+      4.コードのフローを追う
+                 ↓
+      5.動作を予測して実行する
+                 ↓
+      6.全体のコードをまとめる
+                 ↓
+      7.エラーチェックと修正
+                 ↓
+        </code>
+    </pre>
+</div>
+<div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">とりまわかりやすくしてみた。</div>
+            </div>
+        </div>         
+            <div class="talk">
+            <div class="kokotu" id="kokotu">
+                
+                <p style="position:relative; left:200px;">お、ナイス。</p>
+            </div>
+        </div>
+            <div class="talk">
+    <pre>
+        <code>      
+      1.<b>まずはさっきのコードがどんな機能をするのかを探す。</b>
+                 ↓
+      2.HTML・CSSのスタイルを理解する。
+                 ↓
+      3.JavaScriptの動きや関数を確認する
+                 ↓
+      4.コードのフローを追う
+                 ↓
+      5.動作を予測して実行する
+                 ↓
+      6.全体のコードをまとめる
+                 ↓
+      7.エラーチェックと修正
+        </code>
+    </pre>
+</div>
+           <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">まずはタイトルから見ると、どうやら<b>ランダム背景色変更</b>という名前らしいな。</div>
+            </div>
+        </div>
+       <div class="talk">
+    <pre>
+        <code>         
+     &lt;title&gt;ランダム背景色変更&lt;/title&gt;
+        </code>
+    </pre>
+</div>
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">よし。これはでかい。</div>
+            </div>
+        </div>
+         <div class="talk">
+            <div class="kokotu" id="kokotu">
+                
+                <p style="position:relative; left:200px;">なるほど。まず、このプログラムは<b>ランダムに背景が変わる</b>サイトなのか。</p>
+            </div>
+        </div>
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">あと、コードよく見るとボタンタグがあるね。</div>
+            </div>
+        </div>
+        <pre> 
+            <code>
+        &lt;button click="changeBackground()"&gt;背景色を変更&lt;/button&gt;
+    </code>     
+    </pre>
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">よし。まとまった。</div>
+            </div>
+        </div>
+           <div class="talk">
+    <pre>
+        <code>         
+      1.まずはさっきのコードがどんな機能をするのかを探す。
+      →さっきのプログラムはボタンを押すことで背景色がランダム変わるってことだったのか。
+        </code>
+    </pre>
+</div>
+         <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">これでOK!次やろう。</div>
+            </div>
+        </div>
+         <div class="talk">
+    <pre>
+        <code>
+                 ↓
+      2.<b>HTML・CSSのスタイルを理解する。</b>
+                 ↓
+      3.JavaScriptの動きや関数を確認する
+                 ↓
+      4.コードのフローを追う
+                 ↓
+      5.動作を予測して実行する
+                 ↓
+      6.全体のコードをまとめる
+                 ↓
+      7.エラーチェックと修正
+                 ↓
+        </code>
+    </pre>
+</div>
+          <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">よし。次はCSSだ。</div>
+            </div>
+        </div>
+         <div class="talk">
+            <div class="kokotu" id="kokotu">
+                
+                <p style="position:relative; left:200px;">さて、ここは僕に任せたまえ。じゃくよ。</p>
+            </div>
+        </div>
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">わかった。頼むわ。うp主。</div>
+            </div>
+        </div>
+        <div class="talk">
+    <pre>
+        <code>
+       &lt;style&gt;
+                .body {
+                  font-family: 'Arial', sans-serif;
+                  text-align: center;
+                  margin: 0;
+                  padding: 0;
+                  height: 100vh;
+                  transition: background-color ;
+                }
+                button {
+                  padding: 15px 30px;
+                  font-size: 18px;
+                  background-color: #4CAF50;
+                  color: white;
+                  border-position: none;
+                  border-radius: 5px;
+                  cursor: pointer;
+                  transition: backgroundcolor 0.3s ease;
+                }
+                button:hover {
+                  background-color: 45a049;
+                }
+              &lt;/style&gt;
+               </code>
+    </pre>
+</div>
+  
+        <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <p style="position:relative; left:200px;">ちょ待って。コードおかしすぎだろ。</p>
+            </div>
+        </div>
+         <div class="talk">
+            <div class="kokotu" id="kokotu">
+                
+                <p style="position:relative; left:200px;">まず、<b>transition:background-color;</b>ッテ何！？秒数指定していないから、動かないよ。</p>
+            </div>
+        </div>
+         <div class="talk">
+            <div class="kokotu" id="kokotu">
+                
+                <p style="position:relative; left:200px;">とりあえず、このままで実行してみるか。</p>
+            </div>
+        </div>
+    <div class="talk">
+            <div class="jaku" id="jaku">
+                <div class="tooltip3" style="font-size:20px; margin-left:30px;">"実行"ボタンを押して！ユーザーさん！</div>
+            </div>
+        </div>
+         <div class="editor-container" style="margin-left:40px;">
+<div class="editor-container">
+    <div class="editor" style="">
+    <textarea class="html-editor" placeholder="HTMLコードを入力">
+        <?DOCTYPE html>
+            <html lang="ja">
+            <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>ランダム背景色変更</title>
+            </head>
+            <body>
+
+            <h1>ランダムな背景色に変える</h1>
+            <button click="changeBackground()">背景色を変更</button>
+            </body>
+            </html>
+    </textarea>
+  
+  <div class="editor">
+    <textarea class="css-editor" placeholder="CSSコードを入力">
+.body {
+font-family: 'Arial', sans-serif;
+text-align: center;
+margin: 0;
+padding: 0;
+height: 100vh;
+transition: background-color ;
+                }
+button {
+padding: 15px 30px;
+font-size: 18px;
+background-color: #4CAF50;
+color: white;
+border-position: none;
+border-radius: 5px;
+cursor: pointer;
+transition: backgroundcolor 0.3s ease;
+}
+button:hover {
+background-color: 45a049;
+                   }        
+    </textarea>
+    <div class="editor">
+    <textarea class="js-editor" placeholder="JSコードを入力">
+function getRandomColor() {
+                const letters = '0123456789ABCDEF';
+                let color = '#';
+                for (let i = 0; i < 6; i+) {
+                  color += letters[Math.floor(Math.random() * 16)];
+                }
+                return;
+              }
+
+              function changeBackground() {
+                document.body.style.backgroundColor = getRandomColor;
+              }
+    </textarea>
+    </div>
+    <button class="run-button">コードを実行</button>
+  
+  <div class="output-container">
+    <iframe class="output-frame" style="width:90em;"></iframe>
+  </div>
+</div>
+</div>
+</div>
+</div>
+     
+<div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/jaku.png" alt="Shiroi Inu">
+                <div class="tooltip">なるほど。</div>
+            </div>
+        </div>
+        <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">わかったかな?</div>
+            </div>
+        </div>
+         <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">うーん。(コードを見てる)</div>
+            </div>
+        </div>
+        <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">僕は暇だからちょっとゲームしてるわ</div>
+            </div>
+        </div>
+        <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/jaku.png" alt="Shiroi Inu">
+                <div class="tooltip">消すよ?(冗談)</div>
+            </div>
+        </div>
+         <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/shiroi-inu.png" alt="Jaku">
+                <div class="tooltip2">ごめんなさい。ちゃんと見ます。</div>
+            </div>
+        </div>
+        <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/jaku.png" alt="Shiroi Inu">
+                <div class="tooltip">(この方法つかえばわんちゃん...いやココツが可哀想だしこれ以上言うのはやめるか。)</div>
+            </div>
+        </div>
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/shiroi-inu.png" alt="Jaku">
+                <div class="tooltip2">あれ。うp主じゃなくて今のはじゃく君が言ったはずなのに。どうして素直に従うんだ...?</div>
+            </div>
+        </div>
+
+         <div class="talk">
+            <div class="kokotu" id="kokotu">
+                <img src="../../../../image/shiroi-inu.png" alt="Shiroi Inu">
+                <div class="tooltip2">じゃく君。あとで話をしようね。</div>
+            </div>
+        </div>
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">ひ、ひい！？</div>
+            </div>
+        </div>
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">さ、さてと！コードをチェックしていきますか！</div>
+            </div>
+        </div>
+        <div class="talk">
+            <pre>
+                <code>
+.body {
+font-family: 'Arial', sans-serif;
+text-align: center;
+margin: 0;
+padding: 0;
+height: 100vh;
+transition: background-color ;
+                }
+button {
+padding: 15px 30px;
+font-size: 18px;
+background-color: #4CAF50;
+color: white;
+border-position: none;
+border-radius: 5px;
+cursor: pointer;
+transition: backgroundcolor 0.3s ease;
+}
+button:hover {
+background-color: 45a049;
+                   } 
+                </code>
+            </pre>
+        </div>
+<div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">???</div>
+            </div>
+        </div>
+                <div class="talk">
+            <pre>
+                <code>
+transition: background-color ;
+transition: backgroundcolor 0.3s ease;
+.body {}
+                </code>
+            </pre>
+        </div>
+   <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku">
+                <div class="tooltip">つけ忘れおおくね?とりあえず直すか</div>
+            </div>
+        </div>
+      <div class="talk">
+            <pre>
+                <code>
+transition: background-color 0.3s ease;←秒数をつけ忘れているし、easeもつけられててなかった！
+transition: background-color 0.3s ease;←background-colorに-をつけ忘れていた！
+body{}←HTMLのコードを見てみるとクラス<b>body</b>が存在しなかった！
+                </code>
+            </pre>
+        </div>
+        <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku" style="margin-top:80px;">
+                <div class="tooltip">やばい。ちょっと疲れた。ユーザーさん。直してくれ！</div>
+            </div>
+        </div>
+        <div class="editor-container">
+    <div class="editor">
+        <textarea class="html-editor" placeholder="HTMLコードを入力">
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ランダム背景色変更</title>
+</head>
+<body>
+
+<h1>ランダムな背景色に変える</h1>
+<button click="changeBackground()">背景色を変更</button>
+</body>
+</html>
+          
+        </textarea>
+    
+    <div class="editor">
+        <textarea class="css-editor" placeholder="CSSコードを入力">
+ body {
+font-family: 'Arial', sans-serif;
+text-align: center;
+margin: 0;
+padding: 0;
+height: 100vh;
+transition: background-color 0.3s ease;
+      }
+button {
+padding: 15px 30px;
+font-size: 18px;
+background-color: #4CAF50;
+color: white;
+border-position: none;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+                }
+button:hover {
+background-color: 45a049;
+                }
+        </textarea>
+    
+    <button class="run-button">コードを実行</button>
+    <div class="output-container">
+        <iframe class="output-frame" style="width:90em;"></iframe>
+    </div>
+</div>
+</div>
+</div>
+
+   <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku" style="margin-top:20px;">
+                <div class="tooltip">ん?できた?</div>
+            </div>
+        </div>
+     <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku" style="margin-top:20px;">
+                <div class="tooltip">おお。速ｗ</div>
+            </div>
+            </div>
+             <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku" style="margin-top:20px;">
+                <div class="tooltip">ありがとう！</div>
+            </div>
+        </div>
+<div class="talk">
+            <pre>
+         <code>
+ body {
+font-family: 'Arial', sans-serif;
+text-align: center;
+margin: 0;
+padding: 0;
+height: 100vh;
+transition: background-color 0.3s ease;
+      }
+button {
+padding: 15px 30px;
+font-size: 18px;
+background-color: #4CAF50;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+                }
+button:hover {
+background-color: #45a049;
+    }       </pre>
+        </div>
+        </div> <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku" style="margin-top:80px;">
+                <div class="tooltip">WOW...</div>
+            </div>
+        </div> <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku" style="margin-top:80px;">
+                <div class="tooltip"><b>border-position</b>ってなんや。そんなもん存在しないぞ。</div>
+            </div>
+        </div>
+
+         </div> <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku" style="margin-top:80px;">
+                <div class="tooltip">でもよし！これでCSSのスタイルの修正が終わったぞ！
+                </div>
+            </div>
+        </div>
+ <div class="talk">
+            <div class="kokotu" id="kokotu">
+                
+                <p style="position:relative; left:200px;">疲れたし休憩しない?</p>
+            </div>
+        </div>
+     <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku" style="margin-top:80px;">
+                <div class="tooltip">せやな。疲れたから少し休憩するか。
+                </div>
+            </div>
+        </div>
+          <div class="talk">
+            <div class="jaku" id="jaku">
+                <img src="../../../../image/jaku.png" alt="Jaku" style="margin-top:80px;">
+                <div class="tooltip">お疲れ様！
+                </div>
+            </div>
+        </div>
+ </main>
+    <div class="goaled"> 
+        <h2 class="h2">今日のできたこと！</h2>
+        <ul>
+             <li class="list">CSSコードを解読しました。</li>
+            <li class="list">全体の確認できました。</li>
+        </ul>   
+    </div>
+
+    <div id="choose">
+        <button class="home">ホーム</button>
+        <button class="next">次のレッスン</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
