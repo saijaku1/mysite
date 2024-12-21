@@ -114,6 +114,7 @@ body {
     width: 1000px; 
     height: 210vh;
    animation: dialogSlideIn 0.5s ease;
+   height:300vh;
 }
 
 #elementP {
@@ -175,36 +176,54 @@ body {
   text-decoration: underline;
   color: #0056a1;
  ｝
-@media (max-width: 768px) {
-  body{
-    width:60%;
-  }  
-  
-  .header2 {
-        font-size: 24px;
-        padding: 15px;
-    }
+}
+@media (max-width:800px) {
+  body {
+    width: 100%;
+    font-size: 16px; /* フォントサイズを調整 */
+    line-height: 1.5; /* 行間を広げて読みやすく */
+    margin: 0;
+    padding: 0;
+  }
 
-    .into, .what {
-        margin: 20px;
-        padding: 20px;
-        width: 60%;
-    }
+  .into, .what {
+    margin: 20px auto; /* 左右中央揃え */
+    padding: 20px;
+    width: 80%; /* 画面幅に対して広すぎないように調整 */
+    font-size: 18px; /* 文字サイズをやや大きく */
+  }
 
-    .list-item {
-        flex-direction: column;
-        align-items: center;
-    }
+  .into {
+    font-size: 24px; /* 見出し部分は少し大きく */
+  }
 
-    .learn-list {
-        width: 60%;
-    }
+  .list-item {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0; 
+  }
 
-    #closeButton {
-        top: 5px;
-        right: 5px;
-        width: 20px;
-        height: 20px;
-        font-size: 12px;
-    }
+  .learn-list {
+    width: 80%; /* リスト幅を少し広めに */
+    margin: 0 auto; /* 中央揃え */
+  }
+.what{
+    height:410dvh;
+}
+  #closeButton {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    background-color: #ccc; /* ボタンの背景色を設定 */
+    color: #fff; /* ボタンの文字色を白に */
+    border-radius: 50%; /* 丸型にする */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 }
