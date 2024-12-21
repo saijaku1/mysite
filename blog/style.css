@@ -47,166 +47,109 @@ body.loaded .content {
   transition: opacity 0.5s ease;
 }
 
-
-html {
-    scroll-behavior: smooth;
-}
-
 body {
-    background-color: #111111;
-    font-family: 'Arial', sans-serif;
-    color: #fff;
-    margin: 0;
+  background-color: #111111;
+  background-size: cover;
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+  transition: background-color 0.5s, color 0.5s;
+  margin: 0;
 }
 
-   /* サイドバーのスタイル */
-    .sidebar {
-      height: 100%;
-      width: 0;  /* 初期状態では閉じる */
-      position: fixed;
-      top: 0;
-      left: 0;
-      background-color: #333333;
-      overflow-x: hidden;
-      transition: 0.3s;  /* 開閉時のアニメーション */
-      padding-top: 60px;
-    }
-
-    /* サイドバーのリンクのスタイル */
-    .sidebar a {
-      padding: 15px 10px;
-      text-decoration: none;
-      font-size: 18px;
-      color: white;
-      display: block;
-      transition: 0.2s;
-    }
-
-    .sidebar a:hover {
-      background-color: #575757;
-    }
-
-    /* サイドバーを開閉するボタン */
-    .open-btn {
-      font-size: 20px;
-      cursor: pointer;
-      background-color: #111;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      border-radius:20%;
-    }
-    /* サイドバーが開いている時のスタイル */
-    .sidebar.open {
-      width: 250px;
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #333333;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
 }
-/* 記事タイトルのスタイル */
-.article-title {
+
+.sidebar a {
+  padding: 15px 10px;
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+  display: block;
+  transition: 0.2s;
+}
+
+.sidebar a:hover {
+  background-color: #575757;
+}
+
+.open-btn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  border-radius: 20%;
+}
+
+.sidebar.open {
+  width: 250px;
+}
+
+.title {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGteH0LDet0636ouB3OWElcInVYOrHZ9prdw&s');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title h1 {
+  font-size: 600%;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  margin: 0;
+}
+
+.border1 {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid #4d4d4d;
+  border-radius: 15px;
+  padding: 2em;
+  width: 600px;
+  margin: 20px auto;
+  text-align: left;
+  background-color: #222;
+  box-sizing: border-box;
+  opacity: 0;
+  animation: slideIn 1s forwards;
+}
+
+.heading1 {
   font-size: 30px;
   font-weight: 700;
   margin-bottom: 1em;
 }
-.sidebar a:hover {
-    background-color: #575757;
-}
 
-/* サイドバーを開閉するボタン */
-.open-btn {
-    font-size: 20px;
-    cursor: pointer;
-    background-color: #111;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    border-radius: 20%;
-}
-
-/* タイトル部分に背景画像を設定 */
-.title {
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGteH0LDet0636ouB3OWElcInVYOrHZ9prdw&s');
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    height: 300px; /* ヘッダーの高さ */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.title h1 {
-    font-size: 600%; /* 元のサイズを維持 */
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    margin: 0;
-}
-
-/* ボーダー付きのブログコンテンツ */
-.border1 {
-  display: flex;
-  flex-direction: column; /* 中の要素を縦に並べる */
-  border: 3px solid #4d4d4d; /* 個々のボーダー */
-  border-radius: 15px;
-  padding: 2em;
-  width: 600px;
-  margin: 20px auto; /* 横幅を中央に配置 */
-  text-align: left; /* テキストを左寄せ */
-  background-color: #222; /* 背景色を追加 */
-  box-sizing: border-box; /* パディング込みでサイズを調整 */
-}
-/* テキスト内容のスタイル */
 .text1 {
   font-size: 20px;
   margin-bottom: 1em;
 }
-.down-button {
-    position: fixed;
-    bottom: 20px; 
-    right: 20px; /* 右からの距離 */
-    display: none; /* 初期は非表示 */
-    width: 50px;
-    height: 50px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 50%; /* 円形にする */
-    cursor: pointer;
-    text-align: center;
-    line-height: 50px; /* テキストを中央に配置 */
-    font-size: 18px; /* テキストサイズ */
-}
-.down-button:hover {
-    background-color: #0056b3;
-}
-.top-button {
-    position: fixed;
-    bottom: 20px; /* 画像の下に配置 */
-    right: 20px; /* 右からの距離 */
-    display: none; /* 初期は非表示 */
-    width: 50px;
-    height: 50px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 50%; /* 円形にする */
-    cursor: pointer;
-    text-align: center;
-    line-height: 50px; /* テキストを中央に配置 */
-    font-size: 18px; /* テキストサイズ */
-}
+
 .read-more {
   color: #4d90fe;
   text-decoration: none;
   font-size: 18px;
   margin-top: 1em;
-  align-self: flex-end; /* ボタンを右寄せにする */
+  align-self: flex-end;
 }
-/* アニメーションを修正してズレを解消 */
+
 @keyframes slideIn {
   0% {
     transform: translateY(100%);
@@ -218,82 +161,53 @@ body {
   }
 }
 
-.border1 {
-  opacity: 0;
-  animation: slideIn 1s forwards;
-}
-.top-button:hover {
-    background-color: #0056b3;
-}
-
-/* フッターのスタイル */
 .custom-footer {
     border-top: 2px solid #333;
     padding: 10px;
     text-align: center;
-    background-color: #2f3030;
-2f3030;
-}#fixed {
-  color: blue; /* 常に青 */
+    background-color: #222;
+    color: #ccc;
+    position: relative;
 }
 
-#fixed:visited,
-#fixed:hover,
-#fixed:active,
-#fixed:focus {
-  color: blue; /* クリック、ホバー、フォーカスしても青 */
+.footer-links {
+    margin-top: 10px;
 }
-@media screen and (max-width: 768px) {
+
+.footer-link,
+.footer-icon {
+    margin: 0 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-icon:hover {
+    color: #4d90fe;
+}
+
+.footer-link:hover {
+    color: #4d90fe;
+}
+
+/* スマホ版のスタイル */
+@media(max-width: 800px) {
   .border1 {
-    width: 90%;
+    width: 80%;
     padding: 1em;
-    margin: 10px auto;
-    font-size: 16px;
-  }
-
-  .title {
-    height: 200px;
   }
 
   .title h1 {
-    font-size: 200%;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    font-size: 70px;
   }
 
-  .open-btn {
-    font-size: 16px;
-    padding: 8px 12px;
+  .open-btn{
+    z-index:10;
   }
-
-  .sidebar {
-    width: 75%;
+  .sidebar{
+    z-index:8;
   }
-
-  .sidebar a {
-    padding: 10px 8px;
-    font-size: 16px;
-  }
-
-  .top-button,
-  .down-button {
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
-    line-height: 40px;
-    bottom: 15px;
-    right: 15px;
-  }
-
-  .custom-footer {
-    font-size: 14px;
-    padding: 5px;
-  }
-
-  .read-more {
-    font-size: 16px;
-  }
-
-  .circle-spin-1 {
-    --size: 36px;
+  .custom-footer{
+    font-size:15px;
+    text-align:center;
   }
 }
