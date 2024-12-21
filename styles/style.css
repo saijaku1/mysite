@@ -56,7 +56,6 @@ body {
   margin: 0;
 }
 
-/* サイドバーのスタイル */
 .sidebar {
   height: 100%;
   width: 0;
@@ -82,7 +81,6 @@ body {
   background-color: #575757;
 }
 
-/* サイドバーを開閉するボタン */
 .open-btn {
   font-size: 20px;
   cursor: pointer;
@@ -118,7 +116,6 @@ body {
   margin: 0;
 }
 
-/* 各コンテンツブロックのスタイル */
 .border1 {
   display: flex;
   flex-direction: column;
@@ -164,72 +161,53 @@ body {
   }
 }
 
-/* フッターのスタイル */
 .custom-footer {
     border-top: 2px solid #333;
     padding: 10px;
     text-align: center;
-    background-color: #2f3030;
-    height: 10vh;
-    margin-top: 5em;
-    display: flex; /* フッターの要素を横並びに */
-    justify-content: space-between; /* 左右にスペースを均等に */
-    align-items: center; /* 縦の中央揃え */
     background-color: #222;
     color: #ccc;
     position: relative;
 }
 
-/* リンクのスタイル */
 .footer-links {
-    display: flex;
-    align-items: center; /* 縦の中央揃え */
-}
-.footer-link {
-    color: #fff; /* リンクの色 */
-    margin-left: 15px; /* リンク間のスペース */
-    text-decoration: none; /* 下線を消す */
     margin-top: 10px;
 }
 
 .footer-link,
 .footer-icon {
-    color: #fff; /* アイコンの色 */
-}
-#fixel {
-  color: blue;  /* リンクの通常状態の色を青に */
     margin: 0 10px;
     color: #fff;
     text-decoration: none;
 }
 
-#fixel:visited {
-  color: blue;  /* 訪問済みリンクの色を青に */
 .footer-icon:hover {
     color: #4d90fe;
 }
 
-#fixel:hover {
-  color: blue;  /* ホバー時のリンクの色を青に */
 .footer-link:hover {
     color: #4d90fe;
 }
 
-#fixel:active {
-  color: blue;  /* クリックした時のリンクの色を青に */
-}
 /* スマホ版のスタイル */
-@media screen and (max-width: 768px) {
+@media(max-width: 800px) {
   .border1 {
-    width: 90%;
+    width: 80%;
     padding: 1em;
   }
+
   .title h1 {
-    font-size: 150%;
+    font-size: 70px;
   }
 
-    font-size: 24px; /* アイコンのサイズ */
-  .sidebar {
-    width: 75%;
+  .open-btn{
+    z-index:10;
+  }
+  .sidebar{
+    z-index:8;
+  }
+  .custom-footer{
+    font-size:15px;
+    text-align:center;
   }
 }
