@@ -82,6 +82,7 @@ body {
 }
 
 .open-btn {
+  z-index:10;
   font-size: 20px;
   cursor: pointer;
   background-color: #111;
@@ -96,6 +97,7 @@ body {
 
 .sidebar.open {
   width: 250px;
+  z-index:8;
 }
 
 .title {
@@ -188,7 +190,22 @@ body {
 .footer-link:hover {
     color: #4d90fe;
 }
+.countdown-container {
+  text-align: center;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
 
+#countdown {
+  font-size: 2rem;
+  color: #333;
+}
+
+#countdown span {
+  font-weight: bold;
+}
 /* スマホ版のスタイル */
 @media(max-width: 800px) {
   .border1 {
