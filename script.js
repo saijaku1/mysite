@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const targetDate = new Date("2025-03-01T00:09:00"); 
+  const targetDate = new Date("2025-02-13T19:00:00"); 
   const daysElem = document.getElementById("days");
   const hoursElem = document.getElementById("hours");
   const minutesElem = document.getElementById("minutes");
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const timeDiff = targetDate - now;
 
     if (timeDiff < 0) {
-      document.getElementById("countdown").innerHTML = "新サイトがオープンしました！";
+      document.getElementById("countdown").innerHTML = "新サイトがオープンしました！さあ、アクセスだ!";
       clearInterval(interval);
       return;
     }
