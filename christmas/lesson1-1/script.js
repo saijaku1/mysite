@@ -13,7 +13,7 @@ window.addEventListener('scroll', checkVisibility);
 document.addEventListener('DOMContentLoaded', checkVisibility);
 
 const returnBtn = document.querySelector(".home").addEventListener("click", () => {
-    window.location.href = "https://mysite.f5.si/programming";
+    window.location.href = "https://mysite.f5.si/christmas";
 })
 const nextBtn = document.querySelector(".next").addEventListener("click", () => {
     window.location.href = "https://mysite.f5.si/chirstmas/lesson1-2";
