@@ -1,109 +1,135 @@
- body {
+body {
+  min-height: 100vh;
   font-family: 'Helvetica', sans-serif;
-  margin: 90% 0 0 0; /* 上部に400pxの余白を追加 */
+  margin: 0;
   padding: 0;
   background-color: #f9f9f9;
   color: #333;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
+  align-items: flex-start;
 }
-  /* 全体レイアウトの調整 */
-  .grid-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    gap: 20px;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-  }
 
-  /* 各セクションのスタイル */
-  .header {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    border-radius: 10px;
-  }
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
 
-  .header h1 {
-    margin: 0;
-    font-size: 32px;
-  }
+.header {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+}
 
-  .header p {
-    margin: 10px 0 0;
-    font-size: 16px;
-  }
+.header h1 {
+  margin: 0;
+  font-size: 32px;
+}
 
-  .profile {
-    text-align: center;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  }
+.header p {
+  margin: 10px 0 0;
+  font-size: 16px;
+}
 
+.profile {
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.profile-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.skills, .hobbies, .contact, .seikaku {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.final {
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+}
+
+.chat {
+  display: flex;
+  align-items: center;
+}
+
+.chat img {
+  width: 80px;
+  height: 80px;
+  margin-right: 20px;
+}
+
+.border {
+  background-color: #333;
+  color: white;
+  padding: 15px;
+  border-radius: 20px;
+  position: relative;
+}
+
+.border:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent #333 transparent transparent;
+}
+
+footer {
+  grid-column: span 2;
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+  color: #999;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+  background-color: #555;
+  transform: scale(1.05);
+}
+
+@media screen and (max-width: 768px) {
   .profile-img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-  }
-
-  .skills, .hobbies, .contact, .seikaku {
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  }
- .footer {
-    grid-column: span 2;
-    text-align: center;
-    padding: 10px;
-    font-size: 14px;
-    color: #999;
-  }
-  .final {
-    padding: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f1f1f1;
-    border-radius: 10px;
-  }
-
-  .chat {
-    display: flex;
-    align-items: center;
-  }
-
-  .chat img {
     width: 80px;
     height: 80px;
-    margin-right: 20px;
   }
 
-  .border {
-    background-color: #333;
-    color: white;
+  .grid-container {
     padding: 15px;
-    border-radius: 20px;
-    position: relative;
   }
+}
 
-  .border:after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: -20px;
-    border-width: 10px;
-    border-style: solid;
-    border-color: transparent #333 transparent transparent;
-  }
