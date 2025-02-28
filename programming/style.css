@@ -114,7 +114,7 @@ body {
     width: 1000px; 
     height: 210vh;
    animation: dialogSlideIn 0.5s ease;
-   height:300vh;
+   height:210vh;
 }
 
 #elementP {
@@ -175,26 +175,25 @@ body {
 .section a:hover {
   text-decoration: underline;
   color: #0056a1;
- ｝
 }
 @media (max-width:800px) {
   body {
     width: 100%;
-    font-size: 16px; /* フォントサイズを調整 */
-    line-height: 1.5; /* 行間を広げて読みやすく */
+    font-size: 16px; 
+    line-height: 1.5; 
     margin: 0;
     padding: 0;
   }
 
   .into, .what {
-    margin: 20px auto; /* 左右中央揃え */
+    margin: 20px auto; 
     padding: 20px;
-    width: 80%; /* 画面幅に対して広すぎないように調整 */
-    font-size: 18px; /* 文字サイズをやや大きく */
+    width: 80%; 
+    font-size: 18px; 
   }
 
   .into {
-    font-size: 24px; /* 見出し部分は少し大きく */
+    font-size: 24px; 
   }
 
   .list-item {
@@ -204,11 +203,14 @@ body {
   }
 
   .learn-list {
-    width: 80%; /* リスト幅を少し広めに */
-    margin: 0 auto; /* 中央揃え */
+    width: 80%;
+    margin: 0 auto; 
   }
-.what{
-    height:410dvh;
+#blog{
+    display:none;
+}
+#blog{
+  height:100px;
 }
   #closeButton {
     position: absolute;
@@ -217,13 +219,11 @@ body {
     width: 20px;
     height: 20px;
     font-size: 12px;
-    background-color: #ccc; /* ボタンの背景色を設定 */
-    color: #fff; /* ボタンの文字色を白に */
-    border-radius: 50%; /* 丸型にする */
+    background-color: #ccc; 
+    color: #fff; 
+    border-radius: 50%; 
     display: flex;
     justify-content: center;
     align-items: center;
   }
-}
-
 }
