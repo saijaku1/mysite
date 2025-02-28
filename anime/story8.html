@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第八話</title>
+  <link rel="stylesheet">
+  <link rel="icon" href="../image/jaku.png">
+</head>
+
+<body>
+  <div id="main">
+    <!-- チャットのメッセージ -->
+    <p>ウさが入ってからしばらく経ち...</p>
+    <div class="chat">
+      <img src="../image/shiroi-inu.png" alt="じゃく">
+      <div class="border">
+        ....(ソファーで寝っ転がっている)
+      </div>
+    </div>
+    <div class="chat">
+      <img src="../image/shiroi-inu.png" alt="じゃく">
+      <div class="border">
+        そういえばじゃく君いなくね？
+      </div>
+    </div>
+
+    <div class="chat">
+      <img src="../image/usa.png">
+      <div class="border">
+        そういえば、いませんね。あの男。
+      </div>
+    </div>
+
+    <p>一方。じゃくとはというと...</p>
+
+    <div class="chat">
+      <img src="../image/jaku.png" alt="じゃく">
+      <div class="border">
+        うんぎゃああああ！(自分の部屋で叫んでいる)
+      </div>
+    </div>
+    <p>少し遡って....</p>
+    <div class="chat">
+      <img src="../image/jaku.png">
+      <div class="border">
+        カタカタ...(JSを打っている。)
+      </div>
+    </div>
+
+    <p>しかし実行すると、エラーが出てくる。どうやらNot a functionのようだ。</p>
+
+    <div class="chat">
+      <img src="../image/jaku.png" alt="じゃく">
+      <div class="border">
+        っち！どこだ！！
+      </div>
+    </div>
+
+    <pre><code>
+function greet() {
+    return "Hello";
+}
+
+const obj = {
+    message: "Hi",
+    say: greet
+};
+
+obj.say = "function"; 
+
+obj.say();
+      </code>
+    </pre>
+    <p>一方プログラムの間では...</p>
+    <div class="chat">
+      <img src="../image/function.png">
+      <div class="border">
+        我が名は関数。コードに潜み、コードを定義する者。
+      </div>
+    </div>
+
+    <div class="chat">
+      <img src="../image/object.png">
+      <div class="border">
+        我が名はオブジェクト。数字や文字列を管理し、届ける者。
+      </div>
+    </div>
+
+    <div class="chat">
+      <img src="../image/function.png">
+      <div class="border">
+        おい。オブジェクト。貴様が文字列を入れてたせいでエラーになるではないか。
+      </div>
+    </div>
+
+    <pre>
+    <code>
+obj.say = "Not a function";      
+    </code>
+    </pre>
+
+    <div class="chat">
+      <img src="../image/object.png">
+      <div class="border">
+        知らん。もう俺の<b>say</b>は文字列だ。口答えするな！
+      </div>
+    </div>
+    <div class="chat">
+      <img src="../image/jaku.png" alt="じゃく">
+      <div class="border">
+        よーし。できたー！実行〜。
+      </div>
+    </div>
+
+    <pre>
+    <code>
+obj.say();   
+    </code>
+    </pre>
+
+    <div class="chat">
+      <img src="../image/js.png" />
+      <div class="border">
+        obj.say() を実行するぞ...って、おい！こいつ関数じゃねえじゃん！
+      </div>
+    </div>
+
+    <div class="chat">
+      <img src="../image/js.png" />
+      <div class="border">
+        もういいや。ユーザーさんよ。とりまこいつ関数じゃねえからエラー出すぞ！
+      </div>
+    </div>
+    <p>結果:TypeError: obj.say is not a functionとなってしまった。</p>
+
+    <div class="chat">
+      <img src="../image/jaku.png">
+      <div class="border">
+        むきー💢！！！！！！！！！！！！！！
+      </div>
+    </div>
+    <p>叫びすぎてココツとウサが入ってきた。</p>
+    <div class="chat">
+      <img src="../image/shiroi-inu.png">
+      <div class="border">
+        あ、じゃく君。部屋にいたのか。ってどうした。そんなに怒った顔して...
+      </div>
+    </div>
+    <div class="chat">
+      <img src="../image/jaku.png" alt="じゃく">
+      <div class="border">
+        だ、だって！これ見て！！
+      </div>
+    </div>
+    <pre><code>
+function greet() {
+    return "Hello";
+}
+
+const obj = {
+    message: "Hi",
+    say: greet
+};
+
+obj.say = "function"; 
+
+obj.say();
+      </code>
+    </pre>
+
+    <div class="chat">
+      <img src="../image/jaku.png">
+      <div class="border">
+        あああ！関数が言う事聞いてくれない！！！！
+      </div>
+    </div>
+    <p>ついに頭おかしくなって赤ちゃんみたいに騒ぎ始めた。</p>
+    <div class="chat">
+      <img src="../image/shiroi-inu.png">
+      <div class="border">
+        もう...君は赤ちゃんじゃないでしょうが。全く。これはね....
+      </div>
+    </div>
+    <div class="chat">
+      <img src="../image/usa.png" alt="じゃく">
+      <div class="border">
+        待ってください。ここは私に任せてください。我がプログラムはエラーも直す！
+      </div>
+    </div>
+    <div class="chat">
+      <img src="../image/jaku.png" alt="じゃく">
+      <div class="border">
+        (ﾉД`)ｼｸｼｸ
+      </div>
+    </div>
+    <div class="chat">
+      <img src="../image/shiroi-inu.png" alt="じゃく">
+      <div class="border">
+        泣かないでよ...(しょうもないなー...)
+      </div>
+    </div>
+    <div class="chat">
+      <img src="../image/usa.png">
+      <div class="border">
+        なるほど。じゃくはsayを関数の中に入れたいんですね。では見ててください。我がプログラムを！
+      </div>
+    </div>
+    <p>お、おい。なんだ。この謎の圧は！？</p>
+    <div class="chat">
+      <img src="../image/usa.png" alt="じゃく">
+      <div class="border">
+        エクスチェンジ！！！！
+      </div>
+    </div>
+    <pre><code>
+function greet() {
+    return "Hello";
+}
+
+const obj = {
+    message: "Hi",
+    say: greet
+};
+
+obj.say = "Not a function";
+
+if (typeof obj.say === "function") {
+    console.log(obj.say());
+} else {
+    console.warn("obj.say is not a function, using default function.");
+    console.log(greet()); 
+}
+
+    </code></pre>
+    <p>一方プログラムの間では</p>
+    <div class="chat">
+      <img src="../image/function.png">
+      <div class="border">
+        おい！オブジェクト！どうするんだ！文字列だと受け取れん！変えろ！
+      </div>
+    </div>
+    <div class="chat">
+      <img src="../image/typeof.png">
+      <div class="border">
+        お喋りはここまでだ。愚か者どもめ。
+      </div>
+    </div>
+    <div class="chat">
+      <img src="../image/function.png">
+      <div class="border">
+        貴様は<b>タイプオフ</b>か。何しに来た。
+      </div>
+    </div>
+    <div class="chat">
+      <img src="../image/typeof.png">
+      <div class="border">
+        ふ。お前らはここで滅ぶがいい。
+      </div>
+    </div>
+    <div class="chat">
+      <img src="../image/typeof.png">
+      <div class="border">
+        アイアム<b>タイプオフ</b>。
+      </div>
+    </div>
+    <pre><code>
+ if (typeof obj.say === "function") {
+    console.log(obj.say());
+} else {
+    console.warn("obj.say is not a function, using default function.");
+    console.log(greet()); // デフォルトの関数を使う
+}
+    </code></pre>
+
+    <div class="chat">
+      <img src="../image/function.png" alt="じゃく">
+      <div class="border">
+        素晴らしい！ははは！我が関数が実行されている！ははは！
+      </div>
+    </div>
+
+    <div class="chat">
+      <img src="../image/object.png" alt="じゃく">
+      <div class="border">
+        んな！？俺の<b>say</b>が！！そんな！粉バナナ！！！！！！！
+      </div>
+    </div>
+
+    <div class="chat">
+      <img src="../image/typeof.png" alt="じゃく">
+      <div class="border">
+        この私に感謝すると良い。関数よ。私はこれで去る。
+      </div>
+    </div>
+    <pre><code>
+    console.warn("obj.say is not a function, using default function.");
+    console.log(greet()); 
+    </code></pre>
+    <div class="chat">
+      <img src="../image/js.png" alt="じゃく">
+      <div class="border">
+        あ、エラー！...と思いきやタイプオフがあるやん。この場合はelseだからelseに実行！
+      </div>
+    </div>
+    <p>結果:Helloが出力された。</p>
+    <div class="chat">
+      <img src="../image/usa.png">
+      <div class="border">
+        やりました。ナイス...チェンジ...
+      </div>
+    </div>
+    <div class="chat">
+      <img src="../image/jaku.png" alt="じゃく">
+      <div class="border">
+        おおお！素晴らしい！素晴らしすぎる！これぞ！僕が見ていたもの！！！(パソコンを見ながら興奮してる)
+      </div>
+    </div>
+    <div class="chat">
+      <img src="../image/shiroi-inu.png">
+      <div class="border">
+        すごいな。ウサさん。じゃく君よりもJSできるね！！
+      </div>
+    </div>
+    <p>じゃくの鬼の目線がココツに...</p>
+    <div class="chat">
+      <img src="../image/jaku.png" alt="じゃく">
+      <div class="border">
+        我が名はじゃく。闇に潜み、影より現れし者。貴様の運命（さだめ）は 終焉（しゅうえん） を迎える…
+      </div>
+    </div>
+    <div class="chat">
+      <img src="../image/shiroi-inu.png">
+      <div class="border">
+        ま、待って！じゃく君！ごめん！ごめんなさい！！！
+      </div>
+    </div>
+    <div class="chat">
+      <img src="../image/usa.png">
+      <div class="border">
+        おお...かっこいい....
+      </div>
+    </div>
+    <div class="chat">
+      <img src="../image/jaku.png">
+      <div class="border">
+        アイアム<b>ジャク</b>！！！！！
+      </div>
+    </div>
+
+    <div class="chat">
+      <img src="../image/shiroi-inu.png">
+      <div class="border">
+        いやあああああああああああああ！！！！！！！
+      </div>
+    </div>
+    <div class="chat">
+      <img src="../image/jaku.png">
+      <div class="border">
+        ぶっ◯してやるううううう！！！！
+      </div>
+    </div>
+    <div class="chat">
+      <img src="../image/shiroi-inu.png">
+      <div class="border">
+        あああああああああああ！
+      </div>
+    </div>
+
+    <div class="chat">
+      <img src="../image/usa.png">
+      <div class="border">
+        じゃくを怒らせるとなかなか怖いですねー。
+      </div>
+    </div>
+    <p>そうだね。</p>
+
+    <div class="chat">
+      <img src="../image/usa.png">
+      <div class="border">
+        ！？今の声は！？まさか幽霊！？
+      </div>
+    </div>
+    <p>我が名はうp主。影に潜み、影を監視する者。貴様のようなロ◯っ子を狩る！</p>
+
+    <div class="chat">
+      <img src="../image/usa.png">
+      <div class="border">
+        カッチーン💢 この私に喧嘩を売ったこと。ちゃんと後悔させてあげましょうか！
+      </div>
+    </div>
+    <p>あ、やめてくれ！！違う！冗談だ！！！じゃ、じゃく！ウサに◯される！</p>
+
+    <div class="chat">
+      <img src="../image/jaku.png">
+      <div class="border">
+        ココツ！◯刑だあああああああ！！
+      </div>
+    </div>
+
+    <div class="chat">
+      <img src="../image/usa.png">
+      <div class="border">
+        さーて？うp主。準備はできていますよ、ね?(手をグリグリしながら)
+      </div>
+    </div>
+    <p>あ、その...ごめ....いやああああああああああああああああ！！！！！！！！！！！</p>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+
+      #main {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+
+      .chat {
+        display: flex;
+        /* flexboxでアイコンと吹き出しを横並びに */
+        align-items: center;
+        /* 中央揃え */
+        margin-bottom: 20px;
+        /* メッセージ間のスペース */
+      }
+
+      .chat img {
+        width: 10%;
+        /* アイコンのサイズを大きく */
+        height: 60%;
+        /* アイコンのサイズを大きく */
+        margin-right: 10px;
+        /* アイコンと吹き出しの間のスペース */
+      }
+
+      .border {
+        background-color: #f0f0f0;
+        padding: 40px;
+        /* 吹き出しの中の余白を大きく */
+        border-radius: 15px;
+        /* 吹き出しの角を丸く */
+        display: inline-block;
+        position: relative;
+        /* 三角形の位置を相対的に配置 */
+        max-width: 500px;
+        /* 吹き出し本体の最大幅 */
+        font-size: 24px;
+        /* テキストサイズを大きく */
+        margin-left: 10px;
+        /* 吹き出しの左寄せ */
+      }
+
+      .border::before {
+        content: "";
+        width: 0;
+        height: 0;
+        border-top: 30px solid transparent;
+        /* 上部分を透明に */
+        border-bottom: 30px solid transparent;
+        /* 下部分を透明に */
+        border-right: 40px solid #f0f0f0;
+        /* 吹き出しの背景色と同じ */
+        position: absolute;
+        left: -40px;
+        /* 吹き出しの左側に配置 */
+        top: 50%;
+        /* 吹き出しの中央に配置 */
+        transform: translateY(-50%);
+        /* 高さを中央に調整 */
+      }
+
+      pre {
+        background-color: #f0f0f0;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        white-space: pre-wrap;
+        margin: 70px;
+      }
+    </style>
+
+</html>
