@@ -1,6 +1,7 @@
+/* 全体のレイアウト */
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f1f2f6;
+  background-color: #f4f6f9;
   margin: 0;
   padding: 0;
   display: flex;
@@ -10,6 +11,7 @@ body {
   color: #333;
 }
 
+/* ヘッダー */
 header {
   background-color: #2c3e50;
   color: white;
@@ -17,35 +19,45 @@ header {
   width: 100%;
   text-align: center;
   border-radius: 8px 8px 0 0;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
   margin: 0;
-  font-size: 2.5rem;
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
+/* メインコンテンツ */
 main {
   background-color: white;
   width: 80%;
   max-width: 900px;
   padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin-top: 20px;
+  transition: transform 0.3s ease;
 }
 
+main:hover {
+  transform: translateY(-5px); /* メインセクションのホバーエフェクト */
+}
+
+/* サブタイトル */
 h2 {
   font-size: 1.8rem;
   color: #2c3e50;
   margin-bottom: 15px;
-  border-bottom: 2px solid #ecf0f1;
+  border-bottom: 3px solid #ecf0f1;
   padding-bottom: 10px;
+  font-weight: 600;
 }
 
-/* セクション */
+/* セクションのスタイリング */
 section {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 button {
@@ -54,9 +66,9 @@ button {
   font-size: 1rem;
   padding: 12px 25px;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: all 0.3s ease;
   display: inline-block;
   margin: 5px;
 }
@@ -70,19 +82,26 @@ button:active {
   transform: translateY(1px);
 }
 
+button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.6);
+}
+
+/* インプットフィールドのスタイリング */
 input[type="text"], input[type="number"], input[type="date"], textarea {
   width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  padding: 12px;
+  margin: 12px 0;
+  border: 2px solid #ddd;
+  border-radius: 8px;
   font-size: 1rem;
   background-color: #f9f9f9;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 input[type="text"]:focus, input[type="number"]:focus, input[type="date"]:focus, textarea:focus {
   border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.6);
   outline: none;
 }
 
@@ -98,17 +117,24 @@ ul {
 
 li {
   background-color: #ecf0f1;
-  margin: 10px 0;
-  padding: 15px;
-  border-radius: 5px;
-  font-size: 1.1rem;
+  margin: 15px 0;
+  padding: 18px;
+  border-radius: 8px;
+  font-size: 1.2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 li:hover {
   background-color: #bdc3c7;
+  transform: translateY(-2px);
+}
+
+li:active {
+  transform: translateY(1px);
 }
 
 /* フォーム */
@@ -118,7 +144,7 @@ li:hover {
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 #subject-form input, #subject-form button {
@@ -128,8 +154,8 @@ li:hover {
 /* 進捗グラフ */
 canvas {
   width: 100%;
-  max-width: 600px;
-  height: 300px;
+  max-width: 650px;
+  height: 350px;
   margin-top: 30px;
 }
 
@@ -138,10 +164,13 @@ canvas {
   background-color: #ecf0f1;
   padding: 20px;
   border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 #notes textarea, #next-steps textarea {
   height: 100px;
+  padding: 12px;
+  font-size: 1rem;
 }
 
 /* ボタン配置 */
@@ -152,21 +181,22 @@ canvas {
 #actions button {
   margin: 10px;
   padding: 12px 25px;
+  border-radius: 6px;
 }
 
 /* モバイル対応 */
 @media (max-width: 768px) {
   main {
-    width: 95%;
+    width: 90%;
     padding: 20px;
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 
   button {
