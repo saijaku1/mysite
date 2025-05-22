@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="../image/jaku.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>スーパースネークゲーム</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    #gameBoard {
+      width: 700px;
+      height: 700px;
+      background-color: #000;
+      position: relative;
+      margin-top: 20px;
+      border: 2px solid #333;
+    }
+
+    .snake, .food {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+    }
+
+    .snake {
+      background-color: #00ff00;
+    }
+
+    .food {
+      background-color: #ff0000;
+    }
+
+    #score {
+      margin-top: 10px;
+      font-size: 1.2em;
+      color: #333;
+    }
+
+    #rankingList {
+      margin-top: 20px;
+      list-style-type: none;
+      padding: 0;
+    }
+
+    #rankingList li {
+      font-size: 1em;
+      color: #333;
+    }
+   button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333333;
+  background-color: #dddddd;
+     border:none;
+  font-size: 30px;
+  width: 300px;
+  height: 100px;
+  border-radius: 3px;
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+     &:hover{
+       cursor:pointer;
+       font-weight:600;
+        transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+     }
+}
+  </style>
+</head>
+<body>
+  <h1>スーパースネークゲーム</h1>
+  <h4>作者の最高スコア:114</h4>
+  <p>スーパーハード！とにかく難しい！</p>
+  <p>注意！このゲームはボードが非常にでかいです。プレイする際は幅と幅の焦点をしっかりあわせてプレイしてください。</p>
+  <div id="gameBoard"></div>
+  <p id="score">スコア: 0</p>
+  <ul id="rankingList"></ul>
+  <h5>ランキングは、ローカルストレージに保存されています。</h5>
+  <button>ノーマルをプレイ</button>
+
+  <script>
+    const boardSize = 35;
+    const initialFoodCount = 70;
+    let snake = [{ x: 10, y: 10 }];
+    let direction = { x: 0, y: 0 };
+    let foods = [];
+    let score = 0;
+
+    const gameBoard = document.getElementById("gameBoard");
+    const scoreDisplay = document.getElementById("score");
+    const rankingList = document.getElementById("rankingList");
+
+    function generateFood() {
+      let newFood;
+      do {
+        newFood = {
+          x: Math.floor(Math.random() * boardSize),
+          y: Math.floor(Math.random() * boardSize)
+        };
+      } while (
+        snake.some(segment => segment.x === newFood.x && segment.y === newFood.y) ||
+        foods.some(f => f.x === newFood.x && f.y === newFood.y)
+      );
+      return newFood;
+    }
+
+    function initializeFoods() {
+      foods = [];
+      for (let i = 0; i < initialFoodCount; i++) {
+        foods.push(generateFood());
+      }
+    }
+
+    function loadRanking() {
+      const savedScores = localStorage.getItem("ranking");
+      if (savedScores) {
+        const scores = JSON.parse(savedScores);
+        rankingList.innerHTML = "";
+        scores.sort((a, b) => b.score - a.score); 
+        scores.forEach((entry, index) => {
+          const listItem = document.createElement("li");
+          listItem.textContent = `${index + 1}. スコア: ${entry.score}`;
+          rankingList.appendChild(listItem);
+        });
+      }
+    }
+
+    function saveRanking() {
+      const savedScores = localStorage.getItem("ranking");
+      let scores = savedScores ? JSON.parse(savedScores) : [];
+      scores.push({ score });
+      scores.sort((a, b) => b.score - a.score);
+      if (scores.length > 10) scores.pop();
+      localStorage.setItem("ranking", JSON.stringify(scores));
+      loadRanking();
+    }
+
+    function draw() {
+      gameBoard.innerHTML = "";
+
+      snake.forEach(segment => {
+        const snakeElement = document.createElement("div");
+        snakeElement.style.left = `${segment.x * 20}px`;
+        snakeElement.style.top = `${segment.y * 20}px`;
+        snakeElement.classList.add("snake");
+        gameBoard.appendChild(snakeElement);
+      });
+
+      foods.forEach(food => {
+        const foodElement = document.createElement("div");
+        foodElement.style.left = `${food.x * 20}px`;
+        foodElement.style.top = `${food.y * 20}px`;
+        foodElement.classList.add("food");
+        gameBoard.appendChild(foodElement);
+      });
+    }
+
+    function update() {
+      const head = { x: snake[0].x + direction.x, y: snake[0].y + direction.y };
+
+      if (
+        head.x < 0 || head.x >= boardSize ||
+        head.y < 0 || head.y >= boardSize ||
+        snake.slice(1).some(segment => segment.x === head.x && segment.y === head.y)
+      ) {
+        alert("ゲームオーバー！スコア: " + score);
+        saveRanking();
+        resetGame();
+        return;
+      }
+
+      const eatenIndex = foods.findIndex(f => f.x === head.x && f.y === head.y);
+      if (eatenIndex !== -1) {
+        score++;
+        scoreDisplay.textContent = "スコア: " + score;
+        foods.splice(eatenIndex, 1);
+        foods.push(generateFood());
+      } else {
+        snake.pop();
+      }
+
+      snake.unshift(head);
+    }
+
+    function changeDirection(event) {
+      const keyPressed = event.key;
+
+      // ページスクロールを無効化
+      if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(keyPressed)) {
+        event.preventDefault();
+      }
+
+      if (keyPressed === "ArrowUp" && direction.y === 0) direction = { x: 0, y: -1 };
+      if (keyPressed === "ArrowDown" && direction.y === 0) direction = { x: 0, y: 1 };
+      if (keyPressed === "ArrowLeft" && direction.x === 0) direction = { x: -1, y: 0 };
+      if (keyPressed === "ArrowRight" && direction.x === 0) direction = { x: 1, y: 0 };
+    }
+
+    function resetGame() {
+      snake = [{ x: 10, y: 10 }];
+      direction = { x: 0, y: 0 };
+      score = 0;
+      scoreDisplay.textContent = "スコア: " + score;
+      initializeFoods();
+    }
+
+    document.addEventListener("keydown", changeDirection, { passive: false });
+
+    function gameLoop() {
+      update();
+      draw();
+      setTimeout(gameLoop, 25); // スピードアップ（高速）
+    }
+
+    initializeFoods();
+    loadRanking();
+    gameLoop();
+    
+    const click=document.querySelector("button").addEventListener("click",()=>{
+      window.location.href="https://mysite.f5.si/made/snake"
+    })
+  </script>
+</body>
+</html>
