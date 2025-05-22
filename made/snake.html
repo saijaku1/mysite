@@ -18,8 +18,8 @@
     }
 
     #gameBoard {
-      width: 400px;
-      height: 400px;
+      width: 500px;
+      height: 500px;
       background-color: #000;
       position: relative;
       margin-top: 20px;
@@ -64,10 +64,10 @@
   <div id="gameBoard"></div>
   <p id="score">スコア: 0</p>
   <ul id="rankingList"></ul>
-  <h5>ランキングは、誰かが新記録を達成するたびにリアルタイムで更新されます。</h5>
+  <h5>ランキングは、ローカルストレージに保存されています</h5>
 
   <script>
-    const boardSize = 20;
+    const boardSize = 30;
     let snake = [{ x: 10, y: 10 }];
     let direction = { x: 0, y: 0 };
     let food = { x: Math.floor(Math.random() * boardSize), y: Math.floor(Math.random() * boardSize) };
