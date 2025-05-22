@@ -60,14 +60,14 @@
 </head>
 <body>
   <h1>スネークゲーム</h1>
-  <h4>作者の最高スコア:59</h4>
+  <h4>作者の最高スコア:74</h4>
   <div id="gameBoard"></div>
   <p id="score">スコア: 0</p>
   <ul id="rankingList"></ul>
   <h5>ランキングは、ローカルストレージに保存されています</h5>
 
   <script>
-    const boardSize = 30;
+    const boardSize = 25;
     let snake = [{ x: 10, y: 10 }];
     let direction = { x: 0, y: 0 };
     let food = { x: Math.floor(Math.random() * boardSize), y: Math.floor(Math.random() * boardSize) };
