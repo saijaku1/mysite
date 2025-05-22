@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+  <link rel="icon" href="../../image/jaku.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="score-container">
+        <div id="current-score">Score: 0</div>
+        <div id="high-score">High Score: 0</div>
+    </div>
+    <canvas id="gameCanvas" width="700" height="700"></canvas>
+    <div id="game-over-message">
+        <p>Game Over</p>
+        <p>Your Final Score: <span id="final-score">0</span></p>
+    </div>
+
+    <!-- ゲームの説明 -->
+    <div id="game-description">
+        <p>ゲームの説明:</p>
+        <ul>
+            <li>矢印キーで蛇を操作し、敵から逃げてください。</li>
+            <li>5秒ごとに敵が2体~5体に無限に増えます。</li>
+            <li>敵または壁に触れるとゲームオーバーになります。</li>
+            <li>ゲームオーバー後、スコアが表示され、ハイスコアが保存されます。</li>
+          <li>ちなみに作者の最高スコアは:</li>
+        </ul>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
