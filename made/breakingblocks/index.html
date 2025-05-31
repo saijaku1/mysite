@@ -84,7 +84,8 @@
   <div class="explan">
     <h2>ルール説明</h2>
     <p>このゲームのルールは普通のブロック崩しと変わりませんが、<br>スピードが速いため少し難しいです。作者の最高スコアは197です。</p>
-    <p>ランキングはローカルストレージに保存されています。今までの<br>自分の記録を知りたい場合は、<b>検証</b>を開いて、<b>コンソール</b>を押して、<br><b>console.log(ranking);</b>と入力して実行します。</p>
+    <p>ランキングはローカルストレージに保存されています。今までの<br>自分の記録を知りたい場合は、<b>検証</b>を開いて、<b>コンソール</b>を押して、<br><b>console.log(JSON.parse(localStorage.getItem('blockBreakerScore')));
+</b>と入力して実行します。</p>
   </div>
   <div id="ranking" style="color: white; margin-top: 10px; max-width: 640px; text-align: center;">
   <h2>ランキング</h2>
