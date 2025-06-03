@@ -24,7 +24,7 @@
   let enemyBullets = [];
   let score = 0;
   let level = 1;
-  let lives = 15;
+  let lives = 10;
   let gameRunning = false;
   let enemySpawnTimer = null;
   let animationFrameId = null;
@@ -34,7 +34,7 @@
   let superShotGauge = 0;
   const maxSuperShotGauge = 100;
   let superShotActive = false;
-  const superShotDuration = 2000;
+  const superShotDuration = 3000;
   let superShotTimeoutId = null;
 
   // --- ランキング ---
@@ -91,9 +91,9 @@
         return;
       }
       // 強力ショット
-      bullets.push({ x: playerX + Math.random()*200, y: playerY - 20, speed: 25, power: 10, elem: null });
+      bullets.push({ x: playerX + 18, y: playerY - 20, speed: 20, power: 5, elem: null });
       playSound('shoot');
-    }, 1);
+    }, 50);
 
     superShotTimeoutId = setTimeout(() => {
       superShotActive = false;
@@ -107,12 +107,12 @@
 
   // 敵弾の発射間隔（ミリ秒）ランダムに調整
   const enemyBulletIntervalMin = 1200;
-  const enemyBulletIntervalMax = 2000;
+  const enemyBulletIntervalMax = 3000;
 
   // 初期設定
   function initGame() {
     playerX = (gameWidth - playerWidth) / 2;
-    lives = 15;
+    lives = 10;
     score = 0;
     level = 1;
     bullets = [];
@@ -135,23 +135,17 @@
   }
 
   // 敵をスポーンさせる関数
- function spawnEnemy() {
-   
-  const enemyCount = Math.min(3 + Math.floor(level / 2), 30); 
-  for (let i = 0; i < enemyCount; i++) {
+function spawnEnemy() {
+  const enemyCount = Math.floor(level / 2) + 2; // レベルに応じて出す数増加
+  for(let i = 0; i < enemyCount; i++) {
     const x = Math.random() * (gameWidth - 40);
     const y = -40;
-    const type = Math.random() < 0.3 ? 'fast' : 'normal'; // 種類のランダム化
-    const hp = type === 'normal' ? 2 : 1;
+    const type = Math.random() < 0.5 ? 'normal' : 'fast';
+    let hp = type === 'normal' ? 2 : 1;
     enemies.push({
-      x,
-      y,
-      width: 40,
-      height: 30,
-      speedX: (Math.random() - 0.5) * 4,
-      speedY: 0.8 + level * 0.1, // レベルに応じて速く
-      type,
-      hp,
+      x, y, width: 40, height: 30, speedX: (Math.random() - 0.5) * 4,
+      speedY: 0.5 + level * 0.05,
+      type, hp,
       lastShotTime: 0,
       shotInterval: 2000 + Math.random() * 1000,
       elem: null
@@ -165,8 +159,8 @@
     if(!gameRunning) return;
 
     // プレイヤー移動
-    if(keysPressed['ArrowLeft']) playerX -= 9;
-    if(keysPressed['ArrowRight']) playerX += 9;
+    if(keysPressed['ArrowLeft']) playerX -= 6;
+    if(keysPressed['ArrowRight']) playerX += 6;
     if(playerX < 0) playerX = 0;
     if(playerX > gameWidth - playerWidth) playerX = gameWidth - playerWidth;
     playerElem.style.left = playerX + 'px';
@@ -203,13 +197,13 @@
 
   // プレイヤー弾発射制御用変数
   let lastBulletTime = 0;
-  const bulletCooldown = 350; // ミリ秒
+  const bulletCooldown = 300; // ミリ秒
 
   function fireBullet() {
     const now = Date.now();
     if(now - lastBulletTime < bulletCooldown) return;
     lastBulletTime = now;
-    bullets.push({ x: playerX + 18, y: playerY - 10, speed: 10, power: 3, elem: null });
+    bullets.push({ x: playerX + 18, y: playerY - 10, speed: 10, power: 4, elem: null });
     playSound('shoot');
   }
 
@@ -249,16 +243,20 @@
       }
       enemy.elem.style.left = enemy.x + 'px';
       enemy.elem.style.top = enemy.y + 'px';
-        if(enemy.y > gameHeight) {
+
+      // 敵が画面外に出たらライフ減少
+      if(enemy.y > gameHeight) {
+        damagePlayer();
         removeEnemy(i);
       }
+
       // 敵が攻撃（敵弾発射）
       if(now - enemy.lastShotTime > enemy.shotInterval) {
         enemy.lastShotTime = now;
         enemyBullets.push({
           x: enemy.x + enemy.width/2 - 3,
           y: enemy.y + enemy.height,
-          speed: 6 + level*0.1,
+          speed: 6 + level*0.3,
           elem: null
         });
         playSound('enemyShoot');
@@ -304,10 +302,10 @@
           if(enemy.hp <= 0) {
             score += 100 * level;
             removeEnemy(ei);
-            increaseSuperShotGauge(10);
+            increaseSuperShotGauge(40);
           } else {
             score += 20;
-            increaseSuperShotGauge(25);
+            increaseSuperShotGauge(20);
           }
           // 弾は消える
           if(b.elem) gameArea.removeChild(b.elem);
