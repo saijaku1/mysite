@@ -91,7 +91,7 @@
         return;
       }
       // 強力ショット
-      bullets.push({ x: playerX + Math.random()*100, y: playerY - 20, speed: 25, power: 10, elem: null });
+      bullets.push({ x: playerX + Math.random()*200, y: playerY - 20, speed: 25, power: 10, elem: null });
       playSound('shoot');
     }, 1);
 
@@ -112,7 +112,7 @@
   // 初期設定
   function initGame() {
     playerX = (gameWidth - playerWidth) / 2;
-    lives = 25;
+    lives = 15;
     score = 0;
     level = 1;
     bullets = [];
@@ -138,7 +138,7 @@
   function spawnEnemy() {
     if(!gameRunning) return;
     // 敵数はレベルにより最大増加
-    if(enemies.length >= Math.min(15 + level, 40)) return;
+    if(enemies.length >= Math.min(30 + level, 60)) return;
 
     const enemyX = Math.random() * (gameWidth - 40);
     const enemyY = -40;
@@ -149,7 +149,7 @@
       width: 40,
       height: 40,
       speedY: 1 + level*0.05,
-      speedX: (Math.random() - 0.5) * 1.05,
+      speedX: (Math.random() - 0.5) * 1.2,
       elem: null,
       hp: level,
       type: enemyTypes[enemyTypeIndex],
@@ -257,7 +257,7 @@
         enemyBullets.push({
           x: enemy.x + enemy.width/2 - 3,
           y: enemy.y + enemy.height,
-          speed: 3 + level*0.1,
+          speed: 6 + level*0.1,
           elem: null
         });
         playSound('enemyShoot');
