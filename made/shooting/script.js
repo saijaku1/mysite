@@ -34,7 +34,7 @@
   let superShotGauge = 0;
   const maxSuperShotGauge = 100;
   let superShotActive = false;
-  const superShotDuration = 3000;
+  const superShotDuration = 2000;
   let superShotTimeoutId = null;
 
   // --- ランキング ---
@@ -91,7 +91,7 @@
         return;
       }
       // 強力ショット
-      bullets.push({ x: playerX + Math.random()*60, y: playerY - 20, speed: 25, power: 6, elem: null });
+      bullets.push({ x: playerX + Math.random()*100, y: playerY - 20, speed: 25, power: 10, elem: null });
       playSound('shoot');
     }, 1);
 
@@ -148,8 +148,8 @@
       y: enemyY,
       width: 40,
       height: 40,
-      speedY: 1 + level*0.15,
-      speedX: (Math.random() - 0.5) * 1.5,
+      speedY: 1 + level*0.1,
+      speedX: (Math.random() - 0.5) * 1.2,
       elem: null,
       hp: level,
       type: enemyTypes[enemyTypeIndex],
@@ -164,8 +164,8 @@
     if(!gameRunning) return;
 
     // プレイヤー移動
-    if(keysPressed['ArrowLeft']) playerX -= 6;
-    if(keysPressed['ArrowRight']) playerX += 6;
+    if(keysPressed['ArrowLeft']) playerX -= 8;
+    if(keysPressed['ArrowRight']) playerX += 8;
     if(playerX < 0) playerX = 0;
     if(playerX > gameWidth - playerWidth) playerX = gameWidth - playerWidth;
     playerElem.style.left = playerX + 'px';
@@ -208,7 +208,7 @@
     const now = Date.now();
     if(now - lastBulletTime < bulletCooldown) return;
     lastBulletTime = now;
-    bullets.push({ x: playerX + 18, y: playerY - 10, speed: 10, power: 1, elem: null });
+    bullets.push({ x: playerX + 18, y: playerY - 10, speed: 10, power: 3, elem: null });
     playSound('shoot');
   }
 
