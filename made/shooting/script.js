@@ -1,4 +1,3 @@
-// --- JSコード ---
   const gameWidth = 600;
   const gameHeight = 600;
   const playerWidth = 40;
@@ -91,9 +90,9 @@
         return;
       }
       // 強力ショット
-      bullets.push({ x: playerX + Math.random()*100, y: playerY - 20, speed: 20, power: 5, elem: null });
+      bullets.push({ x: playerX + Math.random()*50, y: playerY - 20, speed: 30, power: 5, elem: null });
       playSound('shoot');
-    }, 0);
+    }, 10);
 
     superShotTimeoutId = setTimeout(() => {
       superShotActive = false;
@@ -134,36 +133,38 @@
     gameLoop();
   }
 
- function spawnEnemy() {
-  const enemyCount = Math.min(1 + Math.floor(level / 2), 8); // 最大5体まで
-  for(let i = 0; i < enemyCount; i++) {
-    const enemyType = Math.random() < 0.5 ? 'type1' : 'type2';
+  // 敵をスポーンさせる関数
+  function spawnEnemy() {
+    if(!gameRunning) return;
+    // 敵数はレベルにより最大増加
+    if(enemies.length >= Math.min(5 + level, 50)) return;
+
+    const enemyX = Math.random() * (gameWidth - 40);
+    const enemyY = -40;
+    const enemyTypeIndex = Math.floor(Math.random() * enemyTypes.length);
     const enemy = {
-      x: Math.random() * (gameWidth - 40),
-      y: -40 - i * 50, // 少しずつずらして出す
+      x: enemyX,
+      y: enemyY,
       width: 40,
       height: 40,
-      speedX: Math.random() < 0.5 ? 1 + level * 0.1 : -1 - level * 0.1,
-      speedY: 1 + level * 0.2,
-      hp: 2 + Math.floor(level / 2),
-      type: enemyType,
+      speedY: 1 + level*0.15,
+      speedX: (Math.random() - 0.5) * 1.5,
       elem: null,
+      hp: level,
+      type: enemyTypes[enemyTypeIndex],
       lastShotTime: 0,
-      shotInterval: 2000 - Math.min(level * 100, 1500)
+      shotInterval: enemyBulletIntervalMin + Math.random()*(enemyBulletIntervalMax - enemyBulletIntervalMin)
     };
     enemies.push(enemy);
   }
-}
-
-
 
   // ゲームループ
   function gameLoop() {
     if(!gameRunning) return;
 
     // プレイヤー移動
-    if(keysPressed['ArrowLeft']) playerX -= 6;
-    if(keysPressed['ArrowRight']) playerX += 6;
+    if(keysPressed['ArrowLeft']) playerX -= 9;
+    if(keysPressed['ArrowRight']) playerX += 9;
     if(playerX < 0) playerX = 0;
     if(playerX > gameWidth - playerWidth) playerX = gameWidth - playerWidth;
     playerElem.style.left = playerX + 'px';
@@ -206,31 +207,28 @@
     const now = Date.now();
     if(now - lastBulletTime < bulletCooldown) return;
     lastBulletTime = now;
-    bullets.push({ x: playerX + 18, y: playerY - 10, speed: 10, power: 4, elem: null });
+    bullets.push({ x: playerX + 18, y: playerY - 10, speed: 10, power: 1, elem: null });
     playSound('shoot');
   }
 
   // 弾の更新
-function updateBullets() {
-  for (let i = bullets.length - 1; i >= 0; i--) {
-    const b = bullets[i];
-    b.y -= b.speed;
-
-    if (!b.elem) {
-      b.elem = document.createElement('div');
-      b.elem.className = 'bullet';
-      gameArea.appendChild(b.elem);
-    }
-    b.elem.style.left = b.x + 'px';
-    b.elem.style.top = b.y + 'px';
-
-    if (b.y < -10) {
-      if (b.elem && b.elem.parentNode) gameArea.removeChild(b.elem);
-      bullets.splice(i, 1);
-    }
+  function updateBullets() {
+    bullets.forEach((b, i) => {
+      b.y -= b.speed;
+      if(!b.elem) {
+        b.elem = document.createElement('div');
+        b.elem.className = 'bullet';
+        gameArea.appendChild(b.elem);
+      }
+      b.elem.style.left = b.x + 'px';
+      b.elem.style.top = b.y + 'px';
+      if(b.y < -10) {
+        // 画面外になったら消す
+        if(b.elem) gameArea.removeChild(b.elem);
+        bullets.splice(i,1);
+      }
+    });
   }
-}
-
 
   // 敵の更新
   function updateEnemies() {
@@ -252,6 +250,7 @@ function updateBullets() {
 
       // 敵が画面外に出たらライフ減少
       if(enemy.y > gameHeight) {
+       lives--;
         damagePlayer();
         removeEnemy(i);
       }
@@ -270,14 +269,14 @@ function updateBullets() {
     });
   }
 
-function removeEnemy(i) {
-  const enemy = enemies[i];
-  if (enemy && enemy.elem && enemy.elem.parentNode) {
-    gameArea.removeChild(enemy.elem);
+  // 敵を削除し画面からも消す
+  function removeEnemy(i) {
+    const enemy = enemies[i];
+    if(enemy && enemy.elem) {
+      gameArea.removeChild(enemy.elem);
+    }
+    enemies.splice(i,1);
   }
-  enemies.splice(i, 1);
-}
-
 
   // 敵弾更新
   function updateEnemyBullets() {
@@ -297,42 +296,28 @@ function removeEnemy(i) {
     });
   }
 
- function checkCollisions() {
-  // 弾と敵の当たり判定
-  for (let bi = bullets.length - 1; bi >= 0; bi--) {
-    const b = bullets[bi];
-    for (let ei = enemies.length - 1; ei >= 0; ei--) {
-      const enemy = enemies[ei];
-      if (isColliding(b, enemy)) {
-        enemy.hp -= b.power;
-        if (enemy.hp <= 0) {
-          score += 100 * level;
-          removeEnemy(ei);
-          increaseSuperShotGauge(40);
-        } else {
-          score += 20;
-          increaseSuperShotGauge(20);
+  // 衝突判定
+  function checkCollisions() {
+    // 弾と敵の当たり判定
+    bullets.forEach((b, bi) => {
+      enemies.forEach((enemy, ei) => {
+        if(isColliding(b, enemy)) {
+          // ダメージ処理
+          enemy.hp -= b.power;
+          if(enemy.hp <= 0) {
+            score += 100 * level;
+            removeEnemy(ei);
+            increaseSuperShotGauge(20);
+          } else {
+            score += 20;
+            increaseSuperShotGauge(5);
+          }
+          // 弾は消える
+          if(b.elem) gameArea.removeChild(b.elem);
+          bullets.splice(bi, 1);
         }
-        if (b.elem && b.elem.parentNode) gameArea.removeChild(b.elem);
-        bullets.splice(bi, 1);
-        break; // 同じ弾で複数の敵に当たらない
-      }
-    }
-  }
-
-  // 敵弾とプレイヤーの当たり判定
-  for (let bi = enemyBullets.length - 1; bi >= 0; bi--) {
-    const b = enemyBullets[bi];
-    const playerRect = { x: playerX, y: playerY, width: playerWidth, height: playerHeight };
-    if (isColliding(b, playerRect)) {
-      lives--;
-      damagePlayer();
-      if (b.elem && b.elem.parentNode) gameArea.removeChild(b.elem);
-      enemyBullets.splice(bi, 1);
-    }
-  }
-}
-
+      });
+    });
 
     // 敵弾とプレイヤーの当たり判定
     enemyBullets.forEach((b, bi) => {
