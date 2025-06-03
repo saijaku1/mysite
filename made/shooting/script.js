@@ -24,7 +24,7 @@
   let enemyBullets = [];
   let score = 0;
   let level = 1;
-  let lives = 25;
+  let lives = 15;
   let gameRunning = false;
   let enemySpawnTimer = null;
   let animationFrameId = null;
@@ -138,7 +138,7 @@
   function spawnEnemy() {
     if(!gameRunning) return;
     // 敵数はレベルにより最大増加
-    if(enemies.length >= Math.min(5 + level, 15)) return;
+    if(enemies.length >= Math.min(15 + level, 40)) return;
 
     const enemyX = Math.random() * (gameWidth - 40);
     const enemyY = -40;
@@ -202,7 +202,7 @@
 
   // プレイヤー弾発射制御用変数
   let lastBulletTime = 0;
-  const bulletCooldown = 50; // ミリ秒
+  const bulletCooldown = 150; // ミリ秒
 
   function fireBullet() {
     const now = Date.now();
