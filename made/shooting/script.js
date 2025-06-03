@@ -148,8 +148,8 @@
       y: enemyY,
       width: 40,
       height: 40,
-      speedY: 1 + level*0.1,
-      speedX: (Math.random() - 0.5) * 1.2,
+      speedY: 1 + level*0.05,
+      speedX: (Math.random() - 0.5) * 1.05,
       elem: null,
       hp: level,
       type: enemyTypes[enemyTypeIndex],
@@ -249,20 +249,13 @@
       enemy.elem.style.left = enemy.x + 'px';
       enemy.elem.style.top = enemy.y + 'px';
 
-      // 敵が画面外に出たらライフ減少
-      if(enemy.y > gameHeight) {
-        lives--;
-        damagePlayer();
-        removeEnemy(i);
-      }
-
       // 敵が攻撃（敵弾発射）
       if(now - enemy.lastShotTime > enemy.shotInterval) {
         enemy.lastShotTime = now;
         enemyBullets.push({
           x: enemy.x + enemy.width/2 - 3,
           y: enemy.y + enemy.height,
-          speed: 6 + level*0.3,
+          speed: 6 + level*0.2,
           elem: null
         });
         playSound('enemyShoot');
