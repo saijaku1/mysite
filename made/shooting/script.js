@@ -91,9 +91,9 @@
         return;
       }
       // 強力ショット
-      bullets.push({ x: playerX + 18, y: playerY - 20, speed: 20, power: 5, elem: null });
+      bullets.push({ x: playerX + Math.random()*60, y: playerY - 20, speed: 25, power: 6, elem: null });
       playSound('shoot');
-    }, 50);
+    }, 1);
 
     superShotTimeoutId = setTimeout(() => {
       superShotActive = false;
@@ -112,7 +112,7 @@
   // 初期設定
   function initGame() {
     playerX = (gameWidth - playerWidth) / 2;
-    lives = 10;
+    lives = 20;
     score = 0;
     level = 1;
     bullets = [];
@@ -202,7 +202,7 @@
 
   // プレイヤー弾発射制御用変数
   let lastBulletTime = 0;
-  const bulletCooldown = 300; // ミリ秒
+  const bulletCooldown = 150; // ミリ秒
 
   function fireBullet() {
     const now = Date.now();
