@@ -24,7 +24,7 @@
   let enemyBullets = [];
   let score = 0;
   let level = 1;
-  let lives = 10;
+  let lives = 20;
   let gameRunning = false;
   let enemySpawnTimer = null;
   let animationFrameId = null;
