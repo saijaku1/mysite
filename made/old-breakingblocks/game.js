@@ -10,8 +10,8 @@ const livesDisplay = document.getElementById("lives");
 const rankingList = document.getElementById("rankingList");
 
 const brick = {
-  rowCount: 6,
-  columnCount: 8,
+  rowCount: 9,
+  columnCount: 12,
   width: 60,
   height: 20,
   padding: 10,
@@ -37,7 +37,7 @@ function resetGame() {
     radius: 10,
   }];
   paddle = {
-    width: 100,
+    width: 120,
     height: 10,
     x: (canvas.width - 75) / 2,
     speed: 11,
