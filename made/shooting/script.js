@@ -24,7 +24,7 @@
   let enemyBullets = [];
   let score = 0;
   let level = 1;
-  let lives = 20;
+  let lives = 25;
   let gameRunning = false;
   let enemySpawnTimer = null;
   let animationFrameId = null;
@@ -112,7 +112,7 @@
   // 初期設定
   function initGame() {
     playerX = (gameWidth - playerWidth) / 2;
-    lives = 20;
+    lives = 25;
     score = 0;
     level = 1;
     bullets = [];
@@ -164,8 +164,8 @@
     if(!gameRunning) return;
 
     // プレイヤー移動
-    if(keysPressed['ArrowLeft']) playerX -= 8;
-    if(keysPressed['ArrowRight']) playerX += 8;
+    if(keysPressed['ArrowLeft']) playerX -= 9;
+    if(keysPressed['ArrowRight']) playerX += 9;
     if(playerX < 0) playerX = 0;
     if(playerX > gameWidth - playerWidth) playerX = gameWidth - playerWidth;
     playerElem.style.left = playerX + 'px';
@@ -202,7 +202,7 @@
 
   // プレイヤー弾発射制御用変数
   let lastBulletTime = 0;
-  const bulletCooldown = 150; // ミリ秒
+  const bulletCooldown = 50; // ミリ秒
 
   function fireBullet() {
     const now = Date.now();
@@ -248,14 +248,16 @@
       }
       enemy.elem.style.left = enemy.x + 'px';
       enemy.elem.style.top = enemy.y + 'px';
-
+        if(enemy.y > gameHeight) {
+        removeEnemy(i);
+      }
       // 敵が攻撃（敵弾発射）
       if(now - enemy.lastShotTime > enemy.shotInterval) {
         enemy.lastShotTime = now;
         enemyBullets.push({
           x: enemy.x + enemy.width/2 - 3,
           y: enemy.y + enemy.height,
-          speed: 6 + level*0.2,
+          speed: 3 + level*0.1,
           elem: null
         });
         playSound('enemyShoot');
@@ -301,10 +303,10 @@
           if(enemy.hp <= 0) {
             score += 100 * level;
             removeEnemy(ei);
-            increaseSuperShotGauge(20);
+            increaseSuperShotGauge(50);
           } else {
             score += 20;
-            increaseSuperShotGauge(5);
+            increaseSuperShotGauge(100);
           }
           // 弾は消える
           if(b.elem) gameArea.removeChild(b.elem);
