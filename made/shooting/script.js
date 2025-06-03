@@ -91,9 +91,9 @@
         return;
       }
       // 強力ショット
-      bullets.push({ x: playerX + 18, y: playerY - 20, speed: 20, power: 5, elem: null });
+      bullets.push({ x: playerX + Math.random()*100, y: playerY - 20, speed: 20, power: 5, elem: null });
       playSound('shoot');
-    }, 50);
+    }, 0);
 
     superShotTimeoutId = setTimeout(() => {
       superShotActive = false;
@@ -134,24 +134,27 @@
     gameLoop();
   }
 
-  // 敵をスポーンさせる関数
-function spawnEnemy() {
-  const enemyCount = Math.floor(level / 2) + 1; // レベルに応じて出す数増加
+ function spawnEnemy() {
+  const enemyCount = Math.min(1 + Math.floor(level / 2), 8); // 最大5体まで
   for(let i = 0; i < enemyCount; i++) {
-    const x = Math.random() * (gameWidth - 40);
-    const y = -40;
-    const type = Math.random() < 0.5 ? 'normal' : 'fast';
-    let hp = type === 'normal' ? 2 : 1;
-    enemies.push({
-      x, y, width: 40, height: 30, speedX: (Math.random() - 0.5) * 4,
-      speedY: 0.5 + level * 0.05,
-      type, hp,
+    const enemyType = Math.random() < 0.5 ? 'type1' : 'type2';
+    const enemy = {
+      x: Math.random() * (gameWidth - 40),
+      y: -40 - i * 50, // 少しずつずらして出す
+      width: 40,
+      height: 40,
+      speedX: Math.random() < 0.5 ? 1 + level * 0.1 : -1 - level * 0.1,
+      speedY: 1 + level * 0.2,
+      hp: 2 + Math.floor(level / 2),
+      type: enemyType,
+      elem: null,
       lastShotTime: 0,
-      shotInterval: 2000 + Math.random() * 1000,
-      elem: null
-    });
+      shotInterval: 2000 - Math.min(level * 100, 1500)
+    };
+    enemies.push(enemy);
   }
 }
+
 
 
   // ゲームループ
