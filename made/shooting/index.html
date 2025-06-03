@@ -1,57 +1,32 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>シューティングゲーム</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>シューティングゲーム</title>
+  <link rel="icon" href="../../image/jaku.png">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- タイトル画面 -->
-  <div id="startScreen" class="overlay">
-    <h1>シューティングゲーム</h1>
-    <button id="startButton">ゲームスタート</button>
-    <div id="highscoreList"></div>
-  </div>
+<h1>シューティングゲーム</h1>
+<div id="score">スコア: 0</div>
+<div id="level">レベル: 1</div>
+<div id="hearts"></div>
 
-  <!-- ゲームオーバー画面 -->
-  <div id="gameOverScreen" class="overlay hidden">
-    <h2>Game Over</h2>
-    <p id="finalScore">スコア: 0</p>
-    <button id="restartButton">リスタート</button>
-  </div>
+<div id="gameArea">
+  <div id="player"></div>
+</div>
 
-  <!-- ゲーム画面 -->
-  <div id="game">
-    <div id="player"></div>
+<div id="superShotBarContainer"><div id="superShotBar"></div></div>
+<div id="message"></div>
+<button id="startButton">ゲームスタート (矢印キー + Z: ショット, スペース: 必殺技)</button>
 
-    <!-- UI表示 -->
-    <div id="ui">
-      <span id="score">Score: 0</span>
-      <span id="level">Level: 1</span>
-      <span id="lives">Lives: 3</span>
-      <span id="muteToggle">🔊</span>
-      <label>
-        BGM:
-        <input type="range" id="bgmVolume" min="0" max="1" step="0.1" value="0.5">
-      </label>
-      <label>
-        SE:
-        <input type="range" id="seVolume" min="0" max="1" step="0.1" value="0.5">
-      </label>
-    </div>
-  </div>
-
-  <!-- サウンド -->
-  <audio id="bgm" src="sounds/bgm.mp3" loop></audio>
-  <audio id="shootSound" src="sounds/shoot.wav"></audio>
-  <audio id="explosionSound" src="sounds/explosion.wav"></audio>
-  <audio id="powerupSound" src="sounds/powerup.wav"></audio>
-  <audio id="bombSound" src="sounds/bomb.wav"></audio>
-  <audio id="chargeSound" src="sounds/charge.wav"></audio>
-  <audio id="bossSound" src="sounds/boss.wav"></audio>
-
+<div id="ranking">
+  <h3>ランキング</h3>
+  <p>ランキングなし</p>
+</div>
+<button id="clearRankingBtn">ランキングをリセット</button>
   <script src="script.js"></script>
 </body>
 </html>
