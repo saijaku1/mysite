@@ -136,7 +136,7 @@
 
   // 敵をスポーンさせる関数
  function spawnEnemy() {
-   if (enemies.length > 50) return; // 出しすぎ防止
+   
   const enemyCount = Math.min(3 + Math.floor(level / 2), 30); 
   for (let i = 0; i < enemyCount; i++) {
     const x = Math.random() * (gameWidth - 40);
