@@ -10,9 +10,9 @@ const livesDisplay = document.getElementById("lives");
 const rankingList = document.getElementById("rankingList");
 
 const brick = {
-  rowCount: 5,
+  rowCount: 6,
   columnCount: 8,
-  width: 50,
+  width: 60,
   height: 20,
   padding: 10,
   offsetTop: 30,
