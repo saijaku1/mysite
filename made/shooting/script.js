@@ -107,7 +107,7 @@
 
   // 敵弾の発射間隔（ミリ秒）ランダムに調整
   const enemyBulletIntervalMin = 1200;
-  const enemyBulletIntervalMax = 3000;
+  const enemyBulletIntervalMax = 2000;
 
   // 初期設定
   function initGame() {
@@ -138,7 +138,7 @@
   function spawnEnemy() {
     if(!gameRunning) return;
     // 敵数はレベルにより最大増加
-    if(enemies.length >= Math.min(30 + level, 60)) return;
+    if(enemies.length >= Math.min(50 + level, 120)) return;
 
     const enemyX = Math.random() * (gameWidth - 40);
     const enemyY = -40;
@@ -202,7 +202,7 @@
 
   // プレイヤー弾発射制御用変数
   let lastBulletTime = 0;
-  const bulletCooldown = 150; // ミリ秒
+  const bulletCooldown = 250; // ミリ秒
 
   function fireBullet() {
     const now = Date.now();
@@ -303,10 +303,10 @@
           if(enemy.hp <= 0) {
             score += 100 * level;
             removeEnemy(ei);
-            increaseSuperShotGauge(50);
+            increaseSuperShotGauge(15);
           } else {
             score += 20;
-            increaseSuperShotGauge(100);
+            increaseSuperShotGauge(35);
           }
           // 弾は消える
           if(b.elem) gameArea.removeChild(b.elem);
