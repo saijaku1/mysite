@@ -135,29 +135,30 @@
   }
 
   // 敵をスポーンさせる関数
-  function spawnEnemy() {
-    if(!gameRunning) return;
-    // 敵数はレベルにより最大増加
-    if(enemies.length >= Math.min(50 + level, 120)) return;
-
-    const enemyX = Math.random() * (gameWidth - 40);
-    const enemyY = -40;
-    const enemyTypeIndex = Math.floor(Math.random() * enemyTypes.length);
-    const enemy = {
-      x: enemyX,
-      y: enemyY,
+ function spawnEnemy() {
+   if (enemies.length > 50) return; // 出しすぎ防止
+  const enemyCount = Math.min(3 + Math.floor(level / 2), 30); 
+  for (let i = 0; i < enemyCount; i++) {
+    const x = Math.random() * (gameWidth - 40);
+    const y = -40;
+    const type = Math.random() < 0.3 ? 'fast' : 'normal'; // 種類のランダム化
+    const hp = type === 'normal' ? 2 : 1;
+    enemies.push({
+      x,
+      y,
       width: 40,
-      height: 40,
-      speedY: 1 + level*0.05,
-      speedX: (Math.random() - 0.5) * 1.2,
-      elem: null,
-      hp: level,
-      type: enemyTypes[enemyTypeIndex],
+      height: 30,
+      speedX: (Math.random() - 0.5) * 4,
+      speedY: 0.8 + level * 0.1, // レベルに応じて速く
+      type,
+      hp,
       lastShotTime: 0,
-      shotInterval: enemyBulletIntervalMin + Math.random()*(enemyBulletIntervalMax - enemyBulletIntervalMin)
-    };
-    enemies.push(enemy);
+      shotInterval: 2000 + Math.random() * 1000,
+      elem: null
+    });
   }
+}
+
 
   // ゲームループ
   function gameLoop() {
@@ -202,7 +203,7 @@
 
   // プレイヤー弾発射制御用変数
   let lastBulletTime = 0;
-  const bulletCooldown = 250; // ミリ秒
+  const bulletCooldown = 350; // ミリ秒
 
   function fireBullet() {
     const now = Date.now();
@@ -303,10 +304,10 @@
           if(enemy.hp <= 0) {
             score += 100 * level;
             removeEnemy(ei);
-            increaseSuperShotGauge(15);
+            increaseSuperShotGauge(10);
           } else {
             score += 20;
-            increaseSuperShotGauge(35);
+            increaseSuperShotGauge(25);
           }
           // 弾は消える
           if(b.elem) gameArea.removeChild(b.elem);
