@@ -308,7 +308,12 @@ function displayRanking() {
     });
   }
 }
-
+clearRanking.onclick=()=>{
+if(confirm("ランキングをリセットしますか?")){
+localStorage.removeItem("blockBreakerRanking");
+        displayRanking();
+}
+}
 // ボタンイベント
 startButton.onclick = () => {
   startScreen.style.display = "none";
