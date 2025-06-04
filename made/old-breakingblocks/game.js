@@ -37,7 +37,7 @@ function resetGame() {
     radius: 10,
   }];
   paddle = {
-    width: 120,
+    width: 140,
     height: 10,
     x: (canvas.width - 75) / 2,
     speed: 11,
@@ -45,7 +45,7 @@ function resetGame() {
     leftPressed: false,
   };
   score = 0;
-  lives = 2;
+  lives = 5;
   level = 1;
   items = [];
   initBricks();
