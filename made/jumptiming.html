@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="../image/jaku.png">
+  <title>ジャンプヒーロー</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #1e1e2f, #2a2a40);
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+    }
+    canvas {
+      display: block;
+      margin: 30px auto;
+      background: linear-gradient(to top, #87ceeb, #ccefff);
+      border: 4px solid #444;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+    #startScreen, #gameOverScreen {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.85);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 18px;
+      background: #4caf50;
+      border: none;
+      color: #fff;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #45a049;
+    }
+    h1, h2 {
+      margin-bottom: 10px;
+    }
+    ol {
+      padding-left: 1.2em;
+      text-align: left;
+      max-width: 200px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="startScreen">
+    <h1>ジャンプヒーロー</h1>
+    <p>スペースキーまたはタップでジャンプ！</p>
+    <button onclick="startGame()">スタート</button>
+  </div>
+  <div id="gameOverScreen" style="display:none">
+    <h1>ゲームオーバー</h1>
+    <p id="finalScore"></p>
+    <button onclick="startGame()">リスタート</button>
+    <h2>ローカルランキング</h2>
+    <ol id="rankingList"></ol>
+  </div>
+  <canvas id="gameCanvas" width="480" height="320"></canvas>
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+    let player, gravity, jumpPower, doubleJumped, ground, platforms, score, isGameOver, skins, currentSkin;
+    let frame = 0;
+    let difficultyLevel = 1;
+
+    const keys = { space: false };
+
+    document.addEventListener("keydown", e => {
+      if (e.code === "Space") keys.space = true;
+    });
+
+    document.addEventListener("keyup", e => {
+      if (e.code === "Space") keys.space = false;
+    });
+
+    canvas.addEventListener("click", () => keys.space = true);
+
+    function startGame() {
+      document.getElementById("startScreen").style.display = "none";
+      document.getElementById("gameOverScreen").style.display = "none";
+      gravity = 0.6;
+      jumpPower = -12;
+      doubleJumped = false;
+      ground = 280;
+      score = 0;
+      isGameOver = false;
+      frame = 0;
+      currentSkin = 0;
+      difficultyLevel = 1;
+      skins = ["red", "orange", "lime", "cyan", "magenta"];
+
+      platforms = generatePlatforms();
+      player = {
+        x: 100,
+        y: platforms[0].y - 30,
+        width: 30,
+        height: 30,
+        vy: 0,
+        onGround: false,
+        blinkFrames: 0
+      };
+      loop();
+    }
+
+    function generatePlatforms() {
+      let list = [];
+      for (let i = 0; i < 20; i++) {
+        let x = 200 + i * 120;
+        let y = Math.random() * 100 + 180;
+        let type = Math.random() < 0.1 ? "spring" : "normal";
+        list.push({ x, y, width: 90, height: 10, type });
+      }
+      return list;
+    }
+
+    function update() {
+      frame++;
+      score = Math.floor(frame / 5);
+      difficultyLevel = Math.floor(score / 100) + 1;
+
+      if (player.blinkFrames > 0) player.blinkFrames--;
+
+      player.vy += gravity;
+      player.y += player.vy;
+      player.onGround = false;
+
+      for (let p of platforms) p.x -= 1.5 * difficultyLevel;
+      platforms = platforms.filter(p => p.x + p.width > 0);
+      if (platforms.length < 20) {
+        let lastX = platforms[platforms.length - 1].x;
+        let y = Math.random() * (50 + 10 * difficultyLevel) + 150;
+        let type = Math.random() < 0.1 ? "spring" : "normal";
+        platforms.push({ x: lastX + 120 + 10 * difficultyLevel, y, width: 60, height: 10, type });
+      }
+
+      for (let p of platforms) {
+        if (player.x + player.width > p.x && player.x < p.x + p.width) {
+          if (player.y + player.height > p.y && player.y + player.height < p.y + p.height + 10 && player.vy >= 0) {
+            player.y = p.y - player.height;
+            player.vy = (p.type === "spring") ? jumpPower * 1.5 : 0;
+            doubleJumped = false;
+            player.onGround = true;
+          }
+        }
+      }
+
+      if (keys.space) {
+        if (player.onGround) {
+          player.vy = jumpPower;
+          player.onGround = false;
+        } else if (!doubleJumped) {
+          player.vy = jumpPower;
+          doubleJumped = true;
+        }
+        keys.space = false;
+      }
+
+      if (player.y > canvas.height) {
+        if (player.blinkFrames === 0) {
+          player.blinkFrames = 30;
+        } else if (player.blinkFrames <= 1) {
+          endGame();
+        }
+      }
+
+      currentSkin = Math.floor(score / 100) % skins.length;
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#87ceeb";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "green";
+      ctx.fillRect(0, ground + 20, canvas.width, 40);
+
+      for (let p of platforms) {
+        ctx.fillStyle = p.type === "spring" ? "yellow" : "brown";
+        ctx.fillRect(p.x, p.y, p.width, p.height);
+      }
+
+      if (player.blinkFrames % 4 < 2 || player.blinkFrames === 0) {
+        ctx.fillStyle = skins[currentSkin];
+        ctx.fillRect(player.x, player.y, player.width, player.height);
+      }
+
+      ctx.fillStyle = "black";
+      ctx.font = "16px Arial";
+      ctx.fillText("Score: " + score, 10, 20);
+    }
+
+    function loop() {
+      update();
+      draw();
+      if (!isGameOver) requestAnimationFrame(loop);
+    }
+
+    function endGame() {
+      isGameOver = true;
+      document.getElementById("gameOverScreen").style.display = "block";
+      document.getElementById("finalScore").textContent = `スコア: ${score}`;
+      saveScore(score);
+      renderRanking();
+    }
+
+    function saveScore(score) {
+      let scores = JSON.parse(localStorage.getItem("jumpGameScores")) || [];
+      scores.push(score);
+      scores.sort((a, b) => b - a);
+      if (scores.length > 5) scores = scores.slice(0, 5);
+      localStorage.setItem("jumpGameScores", JSON.stringify(scores));
+    }
+
+    function renderRanking() {
+      const list = document.getElementById("rankingList");
+      list.innerHTML = "";
+      let scores = JSON.parse(localStorage.getItem("jumpGameScores")) || [];
+      for (let s of scores) {
+        const li = document.createElement("li");
+        li.textContent = s;
+        list.appendChild(li);
+      }
+    }
+  </script>
+  <div class="explain">
+    <h2>ゲームの説明</h2>
+    <p>スペースキーまたは画面をタップしてジャンプします。<br>
+    ジャンプ中にもう一度スペースキーを押すとダブルジャンプができます。<br>
+    スコアは100点ごとに足場のスピードが意味わからないくらい速くなります</p>
+  </div>
+</body>
+</html>
