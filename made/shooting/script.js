@@ -23,7 +23,7 @@
   let enemyBullets = [];
   let score = 0;
   let level = 1;
-  let lives = 10;
+  let lives = 15;
   let gameRunning = false;
   let enemySpawnTimer = null;
   let animationFrameId = null;
@@ -90,7 +90,7 @@
         return;
       }
       // 強力ショット
-      bullets.push({ x: playerX + Math.random()*50, y: playerY - 20, speed: 30, power: 5, elem: null });
+      bullets.push({ x: playerX + Math.random()*100, y: playerY - 20, speed: 30, power: 20, elem: null, width: 30 });
       playSound('shoot');
     }, 10);
 
@@ -106,12 +106,12 @@
 
   // 敵弾の発射間隔（ミリ秒）ランダムに調整
   const enemyBulletIntervalMin = 1200;
-  const enemyBulletIntervalMax = 3000;
+  const enemyBulletIntervalMax = 4000;
 
   // 初期設定
   function initGame() {
     playerX = (gameWidth - playerWidth) / 2;
-    lives = 10;
+    lives = 15;
     score = 0;
     level = 1;
     bullets = [];
@@ -137,7 +137,7 @@
   function spawnEnemy() {
     if(!gameRunning) return;
     // 敵数はレベルにより最大増加
-    if(enemies.length >= Math.min(5 + level, 50)) return;
+    if(enemies.length >= Math.min(5 + level, 70)) return;
 
     const enemyX = Math.random() * (gameWidth - 40);
     const enemyY = -40;
@@ -147,7 +147,7 @@
       y: enemyY,
       width: 40,
       height: 40,
-      speedY: 1 + level*0.15,
+      speedY: 1 + level*0.1,
       speedX: (Math.random() - 0.5) * 1.5,
       elem: null,
       hp: level,
@@ -163,8 +163,8 @@
     if(!gameRunning) return;
 
     // プレイヤー移動
-    if(keysPressed['ArrowLeft']) playerX -= 9;
-    if(keysPressed['ArrowRight']) playerX += 9;
+    if(keysPressed['ArrowLeft']) playerX -= 7;
+    if(keysPressed['ArrowRight']) playerX += 7;
     if(playerX < 0) playerX = 0;
     if(playerX > gameWidth - playerWidth) playerX = gameWidth - playerWidth;
     playerElem.style.left = playerX + 'px';
@@ -201,13 +201,13 @@
 
   // プレイヤー弾発射制御用変数
   let lastBulletTime = 0;
-  const bulletCooldown = 300; // ミリ秒
+  const bulletCooldown = 150; // ミリ秒
 
   function fireBullet() {
     const now = Date.now();
     if(now - lastBulletTime < bulletCooldown) return;
     lastBulletTime = now;
-    bullets.push({ x: playerX + 18, y: playerY - 10, speed: 10, power: 1, elem: null });
+    bullets.push({ x: playerX + 18, y: playerY - 10, speed: 15, power: 1+level, elem: null ,width: 10});
     playSound('shoot');
   }
 
@@ -307,10 +307,10 @@
           if(enemy.hp <= 0) {
             score += 100 * level;
             removeEnemy(ei);
-            increaseSuperShotGauge(20);
+            increaseSuperShotGauge(40);
           } else {
-            score += 20;
-            increaseSuperShotGauge(5);
+            score += 50;
+            increaseSuperShotGauge(15);
           }
           // 弾は消える
           if(b.elem) gameArea.removeChild(b.elem);
@@ -359,7 +359,7 @@
       messageElem.textContent = `レベルアップ！レベル ${level}`;
       // 敵スポーン速度アップ
       clearInterval(enemySpawnTimer);
-      enemySpawnTimer = setInterval(spawnEnemy, Math.max(2000 - level*150, 600));
+      enemySpawnTimer = setInterval(spawnEnemy, Math.max(2000 - level*300, 600));
       setTimeout(() => {
         if(messageElem.textContent.startsWith('レベルアップ')) messageElem.textContent = '';
       }, 3000);
