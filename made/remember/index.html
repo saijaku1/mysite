@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>暗記ゲーム</title>
+  <link rel="icon" href="../../image/jaku.png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+    body {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #eee;
+      font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 40px 20px;
+      user-select: none;
+    }
+    h1 {
+      margin-bottom: 20px;
+      text-shadow: 0 0 8px #fff;
+      letter-spacing: 0.1em;
+    }
+    #difficulty-select {
+      margin-bottom: 25px;
+      font-size: 18px;
+      user-select: none;
+    }
+    #difficulty-select label {
+      margin: 0 15px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: color 0.3s;
+    }
+    #difficulty-select input[type="radio"] {
+      margin-right: 6px;
+      cursor: pointer;
+    }
+    #difficulty-select label:hover {
+      color: #ffd700;
+    }
+    #start-button {
+      background: #ffd700;
+      color: #203a43;
+      border: none;
+      border-radius: 30px;
+      padding: 15px 40px;
+      font-weight: 700;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.6);
+      transition: background 0.3s, transform 0.15s ease;
+      margin-bottom: 30px;
+      user-select: none;
+    }
+    #start-button:hover {
+      background: #fff176;
+      transform: scale(1.05);
+    }
+    #start-button:active {
+      transform: scale(0.95);
+    }
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      max-width: 440px;
+      margin: 0 auto 30px auto;
+    }
+    .color-button {
+      width: 100px;
+      height: 100px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: 
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        filter 0.15s ease;
+      filter: drop-shadow(0 0 5px rgba(0,0,0,0.4));
+      user-select: none;
+    }
+    .color-button.red { background-color: #e74c3c; }
+    .color-button.blue { background-color: #3498db; }
+    .color-button.green { background-color: #2ecc71; }
+    .color-button.yellow { background-color: #f1c40f; }
+    .color-button.purple { background-color: #9b59b6; }
+    .color-button.orange { background-color: #e67e22; }
+    .color-button.pink { background-color: #fd79a8; }
+    .color-button.brown { background-color: #a0522d; }
+    .color-button.active {
+      filter: brightness(1.3) drop-shadow(0 0 15px #fff);
+      transform: scale(1.1);
+      box-shadow: 0 0 20px 5px #fff;
+    }
+    .color-button:active {
+      transform: scale(0.95);
+      box-shadow: 0 0 5px 2px #fff;
+    }
+    #status {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-top: 20px;
+      text-shadow: 0 0 8px rgba(255 255 255 / 0.7);
+      min-height: 2.2em;
+      user-select: none;
+    }
+    #rankings {
+      margin-top: 30px;
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 600;
+      font-size: 1.1rem;
+      box-shadow: 0 0 20px rgba(255 255 255 / 0.2);
+      user-select: none;
+    }
+    #rankings h2 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      text-shadow: 0 0 6px #ffd700;
+    }
+    #rankings ol {
+      padding-left: 1.2em;
+      text-align: left;
+      max-height: 220px;
+      overflow-y: auto;
+    }
+    #rankings button {
+      background: #e74c3c;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 20px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.15s ease;
+      margin-top: 10px;
+    }
+    #rankings button:hover {
+      background: #ef6060;
+      transform: scale(1.05);
+    }
+    #rankings button:active {
+      transform: scale(0.95);
+    }
+  </style>
+</head>
+<body>
+  <h1>記憶ゲーム</h1>
+  <div id="difficulty-select">
+    <label><input type="radio" name="difficulty" value="4" checked /> 簡単 (4色)</label>
+    <label><input type="radio" name="difficulty" value="6" /> 普通 (6色)</label>
+    <label><input type="radio" name="difficulty" value="8" /> 難しい (8色)</label>
+  </div>
+  <button id="start-button">スタート</button>
+  <div id="game-area">
+    <div id="sequence-display">順番がここに表示されます</div>
+    <div class="buttons">
+      <button class="color-button red" id="red" data-color="red"></button>
+      <button class="color-button blue" id="blue" data-color="blue"></button>
+      <button class="color-button green" id="green" data-color="green"></button>
+      <button class="color-button yellow" id="yellow" data-color="yellow"></button>
+      <button class="color-button purple" id="purple" data-color="purple"></button>
+      <button class="color-button orange" id="orange" data-color="orange"></button>
+      <button class="color-button pink" id="pink" data-color="pink"></button>
+      <button class="color-button brown" id="brown" data-color="brown"></button>
+    </div>
+    <div id="status">待機中</div>
+    <div id="rankings">
+      <button>ランキングをリセット</button>
+    </div>
+  </div>
+  <script>
+    const allColors = ["red", "blue", "green", "yellow", "purple", "orange", "pink", "brown"];
+    let colors = [];
+    let sequence = [];
+    let playerInput = [];
+    let level = 0;
+    let acceptingInput = false;
+    let playerName = "";
+    function getDifficultyColorCount() {
+      const selected = document.querySelector('input[name="difficulty"]:checked');
+      return selected ? Number(selected.value) : 4;
+    }
+    function updateButtons() {
+      const colorCount = colors.length;
+      const allButtons = document.querySelectorAll(".color-button");
+      allButtons.forEach((btn, i) => {
+        btn.style.display = i < colorCount ? "inline-block" : "none";
+      });
+    }
+    function flashButton(color) {
+      const button = document.getElementById(color);
+      button.classList.add("active");
+      setTimeout(() => button.classList.remove("active"), 400);
+    }
+    function showSequence() {
+      let index = 0;
+      acceptingInput = false;
+      document.getElementById("sequence-display").innerText = "順番を覚えてください";
+      const interval = setInterval(() => {
+        flashButton(sequence[index]);
+        index++;
+        if (index >= sequence.length) {
+          clearInterval(interval);
+          acceptingInput = true;
+          document.getElementById("status").innerText = `クリックしてください（${level}手）`;
+          document.getElementById("sequence-display").innerText = "";
+        }
+      }, 800);
+    }
+    function nextLevel() {
+      level++;
+      playerInput = [];
+      acceptingInput = false;
+      document.getElementById("status").innerText = `レベル: ${level}`;
+      sequence.push(colors[Math.floor(Math.random() * colors.length)]);
+      showSequence();
+    }
+    function startGame() {
+      playerName = prompt("名前を入力してください：") || "名無し";
+      colors = allColors.slice(0, getDifficultyColorCount());
+      updateButtons();
+      sequence = [];
+      level = 0;
+      displayRankings(JSON.parse(localStorage.getItem("rankings")) || []);
+      nextLevel();
+    }
+    function checkInput() {
+      const currentIndex = playerInput.length - 1;
+      if (playerInput[currentIndex] !== sequence[currentIndex]) {
+        document.getElementById("status").innerHTML = "❌ 間違い！ゲームオーバー！";
+        document.getElementById("status").innerHTML += `<br>あなたのスコアは${level}でした。`;
+        acceptingInput = false;
+        saveRanking();
+        return;
+      }
+      if (playerInput.length === sequence.length) {
+        document.getElementById("status").innerText = "⭕ 正解！レベルアップ！";
+        setTimeout(nextLevel, 1000);
+      }
+    }
+    function saveRanking() {
+      let rankingName = prompt("ランキングに名前を入力してください：")?.trim();
+      if (!rankingName) rankingName = playerName || "名無し";
+      const score = level;
+      let rankings = JSON.parse(localStorage.getItem("rankings")) || [];
+      rankings.push({ name: rankingName, score: score });
+      rankings.sort((a, b) => b.score - a.score);
+      rankings = rankings.slice(0, 10);
+      localStorage.setItem("rankings", JSON.stringify(rankings));
+      displayRankings(rankings);
+    }
+    function displayRankings(rankings) {
+      let html = "<h2>🏆 ランキング</h2><ol>";
+      rankings.forEach((entry) => {
+        html += `<li>${entry.name}: レベル ${entry.score}</li>`;
+      });
+      html += "</ol>";
+      html += '<button>ランキングをリセット</button>';
+      document.getElementById("rankings").innerHTML = html;
+      document.querySelector("#rankings button").addEventListener("click", () => {
+        if (confirm("ランキングをリセットしますか？")) {
+          localStorage.removeItem("rankings");
+          displayRankings([]);
+        }
+      });
+    }
+    allColors.forEach(color => {
+      document.getElementById(color).addEventListener("click", () => {
+        if (!acceptingInput) return;
+        playerInput.push(color);
+        flashButton(color);
+        checkInput();
+      });
+    });
+    document.getElementById("start-button").addEventListener("click", startGame);
+    window.onload = () => {
+      displayRankings(JSON.parse(localStorage.getItem("rankings")) || []);
+    };
+  </script>
+</body>
+</html>
+
