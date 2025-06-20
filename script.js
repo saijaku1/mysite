@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const targetDate = new Date("2025-07-21T00:00:00"); 
+  const targetDate = new Date("2025-06-19T00:00:00"); 
   const daysElem = document.getElementById("days");
   const hoursElem = document.getElementById("hours");
   const minutesElem = document.getElementById("minutes");
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const timeDiff = targetDate - now;
 
     if (timeDiff < 0) {
-      document.getElementById("countdown").innerHTML = "新サイトがオープンしました！さあ、アクセスだ!";
+      document.getElementById("countdown").innerHTML = "新サイトがオープンしました！さあ、アクセスだ!<a href='https://saijaku.f5.si'>こちら</a>から！";
       clearInterval(interval);
       return;
     }
