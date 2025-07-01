@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../../image/jaku.png">
+<title>タイミングゲーム</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>タイミングゲーム</h1>
+  <button id="modeButton">モード切替 (今: バー)</button>
+  <p>スコア: <span id="score">0</span></p>
+  <p>経過時間: <span id="time">0 ms</span></p>
+  <p id="message"></p>
+
+  <div id="barGame" class="gameArea">
+    <div id="movingBar"></div>
+    <div id="centerLine"></div>
+  </div>
+  <div id="numberGame" class="gameArea hidden">
+    <div id="number">1</div>
+  </div>
+
+  <button id="startButton">スタート</button>
+  <button id="stopButton">ストップ</button>
+
+<script src="script.js"></script>
+</body>
+</html>
