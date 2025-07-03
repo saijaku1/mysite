@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>〇×ゲーム</title>
+  <link rel="icon" href="../../image/jaku.png">
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #2c3e50, #4ca1af);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      text-align: center;
+      padding: 20px;
+      font-size: 2em;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    #controls {
+      text-align: center;
+      margin-top: 10px;
+    }
+    button {
+      background: rgba(255,255,255,0.2);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 8px;
+      padding: 10px 20px;
+      margin: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+    button:hover {
+      background: rgba(255,255,255,0.4);
+      transform: scale(1.05);
+    }
+    #board {
+      display: grid;
+      grid-template-columns: repeat(3, 120px);
+      grid-gap: 10px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .cell {
+      width: 120px; height: 120px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 12px;
+      font-size: 64px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .cell:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.05);
+    }
+    .message {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 1.5em;
+    }
+    footer {
+      margin-top: auto;
+      background: rgba(0, 0, 0, 0.2);
+      text-align: center;
+      padding: 10px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <header>〇×ゲーム</header>
+  <div id="controls">
+    <button id="startBtn">スタート</button>
+    <button id="resetBtn" disabled>リセット</button>
+  </div>
+  <div id="board"></div>
+  <div class="message" id="message"></div>
+  <footer>&copy; 2025 じゃくのサイト | 〇×ゲーム</footer>
+
+  <script>
+    const board = document.getElementById('board');
+    const message = document.getElementById('message');
+    const startBtn = document.getElementById('startBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    let cells = [];
+    let currentPlayer = '〇';
+    let gameActive = false;
+
+    // 盤面の初期化
+    function initBoard() {
+      board.innerHTML = ''; // 既存のマスを削除
+      cells = [];
+      for (let i = 0; i < 9; i++) {
+        const cell = document.createElement('div');
+        cell.className = 'cell';
+        cell.addEventListener('click', () => handleClick(i));
+        board.appendChild(cell);
+        cells.push(cell);
+      }
+    }
+
+    // ゲーム開始
+    startBtn.addEventListener('click', () => {
+      initBoard();
+      currentPlayer = '〇';
+      gameActive = true;
+      message.textContent = currentPlayer + 'の番です';
+      startBtn.disabled = true;
+      resetBtn.disabled = false;
+    });
+
+    // リセット
+    resetBtn.addEventListener('click', () => {
+      initBoard();
+      currentPlayer = '〇';
+      gameActive = true;
+      message.textContent = currentPlayer + 'の番です';
+    });
+
+    // クリック時の処理
+    function handleClick(index) {
+      if (!gameActive || cells[index].textContent) return;
+      cells[index].textContent = currentPlayer;
+      if (checkWin()) {
+        message.textContent = currentPlayer + 'の勝ち！';
+        gameActive = false;
+        startBtn.disabled = false;
+        resetBtn.disabled = true;
+      } else if (cells.every(c => c.textContent)) {
+        message.textContent = '引き分け！';
+        gameActive = false;
+        startBtn.disabled = false;
+        resetBtn.disabled = true;
+      } else {
+        currentPlayer = currentPlayer === '〇' ? '×' : '〇';
+        message.textContent = currentPlayer + 'の番です';
+      }
+    }
+
+    // 勝利判定
+    function checkWin() {
+      const wins = [
+        [0,1,2],[3,4,5],[6,7,8],
+        [0,3,6],[1,4,7],[2,5,8],
+        [0,4,8],[2,4,6]
+      ];
+      return wins.some(pattern =>
+        pattern.every(i => cells[i].textContent === currentPlayer)
+      );
+    }
+  </script>
+</body>
+</html>
