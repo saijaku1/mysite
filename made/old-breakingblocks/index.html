@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>ちょっと難しいブロック崩し</title>
   <link rel="icon" href="../../image/jaku.png">
-  <link rel="stylesheet" href="style.css">
   <style>
     body {
       margin: 0;
@@ -16,21 +15,28 @@
       height: 100vh;
       flex-direction: column;
     }
+
     #startScreen, #gameUI {
       text-align: center;
     }
+
     #startScreen h1 {
       color: white;
     }
-    #startButton, #restartButton ,#clearRanking{
+
+    #startButton, #restartButton, #clearRanking {
       padding: 10px 20px;
       font-size: 16px;
       margin-top: 10px;
-      &:hover{
-        cursor:pointer;
-        background-color:#bdbfbe;
-      }
     }
+
+    #startButton:hover,
+    #restartButton:hover,
+    #clearRanking:hover {
+      cursor: pointer;
+      background-color: #bdbfbe;
+    }
+
     canvas {
       background: #fff;
       border: 2px solid #000;
@@ -39,32 +45,42 @@
       width: 640px;
       height: 480px;
     }
+
     .info {
       color: white;
       margin: 5px;
     }
+
     .info span {
       margin: 0 10px;
     }
-    .ptag{
-      color:white;
-      font-size:1.2em;
-    }
-    .explan{
-       position: absolute;
-    bottom:-30em;  
-    left: 50%;
-    transform: translateX(-50%); 
-    color: white;
-    font-size: 16px;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px;
-    border-radius: 5px;
-    width: 80%;
-    max-width: 650px; 
-}
 
+    .ptag {
+      color: white;
+      font-size: 1.2em;
+    }
+
+    .explan {
+      position: absolute;
+      bottom: -30em;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-size: 16px;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      border-radius: 5px;
+      width: 80%;
+      max-width: 650px;
+    }
+
+    #ranking {
+      color: white;
+      margin-top: 10px;
+      max-width: 640px;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -72,7 +88,12 @@
     <h1>ちょっと難しいブロック崩し</h1>
     <button id="startButton">スタート</button>
     <button id="clearRanking">ランキングをリセット</button>
+    <div id="ranking">
+      <h2>ランキング</h2>
+      <ol id="rankingList"></ol>
+    </div>
   </div>
+
   <div id="gameUI" style="display: none;">
     <canvas id="gameCanvas" width="640" height="480"></canvas>
     <div class="info">
@@ -81,19 +102,17 @@
     </div>
     <button id="restartButton">リスタート</button>
   </div>
+
   <p class="ptag">このゲームは古いです。現在新作が出ているので<a href="https://mysite.f5.si/made/new-breakingblocks">こちら</a>からプレイしてください</p>
   <p class="ptag">全画面モードでプレイすることを推奨します。</p>
+
   <div class="explan">
     <h2>ルール説明</h2>
     <p>このゲームのルールは普通のブロック崩しと変わりませんが、<br>スピードが速いため少し難しいです。作者の最高スコアは197です。</p>
-    <p>ランキングはローカルストレージに保存されています。今までの<br>自分の記録を知りたい場合は、<b>検証</b>を開いて、<b>コンソール</b>を押して、<br><b>console.log(JSON.parse(localStorage.getItem('blockBreakerScore')));
-</b>と入力して実行します。</p>
+    <p>ランキングはローカルストレージに保存されています。今までの<br>自分の記録を知りたい場合は、<b>検証</b>を開いて、<b>コンソール</b>を押して、<br><b>console.log(JSON.parse(localStorage.getItem('blockBreakerScore')));</b> と入力して実行します。</p>
   </div>
-  <div id="ranking" style="color: white; margin-top: 10px; max-width: 640px; text-align: center;">
-  <h2>ランキング</h2>
-  <ol id="rankingList"></ol>
-</div>
 
-  <script src="game.js"></script>
+ 
+ <script scr="game.js"></script>
 </body>
 </html>
